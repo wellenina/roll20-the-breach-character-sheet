@@ -1,0 +1,535 @@
+/* COLORS */
+:root {
+    --the-breach-black: #1D1D1D;
+    --the-breach-white: #FFFFFF;
+    --accent-color: palevioletred;
+}
+
+
+* {
+    box-sizing: border-box;
+}
+
+/* .main {
+    min-width: 800px;
+} */
+
+.header {
+    text-align: center;
+    padding: 1rem 0;
+}
+
+.row-container {
+    width: 100%;
+}
+
+.section {
+    border-radius: 3px;
+    background-color: grey;
+    padding: 3rem;
+    width: 48%;
+    margin: 1.2rem 0;
+}
+
+.weapons {
+    width: 66% !important;
+    display: flex;
+    column-gap: 3rem;
+}
+
+.weapon-column {
+    width: 48.6%;
+}
+
+
+/* rows */
+.row-container, .line, .line-content, .text-line {
+    display: flex;
+    justify-content: space-between;
+}
+
+.line {
+    margin: 0.6rem 0;
+}
+
+.line-title {
+    width: 25%;
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--the-breach-black);
+}
+
+.line-content {
+	width: 70%;
+}
+
+label {
+    width: auto !important;
+}
+
+
+/* INPUT */
+input {
+    width: 100%;
+    min-width: 0;
+}
+
+select {
+    flex-basis: content;
+}
+
+
+/* CHECKBOXES */
+input[type=checkbox] {
+    margin: 0 1rem;
+}
+
+.trait-checkboxes {
+    width: min-content;
+}
+
+.trait-checkboxes > * {
+    width: 100% !important;
+}
+
+/* TEXT AREA ROWS */
+.text-row {
+    border-radius: 0;
+    border: none;
+    border-bottom: 1px dashed darkgray;
+}
+
+.text-row:disabled {
+    border-color: darkgray;
+    width: 24%;
+    border-right: 1px solid darkgray;
+}
+
+/* TOOLTIPS */
+.approach-tooltip {
+    position: relative;
+    border-bottom: 1px dotted var(--the-breach-black);
+    /* text-decoration: underline; */
+}
+
+.tooltiptext {
+    visibility: hidden;
+    width: 340%;
+    background-color: var(--the-breach-black);
+    color: var(--the-breach-white);
+    border-radius: 6px;
+    padding: 0.6rem 1rem;
+    position: absolute;
+    left: 30%;
+    z-index: 1;
+}
+
+.approach-tooltip:hover > .tooltiptext {
+    visibility: visible;
+}
+
+/* CLOCK */
+.clock-container {
+    position: relative;
+    padding: 2px;
+    margin: 0 auto;
+    z-index: 1;
+    height: 44px;
+    width: 44px;
+    cursor: pointer;
+}
+
+.clock-color-fill {
+    border: 2px solid var(--the-breach-black);
+    border-radius: 50%;
+    background: var(--the-breach-white);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+}
+
+/* radio buttons */
+.clock-container input[type=radio],
+.xp-icon-container input[type=radio],
+.harms-icon-container input[type=radio] {
+    opacity: 0;
+    z-index: 3;
+}
+
+/* spokes */
+.clock-spoke {
+    height: 44px;
+    width: 2px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: var(--the-breach-black);
+}
+.clock-vertical-spoke {
+    transform: translateX(21px);
+}
+/* 4 and 8 segments clock spoke */
+.clock-horizontal-spoke {
+    transform: translateX(21px) rotate(90deg);
+}
+/* 6-segments clock spokes */
+.clock-container-6 .clock-diagonal-1-spoke {
+    transform: translateX(21px) rotate(60deg);
+}
+.clock-container-6 .clock-diagonal-2-spoke {
+    transform: translateX(21px) rotate(120deg);
+}
+/* 8-segments clock spokes */
+.clock-container-8 .clock-diagonal-1-spoke {
+    transform: translateX(21px) rotate(45deg);
+}
+.clock-container-8 .clock-diagonal-2-spoke {
+    transform: translateX(21px) rotate(135deg);
+}
+
+/* reset clock icon */
+.clock-progress-zero, .reset-clock-icon {
+    position: absolute;
+    top: 37px;
+    left: -5px;
+    width: 11px;
+    height: 11px;
+}
+
+.reset-clock-icon {
+    cursor: pointer;
+    display: inline-block;
+    border-radius: 50%;
+    border: 1px solid var(--the-breach-black);
+    background: var(--the-breach-white);
+    /* transition: all 0.2s; */
+}
+
+.reset-clock-icon::before, .reset-clock-icon::after {
+    position: absolute;
+    width: 1px;
+    content: "";
+    left: 0;
+    background: var(--the-breach-black);
+    height: 11px;
+}
+.reset-clock-icon::before {
+    transform: translate(4px, -1px) rotate(45deg);
+}
+.reset-clock-icon::after {
+    transform: translate(4px, -1px) rotate(135deg);
+}
+
+.clock-progress-zero:checked + .reset-clock-icon {
+    visibility: hidden;
+}
+
+.clock-progress {
+    position: absolute;
+}
+
+/* radio button size - 4-segments clock */
+.clock-container-4 .clock-progress {
+    width: 20px !important;
+    height: 20px !important;
+}
+/* radio button size - 6-segments clock */
+.clock-container-6 .clock-progress {
+    width: 13px !important;
+    height: 13px !important;
+}
+/* radio button size - 6-segments clock */
+.clock-container-8 .clock-progress {
+    width: 11px !important;
+    height: 11px !important;
+}
+
+/* positioning - 4-segments clock */
+.clock-container-4 .clock-progress[value="1"] {
+    margin-left: 20px;
+}
+.clock-container-4 .clock-progress[value="2"] {
+    margin: 20px 0 0 20px;
+}
+.clock-container-4 .clock-progress[value="3"] {
+    margin-top: 20px;
+}
+/* positioning - 6-segments clock */
+.clock-container-6 .clock-progress[value="1"] {
+    margin-left: 21px;
+    margin-top: 1px;
+}
+.clock-container-6 .clock-progress[value="2"] {
+    margin-left: 28px;
+    margin-top: 13px;
+}
+.clock-container-6 .clock-progress[value="3"] {
+    margin-left: 21px;
+    margin-top: 25px;
+}
+.clock-container-6 .clock-progress[value="4"] {
+    margin-left: 6px;
+    margin-top: 25px;
+}
+.clock-container-6 .clock-progress[value="5"] {
+    margin-left: 0px;
+    margin-top: 13px;
+}
+.clock-container-6 .clock-progress[value="6"] {
+    margin-left: 6px;
+    margin-top: 1px;
+}
+/* positioning - 8-segments clock */
+.clock-container-8 .clock-progress[value="1"] {
+    margin-left: 20px;
+    margin-top: 1px;
+}
+.clock-container-8 .clock-progress[value="2"] {
+    margin-left: 28px;
+    margin-top: 9px;
+}
+.clock-container-8 .clock-progress[value="3"] {
+    margin-left: 28px;
+    margin-top: 20px;
+}
+.clock-container-8 .clock-progress[value="4"] {
+    margin-left: 20px;
+    margin-top: 28px;
+}
+.clock-container-8 .clock-progress[value="5"] {
+    margin-left: 9px;
+    margin-top: 28px;
+}
+.clock-container-8 .clock-progress[value="6"] {
+    margin-left: 1px;
+    margin-top: 20px;
+}
+.clock-container-8 .clock-progress[value="7"] {
+    margin-left: 1px;
+    margin-top: 9px;
+}
+.clock-container-8 .clock-progress[value="8"] {
+    margin-left: 9px;
+    margin-top: 1px;
+}
+
+/* color - 4 and 8 segments clock */
+.clock-container-4 .clock-progress[value="1"]:checked ~ .clock-color-fill,
+.clock-container-8 .clock-progress[value="2"]:checked ~ .clock-color-fill {
+    background-image: linear-gradient(90deg, var(--the-breach-white) 50%, transparent 50%), linear-gradient(180deg, var(--accent-color) 50%, var(--the-breach-white) 50%);
+}
+.clock-container-4 .clock-progress[value="2"]:checked ~ .clock-color-fill,
+.clock-container-8 .clock-progress[value="4"]:checked ~ .clock-color-fill {
+    background-image: linear-gradient(90deg, var(--the-breach-white) 50%, var(--accent-color) 50%);
+}
+.clock-container-4 .clock-progress[value="3"]:checked ~ .clock-color-fill,
+.clock-container-4 .clock-progress[value="6"]:checked ~ .clock-color-fill {
+    background-image: linear-gradient(180deg, transparent 50%, var(--accent-color) 50%), linear-gradient(90deg, var(--the-breach-white) 50%, var(--accent-color) 50%);
+}
+.clock-container-4 .clock-progress[value="4"]:checked ~ .clock-color-fill,
+.clock-container-8 .clock-progress[value="8"]:checked ~ .clock-color-fill {
+    background: var(--accent-color);
+}
+/* color - 6-segments clock */
+.clock-container-6 .clock-progress[value="1"]:checked ~ .clock-color-fill {
+    background-image: linear-gradient(90deg, var(--the-breach-white) 50%, transparent 50%), linear-gradient(150deg, var(--accent-color) 50%, var(--the-breach-white) 50%);
+}
+.clock-container-6 .clock-progress[value="2"]:checked ~ .clock-color-fill {
+    background-image: linear-gradient(90deg, var(--the-breach-white) 50%, transparent 50%), linear-gradient(210deg, var(--accent-color) 50%, var(--the-breach-white) 50%);
+}
+.clock-container-6 .clock-progress[value="3"]:checked ~ .clock-color-fill {
+    background-image: linear-gradient(90deg, var(--the-breach-white) 50%, var(--accent-color) 50%);
+}
+.clock-container-6 .clock-progress[value="4"]:checked ~ .clock-color-fill {
+    background-image: linear-gradient(90deg, transparent 50%, var(--accent-color) 50%), linear-gradient(150deg, var(--the-breach-white) 50%, var(--accent-color) 50%);
+}
+.clock-container-6 .clock-progress[value="5"]:checked ~ .clock-color-fill {
+    background-image: linear-gradient(90deg, transparent 50%, var(--accent-color) 50%), linear-gradient(210deg, var(--the-breach-white) 50%, var(--accent-color) 50%);
+}
+.clock-container-6 .clock-progress[value="6"]:checked ~ .clock-color-fill {
+    background: var(--accent-color);
+}
+/* color - 8-segments clock */
+.clock-container-8 .clock-progress[value="1"]:checked ~ .clock-color-fill {
+    background-image: linear-gradient(90deg, var(--the-breach-white) 50%, transparent 50%), linear-gradient(135deg, var(--accent-color) 50%, var(--the-breach-white) 50%);
+}
+.clock-container-8 .clock-progress[value="3"]:checked ~ .clock-color-fill {
+    background-image: linear-gradient(90deg, var(--the-breach-white) 50%, transparent 50%), linear-gradient(225deg, var(--accent-color) 50%, var(--the-breach-white) 50%);
+}
+.clock-container-8 .clock-progress[value="5"]:checked ~ .clock-color-fill {
+    background-image: linear-gradient(90deg, transparent 50%, var(--accent-color) 50%), linear-gradient(135deg, var(--the-breach-white) 50%, var(--accent-color) 50%);
+}
+.clock-container-8 .clock-progress[value="7"]:checked ~ .clock-color-fill {
+    background-image: linear-gradient(90deg, transparent 50%, var(--accent-color) 50%), linear-gradient(225deg, var(--the-breach-white) 50%, var(--accent-color) 50%);
+}
+
+/* show different clock depending on option selected */
+.clock-options-container {
+    height: 46px;
+    width: 46px;
+}
+.clock-option {
+    display: none;
+}
+.cloak-clock-size[value="4"] ~ .clock-options-container .clock-container-4 {
+    display: block;
+}
+.cloak-clock-size[value="6"] ~ .clock-options-container .clock-container-6 {
+    display: block;
+}
+.cloak-clock-size[value="8"] ~ .clock-options-container .clock-container-8 {
+    display: block;
+}
+
+
+/* XP and HARMS ICONS */
+.xp-icon-container, .harms-icon-container {
+    position: relative;
+}
+
+.xp-icon, .harms-icon {
+    border: 2px solid var(--the-breach-black);
+}
+
+.xp-icon, .reset-xp-icon,
+.harms-icon, .reset-harms-icon {
+    position: absolute;
+    cursor: pointer;
+    border-radius: 50%;
+    background: var(--the-breach-white);
+}
+
+.xp-icon, .xp-radio,
+.harms-icon, .harms-radio {
+    width: 20px !important;
+    height: 20px !important;
+}
+
+/* xp icon positioning */
+.xp-icon.xp-1, .harms-icon.harms-1 {
+    left: 0;
+}
+.xp-icon.xp-2, .harms-icon.harms-2 {
+    left: 23%;
+}
+.xp-icon.xp-3, .harms-icon.harms-3 {
+    left: 47%;
+}
+.xp-icon.xp-4, .harms-icon.harms-4 {
+    left: 70%;
+}
+.xp-icon.xp-5, .harms-icon.harms-5 {
+    right: 0;
+}
+
+/* xp icon color */
+.xp-radio[value="1"]:checked ~ .xp-icon.xp-1,
+.xp-radio[value="2"]:checked ~ .xp-icon.xp-1,
+.xp-radio[value="3"]:checked ~ .xp-icon.xp-1,
+.xp-radio[value="4"]:checked ~ .xp-icon.xp-1,
+.xp-radio[value="5"]:checked ~ .xp-icon.xp-1,
+.xp-radio[value="2"]:checked ~ .xp-icon.xp-2,
+.xp-radio[value="3"]:checked ~ .xp-icon.xp-2,
+.xp-radio[value="4"]:checked ~ .xp-icon.xp-2,
+.xp-radio[value="5"]:checked ~ .xp-icon.xp-2,
+.xp-radio[value="3"]:checked ~ .xp-icon.xp-3,
+.xp-radio[value="4"]:checked ~ .xp-icon.xp-3,
+.xp-radio[value="5"]:checked ~ .xp-icon.xp-3,
+.xp-radio[value="4"]:checked ~ .xp-icon.xp-4,
+.xp-radio[value="5"]:checked ~ .xp-icon.xp-4,
+.xp-radio[value="5"]:checked ~ .xp-icon.xp-5,
+.harms-radio[value="1"]:checked ~ .harms-icon.harms-1,
+.harms-radio[value="2"]:checked ~ .harms-icon.harms-1,
+.harms-radio[value="3"]:checked ~ .harms-icon.harms-1,
+.harms-radio[value="4"]:checked ~ .harms-icon.harms-1,
+.harms-radio[value="5"]:checked ~ .harms-icon.harms-1,
+.harms-radio[value="2"]:checked ~ .harms-icon.harms-2,
+.harms-radio[value="3"]:checked ~ .harms-icon.harms-2,
+.harms-radio[value="4"]:checked ~ .harms-icon.harms-2,
+.harms-radio[value="5"]:checked ~ .harms-icon.harms-2,
+.harms-radio[value="3"]:checked ~ .harms-icon.harms-3,
+.harms-radio[value="4"]:checked ~ .harms-icon.harms-3,
+.harms-radio[value="5"]:checked ~ .harms-icon.harms-3,
+.harms-radio[value="4"]:checked ~ .harms-icon.harms-4,
+.harms-radio[value="5"]:checked ~ .harms-icon.harms-4,
+.harms-radio[value="5"]:checked ~ .harms-icon.harms-5 {
+    background-color: var(--accent-color);
+}
+
+/* RESET XP and HARMS ICON */
+
+.xp-radio-zero, .harms-radio-zero {
+    position: absolute;
+}
+
+.reset-xp-icon, .reset-harms-icon {
+    display: inline-block;
+    border: 1px solid var(--the-breach-black);
+}
+
+.xp-radio-zero, .reset-xp-icon,
+.harms-radio-zero, .reset-harms-icon {
+    top: 5px;
+    left: -35px;
+    width: 11px !important;
+    height: 11px !important;
+}
+
+.xp-radio-zero:checked + .reset-xp-icon,
+.harms-radio-zero:checked + .reset-harms-icon {
+    visibility: hidden;
+}
+
+.reset-xp-icon::before, .reset-xp-icon::after,
+.reset-harms-icon::before, .reset-harms-icon::after {
+    position: absolute;
+    width: 1px;
+    content: "";
+    left: 0;
+    background: var(--the-breach-black);
+    height: 11px;
+}
+.reset-xp-icon::before, .reset-harms-icon::before {
+    transform: translate(4px, -1px) rotate(45deg);
+}
+.reset-xp-icon::after, .reset-harms-icon::after {
+    transform: translate(4px, -1px) rotate(135deg);
+}
+
+
+/* DICE POOL TEXT */
+.dice-pool {
+    display: block;
+    height: 50px;
+    border: 1px solid var(--the-breach-black);
+
+    font-size: larger;
+    font-weight: bold;
+}
+
+.dice-pool:focus-visible {
+    outline: none;
+}
+
+
+
+.roll-explaination {
+    background-color: green;
+    padding: 5px;
+    border-radius: 3px;
+}
+.selected-approach-die[value="0"] ~ .roll-explaination {
+    background-color: red;
+}
+
+button[type=roll] {
+    background: green;
+}
+
+.selected-approach-die[value="0"] ~ button[type=roll] {
+    pointer-events: none;
+    background: red;
+}

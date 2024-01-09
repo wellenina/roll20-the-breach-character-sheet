@@ -1,0 +1,741 @@
+<div class="main">
+    <!-- HEADER -->
+    <div class="header">
+        <h1>The Breach - Character Sheet</h1>
+        <!-- <span>Character Sheet</span> -->
+    </div>
+
+    <!-- 1st ROW -->
+    <div class="row-container">
+
+        <!-- IDENTITY -->
+        <div class="section identity">
+            <div class="line">
+                <h3 class="line-title">Name</h3>
+                <input type="text" spellcheck="false" name="attr_character_name" class="line-content">
+            </div>
+
+            <div class="line">
+                <h3 class="line-title">Pronoun</h3>
+                <input type="text" spellcheck="false" name="attr_pronoun" class="line-content">
+            </div>
+
+            <div class="line">
+                <h3 class="line-title">Call Sign</h3>
+                <input type="text" spellcheck="false" name="attr_call_sign" class="line-content">
+            </div>
+
+            <div class="line">
+                <h3 class="line-title">Trait</h3>
+                <div class="line-content">
+                    <input type="text" spellcheck="false" name="attr_trait_1">
+                    <div class="trait-checkboxes">
+                        <input type="checkbox" name="attr_trait_1_checkbox_1" value="1">
+                        <input type="checkbox" name="attr_trait_1_checkbox_2" value="1">
+                    </div>
+                </div>
+            </div>
+
+            <div class="line">
+                <h3 class="line-title">Trait</h3>
+                <div class="line-content">
+                    <input type="text" spellcheck="false" name="attr_trait_2">
+                    <div class="trait-checkboxes">
+                        <input type="checkbox" name="attr_trait_2_checkbox_1" value="1">
+                        <input type="checkbox" name="attr_trait_2_checkbox_2" value="1">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- APPROACHES -->
+        <div class="section approaches">
+
+            <!-- aware approach -->
+            <div class="line approach">
+                <h3 class="approach-tooltip line-title">
+                    Aware
+                    <p class="tooltiptext">An approach used to move carefully, evaluate situations and consequences, and reason calmly spending time.</p>
+                </h3>
+                <div class="line-content">
+                    <label for="attr_aware_initial_die">Initial</label>
+                    <select name="attr_aware_initial_die">
+                        <option value="1d12" selected>D12</option>
+                        <option value="1d10">D10</option>
+                        <option value="1d8">D8</option>
+                        <option value="1d6">D6</option>
+                        <option value="1d4">D4</option>
+                    </select>
+                    <label for="attr_aware_current_die">Current</label>
+                    <select name="attr_aware_current_die">
+                        <option value="1d12" selected>D12</option>
+                        <option value="1d10">D10</option>
+                        <option value="1d8">D8</option>
+                        <option value="1d6">D6</option>
+                        <option value="1d4">D4</option>
+                    </select>
+                    
+                    <!-- 4-segments clock -->
+                    <div class="clock-container  clock-container-4">
+                        <div class="clock-spoke clock-vertical-spoke"></div>
+                        <div class="clock-spoke clock-horizontal-spoke"></div>
+                        <input class="clock-progress-zero" type="radio" name="attr_aware-clock" value="0" checked="checked"><span class="reset-clock-icon"></span>
+                        <input class="clock-progress" type="radio" name="attr_aware-clock" value="1">
+                        <input class="clock-progress" type="radio" name="attr_aware-clock" value="2">
+                        <input class="clock-progress" type="radio" name="attr_aware-clock" value="3">
+                        <input class="clock-progress" type="radio" name="attr_aware-clock" value="4">
+                        <div class="clock-color-fill"></div>
+                    </div>
+
+                    <button type="action" name="act_addapproachaware">Add Die</button>
+                </div>
+            </div>
+
+            <!-- mighty approach -->
+            <div class="line approach">
+                <h3 class="approach-tooltip line-title">
+                    Mighty
+                    <p class="tooltiptext">An approach based on physical strength used to damage, attack, and carry out violent actions.</p>
+                </h3>
+                <div class="line-content">
+                    <label for="attr_mighty_initial_die">Initial</label>
+                    <select name="attr_mighty_initial_die">
+                        <option value="1d12" selected>D12</option>
+                        <option value="1d10">D10</option>
+                        <option value="1d8">D8</option>
+                        <option value="1d6">D6</option>
+                        <option value="1d4">D4</option>
+                    </select>
+                    <label for="attr_mighty_current_die">Current</label>
+                    <select name="attr_mighty_current_die">
+                        <option value="1d12" selected>D12</option>
+                        <option value="1d10">D10</option>
+                        <option value="1d8">D8</option>
+                        <option value="1d6">D6</option>
+                        <option value="1d4">D4</option>
+                    </select>
+                    
+                    <!-- 4-segments clock -->
+                    <div class="clock-container clock-container-4">
+                        <div class="clock-spoke clock-vertical-spoke"></div>
+                        <div class="clock-spoke clock-horizontal-spoke"></div>
+                        <input class="clock-progress-zero" type="radio" name="attr_mighty-clock" value="0" checked="checked"><span class="reset-clock-icon"></span>
+                        <input class="clock-progress" type="radio" name="attr_mighty-clock" value="1">
+                        <input class="clock-progress" type="radio" name="attr_mighty-clock" value="2">
+                        <input class="clock-progress" type="radio" name="attr_mighty-clock" value="3">
+                        <input class="clock-progress" type="radio" name="attr_mighty-clock" value="4">
+                        <div class="clock-color-fill"></div>
+                    </div>
+
+                    <button type="action" name="act_addapproachmighty">Add Die</button>
+                </div>
+            </div>
+
+            <!-- quick approach -->
+            <div class="line approach">
+                <h3 class="approach-tooltip line-title">
+                    Quick
+                    <p class="tooltiptext">An approach that allows you to act quickly, with agility and precision, but without dwelling on the details.</p>
+                </h3>
+                <div class="line-content">
+                    <label for="attr_quick_initial_die">Initial</label>
+                    <select name="attr_quick_initial_die">
+                        <option value="1d12" selected>D12</option>
+                        <option value="1d10">D10</option>
+                        <option value="1d8">D8</option>
+                        <option value="1d6">D6</option>
+                        <option value="1d4">D4</option>
+                    </select>
+                    <label for="attr_quick_current_die">Current</label>
+                    <select name="attr_quick_current_die">
+                        <option value="1d12" selected>D12</option>
+                        <option value="1d10">D10</option>
+                        <option value="1d8">D8</option>
+                        <option value="1d6">D6</option>
+                        <option value="1d4">D4</option>
+                    </select>
+                    
+                    <!-- 4-segments clock -->
+                    <div class="clock-container clock-container-4">
+                        <div class="clock-spoke clock-vertical-spoke"></div>
+                        <div class="clock-spoke clock-horizontal-spoke"></div>
+                        <input class="clock-progress-zero" type="radio" name="attr_quick-clock" value="0" checked="checked"><span class="reset-clock-icon"></span>
+                        <input class="clock-progress" type="radio" name="attr_quick-clock" value="1">
+                        <input class="clock-progress" type="radio" name="attr_quick-clock" value="2">
+                        <input class="clock-progress" type="radio" name="attr_quick-clock" value="3">
+                        <input class="clock-progress" type="radio" name="attr_quick-clock" value="4">
+                        <div class="clock-color-fill"></div>
+                    </div>
+
+                    <button type="action" name="act_addapproachquick">Add Die</button>
+                </div>
+            </div>
+
+            <!-- sneaky approach -->
+            <div class="line approach">
+                <h3 class="approach-tooltip line-title">
+                    Sneaky
+                    <p class="tooltiptext">An approach used to act stealthily, misleading or deceiving.</p>
+                </h3>
+                <div class="line-content">
+                    <label for="attr_sneaky_initial_die">Initial</label>
+                    <select name="attr_sneaky_initial_die">
+                        <option value="1d12" selected>D12</option>
+                        <option value="1d10">D10</option>
+                        <option value="1d8">D8</option>
+                        <option value="1d6">D6</option>
+                        <option value="1d4">D4</option>
+                    </select>
+                    <label for="attr_sneaky_current_die">Current</label>
+                    <select name="attr_sneaky_current_die">
+                        <option value="1d12" selected>D12</option>
+                        <option value="1d10">D10</option>
+                        <option value="1d8">D8</option>
+                        <option value="1d6">D6</option>
+                        <option value="1d4">D4</option>
+                    </select>
+                    
+                    <!-- 4-segments clock -->
+                    <div class="clock-container clock-container-4">
+                        <div class="clock-spoke clock-vertical-spoke"></div>
+                        <div class="clock-spoke clock-horizontal-spoke"></div>
+                        <input class="clock-progress-zero" type="radio" name="attr_sneaky-clock" value="0" checked="checked"><span class="reset-clock-icon"></span>
+                        <input class="clock-progress" type="radio" name="attr_sneaky-clock" value="1">
+                        <input class="clock-progress" type="radio" name="attr_sneaky-clock" value="2">
+                        <input class="clock-progress" type="radio" name="attr_sneaky-clock" value="3">
+                        <input class="clock-progress" type="radio" name="attr_sneaky-clock" value="4">
+                        <div class="clock-color-fill"></div>
+                    </div>
+
+                    <button type="action" name="act_addapproachsneaky">Add Die</button>
+                </div>
+            </div>
+
+            <div class="line">
+                <h3 class="line-title">XP</h3>
+                <div class="line-content xp-icon-container">
+                    <input type="radio" name="attr_xp" value="0" class="xp-radio-zero" checked><span class="reset-xp-icon"></span>
+                    <input type="radio" name="attr_xp" value="1" class="xp-radio">
+                    <input type="radio" name="attr_xp" value="2" class="xp-radio">
+                    <input type="radio" name="attr_xp" value="3" class="xp-radio">
+                    <input type="radio" name="attr_xp" value="4" class="xp-radio">
+                    <input type="radio" name="attr_xp" value="5" class="xp-radio">
+                    <div class="xp-icon xp-1"></div>
+                    <div class="xp-icon xp-2"></div>
+                    <div class="xp-icon xp-3"></div>
+                    <div class="xp-icon xp-4"></div>
+                    <div class="xp-icon xp-5"></div>
+                </div>
+            </div>
+
+        </div> <!-- end approaches section -->
+
+    </div> <!-- end 1st row container -->
+
+    <!-- 2nd ROW -->
+    <div class="row-container">
+
+        <div class="section stamina">
+            <div class="line">
+                <h3>Stamina</h3>
+                <label for="attr_stamina_initial_die">Initial</label>
+                <select name="attr_stamina_initial_die">
+                    <option value="1d12" selected>D12</option>
+                    <option value="1d10">D10</option>
+                    <option value="1d8">D8</option>
+                    <option value="1d6">D6</option>
+                    <option value="1d4">D4</option>
+                </select>
+                <label for="attr_stamina_current_die">Current</label>
+                <select name="attr_stamina_current_die">
+                    <option value="1d12" selected>D12</option>
+                    <option value="1d10">D10</option>
+                    <option value="1d8">D8</option>
+                    <option value="1d6">D6</option>
+                    <option value="1d4">D4</option>
+                </select>
+                <button type="action" name="act_addstamina">Add Stamina Die!</button>
+            </div>
+        </div>
+
+        <div class="section cloack">
+            <div class="line">
+                <h3>Cloak</h3>
+                <label for="attr_cloack_color">Color</label>
+                <input type="text" spellcheck="false" name="attr_cloack_color" style="width: 30%;">
+
+                <!-- <label for="attr_cloak-clock-size">Cloack Dice</label> -->
+                <select name="attr_cloak-clock-size">
+                    <option class="option-4" value="4" selected>4</option>
+                    <option value="6">6</option>
+                    <option value="8">8</option>
+                </select>
+
+                <input name="attr_cloak-clock-size" type="hidden" class="cloak-clock-size">
+                <div class="clock-options-container">
+                    <!-- 4-segments clock -->
+                    <div class="clock-container clock-container-4 clock-option">
+                        <div class="clock-spoke clock-vertical-spoke"></div>
+                        <div class="clock-spoke clock-horizontal-spoke"></div>
+                        <input class="clock-progress-zero" type="radio" name="attr_cloak-clock-4" value="0" checked="checked"><span class="reset-clock-icon"></span>
+                        <input class="clock-progress" type="radio" name="attr_cloak-clock-4" value="1">
+                        <input class="clock-progress" type="radio" name="attr_cloak-clock-4" value="2">
+                        <input class="clock-progress" type="radio" name="attr_cloak-clock-4" value="3">
+                        <input class="clock-progress" type="radio" name="attr_cloak-clock-4" value="4">
+                        <div class="clock-color-fill"></div>
+                    </div>
+
+                    <!-- 6-segments clock -->
+                    <div class="clock-container clock-container-6 clock-option">
+                        <div class="clock-spoke clock-vertical-spoke"></div>
+                        <div class="clock-spoke clock-diagonal-1-spoke"></div>
+                        <div class="clock-spoke clock-diagonal-2-spoke"></div>
+                        <input class="clock-progress-zero" type="radio" name="attr_cloak-clock-6" value="0" checked="checked"><span class="reset-clock-icon"></span>
+                        <input class="clock-progress" type="radio" name="attr_cloak-clock-6" value="1">
+                        <input class="clock-progress" type="radio" name="attr_cloak-clock-6" value="2">
+                        <input class="clock-progress" type="radio" name="attr_cloak-clock-6" value="3">
+                        <input class="clock-progress" type="radio" name="attr_cloak-clock-6" value="4">
+                        <input class="clock-progress" type="radio" name="attr_cloak-clock-6" value="5">
+                        <input class="clock-progress" type="radio" name="attr_cloak-clock-6" value="6">
+                        <div class="clock-color-fill"></div>
+                    </div>
+
+                    <!-- 8-segments clock -->
+                    <div class="clock-container clock-container-8 clock-option">
+                        <div class="clock-spoke clock-vertical-spoke"></div>
+                        <div class="clock-spoke clock-horizontal-spoke"></div>
+                        <div class="clock-spoke clock-diagonal-1-spoke"></div>
+                        <div class="clock-spoke clock-diagonal-2-spoke"></div>
+                        <input class="clock-progress-zero" type="radio" name="attr_cloak-clock-8" value="0" checked="checked"><span class="reset-clock-icon"></span>
+                        <input class="clock-progress" type="radio" name="attr_cloak-clock-8" value="1">
+                        <input class="clock-progress" type="radio" name="attr_cloak-clock-8" value="2">
+                        <input class="clock-progress" type="radio" name="attr_cloak-clock-8" value="3">
+                        <input class="clock-progress" type="radio" name="attr_cloak-clock-8" value="4">
+                        <input class="clock-progress" type="radio" name="attr_cloak-clock-8" value="5">
+                        <input class="clock-progress" type="radio" name="attr_cloak-clock-8" value="6">
+                        <input class="clock-progress" type="radio" name="attr_cloak-clock-8" value="7">
+                        <input class="clock-progress" type="radio" name="attr_cloak-clock-8" value="8">
+                        <div class="clock-color-fill"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div> <!-- end 2nd row container -->
+
+    <!-- 3rd ROW -->
+    <div class="row-container">
+
+        <!-- HEALTH -->
+        <div class="section health">
+
+            <div class="line">
+                <h3>Harms</h3>
+                <div class="line-content harms-icon-container">
+                    <input type="radio" name="attr_harms" value="0" class="harms-radio-zero" checked><span class="reset-harms-icon"></span>
+                    <input type="radio" name="attr_harms" value="1" class="harms-radio">
+                    <input type="radio" name="attr_harms" value="2" class="harms-radio">
+                    <input type="radio" name="attr_harms" value="3" class="harms-radio">
+                    <input type="radio" name="attr_harms" value="4" class="harms-radio">
+                    <input type="radio" name="attr_harms" value="5" class="harms-radio">
+                    <div class="harms-icon harms-1"></div>
+                    <div class="harms-icon harms-2"></div>
+                    <div class="harms-icon harms-3"></div>
+                    <div class="harms-icon harms-4"></div>
+                    <div class="harms-icon harms-5"></div>
+                </div>
+            </div>
+
+            <div>
+                <h3>Conditions / Effects</h3>
+                <input type="text" spellcheck="false" name="attr_conditions_effects_1" class="text-row">
+                <input type="text" spellcheck="false" name="attr_conditions_effects_2" class="text-row">
+                <input type="text" spellcheck="false" name="attr_conditions_effects_3" class="text-row">
+                <input type="text" spellcheck="false" name="attr_conditions_effects_4" class="text-row">
+                <input type="text" spellcheck="false" name="attr_conditions_effects_5" class="text-row">
+            </div>
+
+        </div> <!-- end health section -->
+
+        <!-- EQUIPMENT -->
+        <div class="section equipment">
+
+            <div class="line">
+                <h3>Equipment R&D</h3>
+
+                <!-- 6-segments clock -->
+                <div class="clock-container clock-container-6">
+                    <div class="clock-spoke clock-vertical-spoke"></div>
+                    <div class="clock-spoke clock-diagonal-1-spoke"></div>
+                    <div class="clock-spoke clock-diagonal-2-spoke"></div>
+                    <input class="clock-progress-zero" type="radio" name="attr_equipment-clock" value="0" checked="checked"><span class="reset-clock-icon"></span>
+                    <input class="clock-progress" type="radio" name="attr_equipment-clock" value="1">
+                    <input class="clock-progress" type="radio" name="attr_equipment-clock" value="2">
+                    <input class="clock-progress" type="radio" name="attr_equipment-clock" value="3">
+                    <input class="clock-progress" type="radio" name="attr_equipment-clock" value="4">
+                    <input class="clock-progress" type="radio" name="attr_equipment-clock" value="5">
+                    <input class="clock-progress" type="radio" name="attr_equipment-clock" value="6">
+                    <div class="clock-color-fill"></div>
+                </div>
+
+            </div>
+
+            <div class="line item">
+                <label for="attr_item_1">Item</label>
+                <input type="text" spellcheck="false" name="attr_item_1">
+
+                <label for="attr_item_1_initial_die">Initial</label>
+                <select name="attr_item_1_initial_die">
+                    <option value="1d12" selected>D12</option>
+                    <option value="1d10">D10</option>
+                    <option value="1d8">D8</option>
+                    <option value="1d6">D6</option>
+                    <option value="1d4">D4</option>
+                </select>
+                <label for="attr_item_1_current_die">Current</label>
+                <select name="attr_item_1_current_die">
+                    <option value="1d12" selected>D12</option>
+                    <option value="1d10">D10</option>
+                    <option value="1d8">D8</option>
+                    <option value="1d6">D6</option>
+                    <option value="1d4">D4</option>
+                </select>
+                <button type="action" name="act_additem1">Add Die</button>
+            </div>
+
+            <div class="line item">
+                <label for="attr_item_2">Item</label>
+                <input type="text" spellcheck="false" name="attr_item_2">
+
+                <label for="attr_item_2_initial_die">Initial</label>
+                <select name="attr_item_2_initial_die">
+                    <option value="1d12" selected>D12</option>
+                    <option value="1d10">D10</option>
+                    <option value="1d8">D8</option>
+                    <option value="1d6">D6</option>
+                    <option value="1d4">D4</option>
+                </select>
+                <label for="attr_item_2_current_die">Current</label>
+                <select name="attr_item_2_current_die">
+                    <option value="1d12" selected>D12</option>
+                    <option value="1d10">D10</option>
+                    <option value="1d8">D8</option>
+                    <option value="1d6">D6</option>
+                    <option value="1d4">D4</option>
+                </select>
+                <button type="action" name="act_additem2">Add Die</button>
+            </div>
+
+            <div class="line item">
+                <label for="attr_item_3">Item</label>
+                <input type="text" spellcheck="false" name="attr_item_3">
+
+                <label for="attr_item_3_initial_die">Initial</label>
+                <select name="attr_item_3_initial_die">
+                    <option value="1d12" selected>D12</option>
+                    <option value="1d10">D10</option>
+                    <option value="1d8">D8</option>
+                    <option value="1d6">D6</option>
+                    <option value="1d4">D4</option>
+                </select>
+                <label for="attr_item_3_current_die">Current</label>
+                <select name="attr_item_3_current_die">
+                    <option value="1d12" selected>D12</option>
+                    <option value="1d10">D10</option>
+                    <option value="1d8">D8</option>
+                    <option value="1d6">D6</option>
+                    <option value="1d4">D4</option>
+                </select>
+                <button type="action" name="act_additem3">Add Die</button>
+            </div>
+
+        </div> <!-- end equipment section -->
+
+    </div> <!-- end 3rd row container -->
+
+    <!-- 4th ROW -->
+    <div class="row-container">
+
+        <!-- WEAPONS -->
+        <div class="section weapons">
+
+            <div class="weapon-column"> <!-- gutter column -->
+
+                <div class="line">
+                    <h3>Gutter</h3>
+                    <label for="attr_gutter_initial_die">Initial</label>
+                    <select name="attr_gutter_initial_die">
+                        <option value="1d12" selected>D12</option>
+                        <option value="1d10">D10</option>
+                        <option value="1d8">D8</option>
+                        <option value="1d6">D6</option>
+                        <option value="1d4">D4</option>
+                    </select>
+                    <label for="attr_gutter_current_die">Current</label>
+                    <select name="attr_gutter_current_die">
+                        <option value="1d12" selected>D12</option>
+                        <option value="1d10">D10</option>
+                        <option value="1d8">D8</option>
+                        <option value="1d6">D6</option>
+                        <option value="1d4">D4</option>
+                    </select>
+                    <button type="action" name="act_addgutter">Add Die</button>
+                </div>
+
+                <div> <!-- gutter info -->
+                    <div class="text-line">
+                        <input type="text" class="text-row" value="Damage" disabled>
+                        <input type="text" spellcheck="false" name="attr_gutter_damage" class="text-row">
+                    </div>
+                    <div class="text-line">
+                        <input type="text" class="text-row" value="Range" disabled>
+                        <input type="text" spellcheck="false" name="attr_gutter_range" class="text-row">
+                    </div>
+                    <div class="text-line">
+                        <input type="text" class="text-row" value="Reload Time" disabled>
+                        <input type="text" spellcheck="false" name="attr_gutter_reload_time" class="text-row">
+                    </div>
+                    <div class="text-line">
+                        <input type="text" class="text-row" value="Mod. 1" disabled>
+                        <input type="text" spellcheck="false" name="attr_gutter_mod_1" class="text-row">
+                    </div>
+                    <div class="text-line">
+                        <input type="text" class="text-row" value="Mod. 2" disabled>
+                        <input type="text" spellcheck="false" name="attr_gutter_mod_2" class="text-row">
+                    </div>
+                    <div class="text-line">
+                        <input type="text" class="text-row" value="Mod. 3" disabled>
+                        <input type="text" spellcheck="false" name="attr_gutter_mod_3" class="text-row">
+                    </div>
+                    <div class="text-line">
+                        <input type="text" class="text-row" value="Other Info" disabled>
+                        <input type="text" spellcheck="false" name="attr_gutter_other_info" class="text-row">
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="weapon-column"> <!-- disintegrator column -->
+
+                <div class="line">
+                    <h3>Disintegrator</h3>
+                    <label for="attr_disintegrator_initial_die">Initial</label>
+                    <select name="attr_disintegrator_initial_die">
+                        <option value="1d12" selected>D12</option>
+                        <option value="1d10">D10</option>
+                        <option value="1d8">D8</option>
+                        <option value="1d6">D6</option>
+                        <option value="1d4">D4</option>
+                    </select>
+                    <label for="attr_disintegrator_current_die">Current</label>
+                    <select name="attr_disintegrator_current_die">
+                        <option value="1d12" selected>D12</option>
+                        <option value="1d10">D10</option>
+                        <option value="1d8">D8</option>
+                        <option value="1d6">D6</option>
+                        <option value="1d4">D4</option>
+                    </select>
+                    <button type="action" name="act_adddisintegrator">Add Die</button>
+                </div>
+
+                <div> <!-- disintegrator info -->
+                    <div class="text-line">
+                        <input type="text" class="text-row" value="Damage" disabled>
+                        <input type="text" spellcheck="false" name="attr_disintegrator_damage" class="text-row">
+                    </div>
+                    <div class="text-line">
+                        <input type="text" class="text-row" value="Range" disabled>
+                        <input type="text" spellcheck="false" name="attr_disintegrator_range" class="text-row">
+                    </div>
+                    <div class="text-line">
+                        <input type="text" class="text-row" value="Reload Time" disabled>
+                        <input type="text" spellcheck="false" name="attr_disintegrator_reload_time" class="text-row">
+                    </div>
+                    <div class="text-line">
+                        <input type="text" class="text-row" value="Mod. 1" disabled>
+                        <input type="text" spellcheck="false" name="attr_disintegrator_mod_1" class="text-row">
+                    </div>
+                    <div class="text-line">
+                        <input type="text" class="text-row" value="Mod. 2" disabled>
+                        <input type="text" spellcheck="false" name="attr_disintegrator_mod_2" class="text-row">
+                    </div>
+                    <div class="text-line">
+                        <input type="text" class="text-row" value="Mod. 3" disabled>
+                        <input type="text" spellcheck="false" name="attr_disintegrator_mod_3" class="text-row">
+                    </div>
+                    <div class="text-line">
+                        <input type="text" class="text-row" value="Other Info" disabled>
+                        <input type="text" spellcheck="false" name="attr_disintegrator_other_info" class="text-row">
+                    </div>
+                </div>
+
+            </div>
+
+        </div> <!-- end WEAPONS section -->
+
+    </div> <!-- end 4th row container -->
+
+
+    <div class="section" style="background-color: palevioletred;">
+        <!-- HIDDEN VALUES -->
+            <!-- 1 approach die - required -->
+            <input type="hidden" name="attr_approach-die" value="0" class="selected-approach-die">
+            <!-- <input type="hidden" name="attr_approach-die-query" value="?{Choose an Approach|Aware,+@{aware_current_die}|Mighty,+@{mighty_current_die}|Quick,+@{quick_current_die}|Sneaky,+@{sneaky_current_die}}"/> -->
+            <!-- 1 stamina die - optional -->
+            <input type="hidden" name="attr_stamina-die" value="0">
+            <!-- 1 to 5 item or weapon die - optional -->
+            <input type="hidden" name="attr_item-1-die" value="0">
+            <input type="hidden" name="attr_item-2-die" value="0">
+            <input type="hidden" name="attr_item-3-die" value="0">
+            <input type="hidden" name="attr_gutter-die" value="0">
+            <input type="hidden" name="attr_disintegrator-die" value="0">
+            <!-- 1 help from another player - optional -->
+            <input type="hidden" name="attr_help_query" value="?{Add Help Die|No, + 0|D12, + 1d12 |D10, + 1d10 |D8, + 1d8 |D6, + 1d6 |D4, + 1d4}"/>
+                        <!-- 1 bonus - optional -->
+                        <input type="hidden" name="attr_bonus_query" value="?{Add Bonus Die|No, + 0|D12, + 1d12 |D10, + 1d10 |D8, + 1d8 |D6, + 1d6 |D4, + 1d4}"/>
+        <!-- end HIDDEN VALUES -->
+
+        <!-- explaination / warning text -->
+        <p class="roll-explaination">To roll, choose an approach</p>
+        <!-- dice pool text -->
+        <span name="attr_dice-pool" value="" class="dice-pool"></span>
+        <!-- roll button -->
+        <button type="roll" value="/roll { @{approach-die} + @{stamina-die} + @{item-1-die} + @{item-2-die} + @{item-3-die} + @{gutter-die} + @{disintegrator-die} @{help_query} @{bonus_query} }kh1" name="roll_ReactionRoll">Reaction Roll!</button>
+        <!-- clear dice pool button -->
+        <button type="action" name="act_clear">Clear</button>
+    </div>
+
+</div>
+
+<script type="text/worker">
+
+    // reset the clock when changing clock size
+    on("change:cloak-clock-size", function() {
+        setToZero('cloak-clock-4');
+        setToZero('cloak-clock-6');
+        setToZero('cloak-clock-8');
+    });
+
+
+    // add approach die
+    on("clicked:addapproachaware", function() {
+        addDie('aware_current_die', 'approach-die');
+    });
+    on("clicked:addapproachmighty", function() {
+        addDie('mighty_current_die', 'approach-die');
+    });
+    on("clicked:addapproachquick", function() {
+        addDie('quick_current_die', 'approach-die');
+    });
+    on("clicked:addapproachsneaky", function() {
+        addDie('sneaky_current_die', 'approach-die');
+    });
+
+    // add item die
+    on("clicked:additem1", function() {
+        addDie('item_1_current_die', 'item-1-die');
+    });
+    on("clicked:additem2", function() {
+        addDie('item_2_current_die', 'item-2-die');
+    });
+    on("clicked:additem3", function() {
+        addDie('item_3_current_die', 'item-3-die');
+    });
+
+    // add weapon die
+    on("clicked:addgutter", function() {
+        addDie('gutter_current_die', 'gutter-die');
+    });
+    on("clicked:adddisintegrator", function() {
+        addDie('disintegrator_current_die', 'disintegrator-die');
+    });
+
+    // add stamina die
+    on("clicked:addstamina", function() {
+        addDie('stamina_current_die', 'stamina-die');
+        
+    });
+
+    function addDie(attrToGet, attrToSet) {
+        getAttrs([attrToGet], function(values) {
+            let die = values[attrToGet];
+            setAttrs({
+                [attrToSet]: die
+            });
+            updateDicePoolText();
+        })
+    }
+
+
+    // clear dice pool
+    on("clicked:clear", function() {
+        setToZero('approach-die');
+        setToZero('stamina-die');
+        setToZero('item-1-die');
+        setToZero('item-2-die');
+        setToZero('item-3-die');
+        setToZero('gutter-die');
+        setToZero('disintegrator-die');
+        setToZero('help-die');
+
+        setDicePoolText('');
+    });
+
+
+    // update text
+    function updateDicePoolText() {
+        let dicePoolText = '';
+    
+        getAttrs(['approach-die', 'stamina-die', 'item-1-die', 'item-2-die', 'item-3-die', 'gutter-die', 'disintegrator-die'], function(values) {
+
+            let approach = values['approach-die'];
+            if (approach != '0') {
+                dicePoolText += "Approach: " + approach + ", ";
+            }
+
+            let stamina = values['stamina-die'];
+            if (stamina != '0') {
+                dicePoolText += "Stamina: " + stamina + ", ";
+            }
+
+            let item1 = values['item-1-die'];
+            if (item1 != '0') {
+                dicePoolText += "Item: " + item1 + ", ";
+            }
+
+            let item2 = values['item-2-die'];
+            if (item2 != '0') {
+                dicePoolText += "Item: " + item2 + ", ";
+            }
+
+            let item3 = values['item-3-die'];
+            if (item3 != '0') {
+                dicePoolText += "Item: " + item3 + ", ";
+            }
+
+            let gutter = values['gutter-die'];
+            if (gutter != '0') {
+                dicePoolText += "Gutter: " + gutter + ", ";
+            }
+
+            let disintegrator = values['disintegrator-die'];
+            if (disintegrator != '0') {
+                dicePoolText += "Disintegrator: " + disintegrator + ", ";
+            }
+
+            setDicePoolText(dicePoolText);
+        })
+    }
+
+    function setDicePoolText(textContent) {
+        setAttrs({
+            ['dice-pool']: textContent
+        });
+    }
+
+    function setToZero(attribute) {
+        setAttrs({
+            [attribute]: 0
+        });
+    }
+</script>
