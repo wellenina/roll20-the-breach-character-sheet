@@ -8,6 +8,7 @@
 
 * {
     box-sizing: border-box;
+    text-transform: uppercase;
 }
 
 /* .main {
@@ -17,6 +18,12 @@
 .header {
     text-align: center;
     padding: 1rem 0;
+    background-color: var(--the-breach-black);
+    background-image: url(https://github.com/wellenina/roll20-the-breach-character-sheet/blob/73f2aa3dd0bd8b5b2aef518a87586a98c46b5e5e/Assets/background-title.jpg?raw=true);
+    background-size: cover;
+}
+h1 {
+    color: var(--the-breach-white);
 }
 
 .row-container {
@@ -24,15 +31,23 @@
 }
 
 .section {
-    border-radius: 3px;
-    background-color: grey;
+    background-color: lightgray;
+    background-image: url(https://github.com/wellenina/roll20-the-breach-character-sheet/blob/73f2aa3dd0bd8b5b2aef518a87586a98c46b5e5e/Assets/background-box.jpg?raw=true);
+    background-size: cover;
+
+    border-radius: 2px;
+    border: 4px solid var(--the-breach-black);
+    outline: 2px solid var(--the-breach-black);
+    outline-offset: -9px;
+
     padding: 3rem;
     width: 48%;
     margin: 1.2rem 0;
 }
 
+
 .weapons {
-    width: 66% !important;
+    width: 100% !important;
     display: flex;
     column-gap: 3rem;
 }
@@ -50,10 +65,31 @@
 
 .line {
     margin: 0.6rem 0;
+    align-items: center;
 }
 
+.line.identity {
+    border: 2px solid var(--the-breach-black);
+    padding: 1rem 1.8rem;
+}
+
+.line.approach {
+    position: relative;
+}
+.line.approach::before {
+    margin: 0 auto;
+    content: ' ';
+    position: absolute;
+    top: 0;
+    left: 22px;
+    right: 22px;
+    bottom: 0px;
+    border-top: 2px solid var(--the-breach-black);
+    border-bottom: 2px solid var(--the-breach-black);
+}
+
+
 .line-title {
-    width: 25%;
     font-size: 18px;
     font-weight: bold;
     color: var(--the-breach-black);
@@ -65,6 +101,8 @@
 
 label {
     width: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
 
@@ -76,6 +114,8 @@ input {
 
 select {
     flex-basis: content;
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
 
@@ -128,11 +168,15 @@ input[type=checkbox] {
     visibility: visible;
 }
 
+/* ICONS */
+.approach-icon {
+    height: 44px;
+    width: 44px;
+}
+
 /* CLOCK */
 .clock-container {
     position: relative;
-    padding: 2px;
-    margin: 0 auto;
     z-index: 1;
     height: 44px;
     width: 44px;
@@ -456,7 +500,8 @@ input[type=checkbox] {
 .harms-radio[value="4"]:checked ~ .harms-icon.harms-4,
 .harms-radio[value="5"]:checked ~ .harms-icon.harms-4,
 .harms-radio[value="5"]:checked ~ .harms-icon.harms-5 {
-    background-color: var(--accent-color);
+    outline: 6px solid var(--accent-color);
+    outline-offset: -15px;
 }
 
 /* RESET XP and HARMS ICON */

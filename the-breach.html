@@ -10,22 +10,22 @@
 
         <!-- IDENTITY -->
         <div class="section identity">
-            <div class="line">
+            <div class="line identity">
                 <h3 class="line-title">Name</h3>
                 <input type="text" spellcheck="false" name="attr_character_name" class="line-content">
             </div>
 
-            <div class="line">
+            <div class="line identity">
                 <h3 class="line-title">Pronoun</h3>
                 <input type="text" spellcheck="false" name="attr_pronoun" class="line-content">
             </div>
 
-            <div class="line">
+            <div class="line identity">
                 <h3 class="line-title">Call Sign</h3>
                 <input type="text" spellcheck="false" name="attr_call_sign" class="line-content">
             </div>
 
-            <div class="line">
+            <div class="line identity">
                 <h3 class="line-title">Trait</h3>
                 <div class="line-content">
                     <input type="text" spellcheck="false" name="attr_trait_1">
@@ -36,7 +36,7 @@
                 </div>
             </div>
 
-            <div class="line">
+            <div class="line identity">
                 <h3 class="line-title">Trait</h3>
                 <div class="line-content">
                     <input type="text" spellcheck="false" name="attr_trait_2">
@@ -53,11 +53,13 @@
 
             <!-- aware approach -->
             <div class="line approach">
+
+                <img src="https://github.com/wellenina/roll20-the-breach-character-sheet/blob/main/Assets/icon-approach-aware.png?raw=true" class="approach-icon">
                 <h3 class="approach-tooltip line-title">
                     Aware
                     <p class="tooltiptext">An approach used to move carefully, evaluate situations and consequences, and reason calmly spending time.</p>
                 </h3>
-                <div class="line-content">
+
                     <label for="attr_aware_initial_die">Initial</label>
                     <select name="attr_aware_initial_die">
                         <option value="1d12" selected>D12</option>
@@ -74,6 +76,8 @@
                         <option value="1d6">D6</option>
                         <option value="1d4">D4</option>
                     </select>
+
+                    <button type="action" name="act_addapproachaware">Add Die</button>
                     
                     <!-- 4-segments clock -->
                     <div class="clock-container  clock-container-4">
@@ -87,17 +91,16 @@
                         <div class="clock-color-fill"></div>
                     </div>
 
-                    <button type="action" name="act_addapproachaware">Add Die</button>
-                </div>
             </div>
 
             <!-- mighty approach -->
             <div class="line approach">
+                <img src="https://github.com/wellenina/roll20-the-breach-character-sheet/blob/main/Assets/icon-approach-mighty.png?raw=true" class="approach-icon">
                 <h3 class="approach-tooltip line-title">
                     Mighty
                     <p class="tooltiptext">An approach based on physical strength used to damage, attack, and carry out violent actions.</p>
                 </h3>
-                <div class="line-content">
+
                     <label for="attr_mighty_initial_die">Initial</label>
                     <select name="attr_mighty_initial_die">
                         <option value="1d12" selected>D12</option>
@@ -114,6 +117,8 @@
                         <option value="1d6">D6</option>
                         <option value="1d4">D4</option>
                     </select>
+
+                    <button type="action" name="act_addapproachmighty">Add Die</button>
                     
                     <!-- 4-segments clock -->
                     <div class="clock-container clock-container-4">
@@ -127,17 +132,16 @@
                         <div class="clock-color-fill"></div>
                     </div>
 
-                    <button type="action" name="act_addapproachmighty">Add Die</button>
-                </div>
             </div>
 
             <!-- quick approach -->
             <div class="line approach">
+                <img src="https://github.com/wellenina/roll20-the-breach-character-sheet/blob/main/Assets/icon-approach-quick.png?raw=true" class="approach-icon">
                 <h3 class="approach-tooltip line-title">
                     Quick
                     <p class="tooltiptext">An approach that allows you to act quickly, with agility and precision, but without dwelling on the details.</p>
                 </h3>
-                <div class="line-content">
+
                     <label for="attr_quick_initial_die">Initial</label>
                     <select name="attr_quick_initial_die">
                         <option value="1d12" selected>D12</option>
@@ -154,6 +158,8 @@
                         <option value="1d6">D6</option>
                         <option value="1d4">D4</option>
                     </select>
+
+                    <button type="action" name="act_addapproachquick">Add Die</button>
                     
                     <!-- 4-segments clock -->
                     <div class="clock-container clock-container-4">
@@ -167,17 +173,16 @@
                         <div class="clock-color-fill"></div>
                     </div>
 
-                    <button type="action" name="act_addapproachquick">Add Die</button>
-                </div>
             </div>
 
             <!-- sneaky approach -->
             <div class="line approach">
+                <img src="https://github.com/wellenina/roll20-the-breach-character-sheet/blob/main/Assets/icon-approach-sneaky.png?raw=true" class="approach-icon">
                 <h3 class="approach-tooltip line-title">
                     Sneaky
                     <p class="tooltiptext">An approach used to act stealthily, misleading or deceiving.</p>
                 </h3>
-                <div class="line-content">
+
                     <label for="attr_sneaky_initial_die">Initial</label>
                     <select name="attr_sneaky_initial_die">
                         <option value="1d12" selected>D12</option>
@@ -194,6 +199,8 @@
                         <option value="1d6">D6</option>
                         <option value="1d4">D4</option>
                     </select>
+
+                    <button type="action" name="act_addapproachsneaky">Add Die</button>
                     
                     <!-- 4-segments clock -->
                     <div class="clock-container clock-container-4">
@@ -207,8 +214,6 @@
                         <div class="clock-color-fill"></div>
                     </div>
 
-                    <button type="action" name="act_addapproachsneaky">Add Die</button>
-                </div>
             </div>
 
             <div class="line">
