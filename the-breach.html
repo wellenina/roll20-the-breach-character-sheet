@@ -9,24 +9,24 @@
     <div class="row-container">
 
         <!-- IDENTITY -->
-        <div class="section identity">
-            <div class="line identity">
-                <h3 class="line-title">Name</h3>
+        <div class="section smaller">
+            <div class="line rectangular">
+                <h3>Name</h3>
                 <input type="text" spellcheck="false" name="attr_character_name" class="line-content">
             </div>
 
-            <div class="line identity">
-                <h3 class="line-title">Pronoun</h3>
+            <div class="line rectangular">
+                <h3>Pronoun</h3>
                 <input type="text" spellcheck="false" name="attr_pronoun" class="line-content">
             </div>
 
-            <div class="line identity">
-                <h3 class="line-title">Call Sign</h3>
+            <div class="line rectangular">
+                <h3>Call Sign</h3>
                 <input type="text" spellcheck="false" name="attr_call_sign" class="line-content">
             </div>
 
-            <div class="line identity">
-                <h3 class="line-title">Trait</h3>
+            <div class="line rectangular">
+                <h3>Trait</h3>
                 <div class="line-content">
                     <input type="text" spellcheck="false" name="attr_trait_1">
                     <div class="trait-checkboxes">
@@ -36,8 +36,8 @@
                 </div>
             </div>
 
-            <div class="line identity">
-                <h3 class="line-title">Trait</h3>
+            <div class="line rectangular">
+                <h3>Trait</h3>
                 <div class="line-content">
                     <input type="text" spellcheck="false" name="attr_trait_2">
                     <div class="trait-checkboxes">
@@ -49,27 +49,31 @@
         </div>
 
         <!-- APPROACHES -->
-        <div class="section approaches">
+        <div class="section larger">
 
             <!-- aware approach -->
-            <div class="line approach">
+            <div class="line rounded">
 
                 <img src="https://github.com/wellenina/roll20-the-breach-character-sheet/blob/main/Assets/icon-approach-aware.png?raw=true" class="approach-icon">
-                <h3 class="approach-tooltip line-title">
+                <h3 class="approach-tooltip">
                     Aware
                     <p class="tooltiptext">An approach used to move carefully, evaluate situations and consequences, and reason calmly spending time.</p>
                 </h3>
 
+                <div class="die-selection-container">
                     <label for="attr_aware_initial_die">Initial</label>
-                    <select name="attr_aware_initial_die">
+                    <select name="attr_aware_initial_die" class="select-dice">
                         <option value="1d12" selected>D12</option>
                         <option value="1d10">D10</option>
                         <option value="1d8">D8</option>
                         <option value="1d6">D6</option>
                         <option value="1d4">D4</option>
                     </select>
+                </div>
+
+                <div class="die-selection-container">
                     <label for="attr_aware_current_die">Current</label>
-                    <select name="attr_aware_current_die">
+                    <select name="attr_aware_current_die" class="select-dice">
                         <option value="1d12" selected>D12</option>
                         <option value="1d10">D10</option>
                         <option value="1d8">D8</option>
@@ -77,40 +81,45 @@
                         <option value="1d4">D4</option>
                     </select>
 
-                    <button type="action" name="act_addapproachaware">Add Die</button>
-                    
-                    <!-- 4-segments clock -->
-                    <div class="clock-container  clock-container-4">
-                        <div class="clock-spoke clock-vertical-spoke"></div>
-                        <div class="clock-spoke clock-horizontal-spoke"></div>
-                        <input class="clock-progress-zero" type="radio" name="attr_aware-clock" value="0" checked="checked"><span class="reset-clock-icon"></span>
-                        <input class="clock-progress" type="radio" name="attr_aware-clock" value="1">
-                        <input class="clock-progress" type="radio" name="attr_aware-clock" value="2">
-                        <input class="clock-progress" type="radio" name="attr_aware-clock" value="3">
-                        <input class="clock-progress" type="radio" name="attr_aware-clock" value="4">
-                        <div class="clock-color-fill"></div>
-                    </div>
+                    <button type="action" name="act_addapproachaware">Add</button>
+                </div>
+
+                <!-- 4-segments clock -->
+                <div class="clock-container  clock-container-4">
+                    <div class="clock-spoke clock-vertical-spoke"></div>
+                    <div class="clock-spoke clock-horizontal-spoke"></div>
+                    <input class="clock-progress-zero" type="radio" name="attr_aware-clock" value="0" checked="checked"><span class="reset-clock-icon"></span>
+                    <input class="clock-progress" type="radio" name="attr_aware-clock" value="1">
+                    <input class="clock-progress" type="radio" name="attr_aware-clock" value="2">
+                    <input class="clock-progress" type="radio" name="attr_aware-clock" value="3">
+                    <input class="clock-progress" type="radio" name="attr_aware-clock" value="4">
+                    <div class="clock-color-fill"></div>
+                </div>
 
             </div>
 
             <!-- mighty approach -->
-            <div class="line approach">
+            <div class="line rounded">
                 <img src="https://github.com/wellenina/roll20-the-breach-character-sheet/blob/main/Assets/icon-approach-mighty.png?raw=true" class="approach-icon">
-                <h3 class="approach-tooltip line-title">
+                <h3 class="approach-tooltip">
                     Mighty
                     <p class="tooltiptext">An approach based on physical strength used to damage, attack, and carry out violent actions.</p>
                 </h3>
 
+                <div class="die-selection-container">
                     <label for="attr_mighty_initial_die">Initial</label>
-                    <select name="attr_mighty_initial_die">
+                    <select name="attr_mighty_initial_die" class="select-dice">
                         <option value="1d12" selected>D12</option>
                         <option value="1d10">D10</option>
                         <option value="1d8">D8</option>
                         <option value="1d6">D6</option>
                         <option value="1d4">D4</option>
                     </select>
+                </div>
+
+                <div class="die-selection-container">
                     <label for="attr_mighty_current_die">Current</label>
-                    <select name="attr_mighty_current_die">
+                    <select name="attr_mighty_current_die" class="select-dice">
                         <option value="1d12" selected>D12</option>
                         <option value="1d10">D10</option>
                         <option value="1d8">D8</option>
@@ -118,40 +127,45 @@
                         <option value="1d4">D4</option>
                     </select>
 
-                    <button type="action" name="act_addapproachmighty">Add Die</button>
-                    
-                    <!-- 4-segments clock -->
-                    <div class="clock-container clock-container-4">
-                        <div class="clock-spoke clock-vertical-spoke"></div>
-                        <div class="clock-spoke clock-horizontal-spoke"></div>
-                        <input class="clock-progress-zero" type="radio" name="attr_mighty-clock" value="0" checked="checked"><span class="reset-clock-icon"></span>
-                        <input class="clock-progress" type="radio" name="attr_mighty-clock" value="1">
-                        <input class="clock-progress" type="radio" name="attr_mighty-clock" value="2">
-                        <input class="clock-progress" type="radio" name="attr_mighty-clock" value="3">
-                        <input class="clock-progress" type="radio" name="attr_mighty-clock" value="4">
-                        <div class="clock-color-fill"></div>
-                    </div>
+                    <button type="action" name="act_addapproachmighty">Add</button>
+                </div>
+
+                <!-- 4-segments clock -->
+                <div class="clock-container clock-container-4">
+                    <div class="clock-spoke clock-vertical-spoke"></div>
+                    <div class="clock-spoke clock-horizontal-spoke"></div>
+                    <input class="clock-progress-zero" type="radio" name="attr_mighty-clock" value="0" checked="checked"><span class="reset-clock-icon"></span>
+                    <input class="clock-progress" type="radio" name="attr_mighty-clock" value="1">
+                    <input class="clock-progress" type="radio" name="attr_mighty-clock" value="2">
+                    <input class="clock-progress" type="radio" name="attr_mighty-clock" value="3">
+                    <input class="clock-progress" type="radio" name="attr_mighty-clock" value="4">
+                    <div class="clock-color-fill"></div>
+                </div>
 
             </div>
 
             <!-- quick approach -->
-            <div class="line approach">
+            <div class="line rounded">
                 <img src="https://github.com/wellenina/roll20-the-breach-character-sheet/blob/main/Assets/icon-approach-quick.png?raw=true" class="approach-icon">
-                <h3 class="approach-tooltip line-title">
+                <h3 class="approach-tooltip">
                     Quick
                     <p class="tooltiptext">An approach that allows you to act quickly, with agility and precision, but without dwelling on the details.</p>
                 </h3>
 
+                <div class="die-selection-container">
                     <label for="attr_quick_initial_die">Initial</label>
-                    <select name="attr_quick_initial_die">
+                    <select name="attr_quick_initial_die" class="select-dice">
                         <option value="1d12" selected>D12</option>
                         <option value="1d10">D10</option>
                         <option value="1d8">D8</option>
                         <option value="1d6">D6</option>
                         <option value="1d4">D4</option>
                     </select>
+                </div>
+
+                <div class="die-selection-container">
                     <label for="attr_quick_current_die">Current</label>
-                    <select name="attr_quick_current_die">
+                    <select name="attr_quick_current_die" class="select-dice">
                         <option value="1d12" selected>D12</option>
                         <option value="1d10">D10</option>
                         <option value="1d8">D8</option>
@@ -159,40 +173,45 @@
                         <option value="1d4">D4</option>
                     </select>
 
-                    <button type="action" name="act_addapproachquick">Add Die</button>
+                    <button type="action" name="act_addapproachquick">Add</button>
+                </div>
                     
-                    <!-- 4-segments clock -->
-                    <div class="clock-container clock-container-4">
-                        <div class="clock-spoke clock-vertical-spoke"></div>
-                        <div class="clock-spoke clock-horizontal-spoke"></div>
-                        <input class="clock-progress-zero" type="radio" name="attr_quick-clock" value="0" checked="checked"><span class="reset-clock-icon"></span>
-                        <input class="clock-progress" type="radio" name="attr_quick-clock" value="1">
-                        <input class="clock-progress" type="radio" name="attr_quick-clock" value="2">
-                        <input class="clock-progress" type="radio" name="attr_quick-clock" value="3">
-                        <input class="clock-progress" type="radio" name="attr_quick-clock" value="4">
-                        <div class="clock-color-fill"></div>
-                    </div>
+                <!-- 4-segments clock -->
+                <div class="clock-container clock-container-4">
+                    <div class="clock-spoke clock-vertical-spoke"></div>
+                    <div class="clock-spoke clock-horizontal-spoke"></div>
+                    <input class="clock-progress-zero" type="radio" name="attr_quick-clock" value="0" checked="checked"><span class="reset-clock-icon"></span>
+                    <input class="clock-progress" type="radio" name="attr_quick-clock" value="1">
+                    <input class="clock-progress" type="radio" name="attr_quick-clock" value="2">
+                    <input class="clock-progress" type="radio" name="attr_quick-clock" value="3">
+                    <input class="clock-progress" type="radio" name="attr_quick-clock" value="4">
+                    <div class="clock-color-fill"></div>
+                </div>
 
             </div>
 
             <!-- sneaky approach -->
-            <div class="line approach">
+            <div class="line rounded">
                 <img src="https://github.com/wellenina/roll20-the-breach-character-sheet/blob/main/Assets/icon-approach-sneaky.png?raw=true" class="approach-icon">
-                <h3 class="approach-tooltip line-title">
+                <h3 class="approach-tooltip">
                     Sneaky
                     <p class="tooltiptext">An approach used to act stealthily, misleading or deceiving.</p>
                 </h3>
 
+                <div class="die-selection-container">
                     <label for="attr_sneaky_initial_die">Initial</label>
-                    <select name="attr_sneaky_initial_die">
+                    <select name="attr_sneaky_initial_die" class="select-dice">
                         <option value="1d12" selected>D12</option>
                         <option value="1d10">D10</option>
                         <option value="1d8">D8</option>
                         <option value="1d6">D6</option>
                         <option value="1d4">D4</option>
                     </select>
+                </div>
+
+                <div class="die-selection-container">
                     <label for="attr_sneaky_current_die">Current</label>
-                    <select name="attr_sneaky_current_die">
+                    <select name="attr_sneaky_current_die" class="select-dice">
                         <option value="1d12" selected>D12</option>
                         <option value="1d10">D10</option>
                         <option value="1d8">D8</option>
@@ -200,36 +219,34 @@
                         <option value="1d4">D4</option>
                     </select>
 
-                    <button type="action" name="act_addapproachsneaky">Add Die</button>
+                    <button type="action" name="act_addapproachsneaky">Add</button>
+                </div>
                     
-                    <!-- 4-segments clock -->
-                    <div class="clock-container clock-container-4">
-                        <div class="clock-spoke clock-vertical-spoke"></div>
-                        <div class="clock-spoke clock-horizontal-spoke"></div>
-                        <input class="clock-progress-zero" type="radio" name="attr_sneaky-clock" value="0" checked="checked"><span class="reset-clock-icon"></span>
-                        <input class="clock-progress" type="radio" name="attr_sneaky-clock" value="1">
-                        <input class="clock-progress" type="radio" name="attr_sneaky-clock" value="2">
-                        <input class="clock-progress" type="radio" name="attr_sneaky-clock" value="3">
-                        <input class="clock-progress" type="radio" name="attr_sneaky-clock" value="4">
-                        <div class="clock-color-fill"></div>
-                    </div>
+                <!-- 4-segments clock -->
+                <div class="clock-container clock-container-4">
+                    <div class="clock-spoke clock-vertical-spoke"></div>
+                    <div class="clock-spoke clock-horizontal-spoke"></div>
+                    <input class="clock-progress-zero" type="radio" name="attr_sneaky-clock" value="0" checked="checked"><span class="reset-clock-icon"></span>
+                    <input class="clock-progress" type="radio" name="attr_sneaky-clock" value="1">
+                    <input class="clock-progress" type="radio" name="attr_sneaky-clock" value="2">
+                    <input class="clock-progress" type="radio" name="attr_sneaky-clock" value="3">
+                    <input class="clock-progress" type="radio" name="attr_sneaky-clock" value="4">
+                    <div class="clock-color-fill"></div>
+                </div>
 
             </div>
 
-            <div class="line">
-                <h3 class="line-title">XP</h3>
-                <div class="line-content xp-icon-container">
-                    <input type="radio" name="attr_xp" value="0" class="xp-radio-zero" checked><span class="reset-xp-icon"></span>
-                    <input type="radio" name="attr_xp" value="1" class="xp-radio">
-                    <input type="radio" name="attr_xp" value="2" class="xp-radio">
-                    <input type="radio" name="attr_xp" value="3" class="xp-radio">
-                    <input type="radio" name="attr_xp" value="4" class="xp-radio">
-                    <input type="radio" name="attr_xp" value="5" class="xp-radio">
-                    <div class="xp-icon xp-1"></div>
-                    <div class="xp-icon xp-2"></div>
-                    <div class="xp-icon xp-3"></div>
-                    <div class="xp-icon xp-4"></div>
-                    <div class="xp-icon xp-5"></div>
+            <!-- xp -->
+            <div class="line rectangular progress-points">
+                <h3>Experience (XP)</h3>
+                <div class="progress-points-container">
+                    <input type="hidden" name="attr_xp" value="" class="progress">
+                    <input type="radio" name="attr_xp" value="0" class="reset-progress-points" checked>
+                    <input type="radio" name="attr_xp" value="1" class="progress-point square">
+                    <input type="radio" name="attr_xp" value="2" class="progress-point square">
+                    <input type="radio" name="attr_xp" value="3" class="progress-point square">
+                    <input type="radio" name="attr_xp" value="4" class="progress-point square">
+                    <input type="radio" name="attr_xp" value="5" class="progress-point square">
                 </div>
             </div>
 
@@ -240,37 +257,46 @@
     <!-- 2nd ROW -->
     <div class="row-container">
 
-        <div class="section stamina">
-            <div class="line">
+        <!-- STAMINA -->
+        <div class="section half">
+            <div class="line rectangular">
                 <h3>Stamina</h3>
-                <label for="attr_stamina_initial_die">Initial</label>
-                <select name="attr_stamina_initial_die">
-                    <option value="1d12" selected>D12</option>
-                    <option value="1d10">D10</option>
-                    <option value="1d8">D8</option>
-                    <option value="1d6">D6</option>
-                    <option value="1d4">D4</option>
-                </select>
-                <label for="attr_stamina_current_die">Current</label>
-                <select name="attr_stamina_current_die">
-                    <option value="1d12" selected>D12</option>
-                    <option value="1d10">D10</option>
-                    <option value="1d8">D8</option>
-                    <option value="1d6">D6</option>
-                    <option value="1d4">D4</option>
-                </select>
-                <button type="action" name="act_addstamina">Add Stamina Die!</button>
+
+                <div class="die-selection-container">
+                    <label for="attr_stamina_initial_die">Initial</label>
+                    <select name="attr_stamina_initial_die" class="select-dice">
+                        <option value="1d12" selected>D12</option>
+                        <option value="1d10">D10</option>
+                        <option value="1d8">D8</option>
+                        <option value="1d6">D6</option>
+                        <option value="1d4">D4</option>
+                    </select>
+                </div>
+
+                <div class="die-selection-container">
+                    <label for="attr_stamina_current_die">Current</label>
+                    <select name="attr_stamina_current_die" class="select-dice">
+                        <option value="1d12" selected>D12</option>
+                        <option value="1d10">D10</option>
+                        <option value="1d8">D8</option>
+                        <option value="1d6">D6</option>
+                        <option value="1d4">D4</option>
+                    </select>
+                    
+                    <button type="action" name="act_addstamina">Add</button>
+                </div>
+
             </div>
         </div>
 
-        <div class="section cloack">
-            <div class="line">
+        <!-- CLOAK -->
+        <div class="section half">
+            <div class="line rounded cloak">
                 <h3>Cloak</h3>
-                <label for="attr_cloack_color">Color</label>
-                <input type="text" spellcheck="false" name="attr_cloack_color" style="width: 30%;">
+                <input type="text" spellcheck="false" name="attr_cloak_color" placeholder="Color">
 
                 <!-- <label for="attr_cloak-clock-size">Cloack Dice</label> -->
-                <select name="attr_cloak-clock-size">
+                <select name="attr_cloak-clock-size" class="select-clock">
                     <option class="option-4" value="4" selected>4</option>
                     <option value="6">6</option>
                     <option value="8">8</option>
@@ -332,27 +358,23 @@
     <div class="row-container">
 
         <!-- HEALTH -->
-        <div class="section health">
+        <div class="section smaller">
 
-            <div class="line">
+            <div class="line rectangular progress-points">
                 <h3>Harms</h3>
-                <div class="line-content harms-icon-container">
-                    <input type="radio" name="attr_harms" value="0" class="harms-radio-zero" checked><span class="reset-harms-icon"></span>
-                    <input type="radio" name="attr_harms" value="1" class="harms-radio">
-                    <input type="radio" name="attr_harms" value="2" class="harms-radio">
-                    <input type="radio" name="attr_harms" value="3" class="harms-radio">
-                    <input type="radio" name="attr_harms" value="4" class="harms-radio">
-                    <input type="radio" name="attr_harms" value="5" class="harms-radio">
-                    <div class="harms-icon harms-1"></div>
-                    <div class="harms-icon harms-2"></div>
-                    <div class="harms-icon harms-3"></div>
-                    <div class="harms-icon harms-4"></div>
-                    <div class="harms-icon harms-5"></div>
+                <div class="progress-points-container">
+                    <input type="hidden" name="attr_harms" value="" class="progress">
+                    <input type="radio" name="attr_harms" value="0" class="reset-progress-points" checked>
+                    <input type="radio" name="attr_harms" value="1" class="progress-point round">
+                    <input type="radio" name="attr_harms" value="2" class="progress-point round">
+                    <input type="radio" name="attr_harms" value="3" class="progress-point round">
+                    <input type="radio" name="attr_harms" value="4" class="progress-point round">
+                    <input type="radio" name="attr_harms" value="5" class="progress-point round">
                 </div>
             </div>
 
             <div>
-                <h3>Conditions / Effects</h3>
+                <h3 class="with-margins">Conditions / Effects</h3>
                 <input type="text" spellcheck="false" name="attr_conditions_effects_1" class="text-row">
                 <input type="text" spellcheck="false" name="attr_conditions_effects_2" class="text-row">
                 <input type="text" spellcheck="false" name="attr_conditions_effects_3" class="text-row">
@@ -363,9 +385,9 @@
         </div> <!-- end health section -->
 
         <!-- EQUIPMENT -->
-        <div class="section equipment">
+        <div class="section larger">
 
-            <div class="line">
+            <div class="line rounded">
                 <h3>Equipment R&D</h3>
 
                 <!-- 6-segments clock -->
@@ -385,73 +407,93 @@
 
             </div>
 
-            <div class="line item">
-                <label for="attr_item_1">Item</label>
+            <h3 class="with-margins">Items</h3>
+            <div class="line rectangular item">
                 <input type="text" spellcheck="false" name="attr_item_1">
 
-                <label for="attr_item_1_initial_die">Initial</label>
-                <select name="attr_item_1_initial_die">
-                    <option value="1d12" selected>D12</option>
-                    <option value="1d10">D10</option>
-                    <option value="1d8">D8</option>
-                    <option value="1d6">D6</option>
-                    <option value="1d4">D4</option>
-                </select>
-                <label for="attr_item_1_current_die">Current</label>
-                <select name="attr_item_1_current_die">
-                    <option value="1d12" selected>D12</option>
-                    <option value="1d10">D10</option>
-                    <option value="1d8">D8</option>
-                    <option value="1d6">D6</option>
-                    <option value="1d4">D4</option>
-                </select>
-                <button type="action" name="act_additem1">Add Die</button>
+                <div class="die-selection-container">
+                    <label for="attr_item_1_initial_die">Initial</label>
+                    <select name="attr_item_1_initial_die" class="select-dice">
+                        <option value="1d12" selected>D12</option>
+                        <option value="1d10">D10</option>
+                        <option value="1d8">D8</option>
+                        <option value="1d6">D6</option>
+                        <option value="1d4">D4</option>
+                    </select>
+                </div>
+
+                <div class="die-selection-container">
+                    <label for="attr_item_1_current_die">Current</label>
+                    <select name="attr_item_1_current_die" class="select-dice">
+                        <option value="1d12" selected>D12</option>
+                        <option value="1d10">D10</option>
+                        <option value="1d8">D8</option>
+                        <option value="1d6">D6</option>
+                        <option value="1d4">D4</option>
+                    </select>
+
+                    <button type="action" name="act_additem1">Add</button>
+                </div>
+
             </div>
 
-            <div class="line item">
-                <label for="attr_item_2">Item</label>
+            <div class="line rectangular item">
                 <input type="text" spellcheck="false" name="attr_item_2">
 
-                <label for="attr_item_2_initial_die">Initial</label>
-                <select name="attr_item_2_initial_die">
-                    <option value="1d12" selected>D12</option>
-                    <option value="1d10">D10</option>
-                    <option value="1d8">D8</option>
-                    <option value="1d6">D6</option>
-                    <option value="1d4">D4</option>
-                </select>
-                <label for="attr_item_2_current_die">Current</label>
-                <select name="attr_item_2_current_die">
-                    <option value="1d12" selected>D12</option>
-                    <option value="1d10">D10</option>
-                    <option value="1d8">D8</option>
-                    <option value="1d6">D6</option>
-                    <option value="1d4">D4</option>
-                </select>
-                <button type="action" name="act_additem2">Add Die</button>
+                <div class="die-selection-container">
+                    <label for="attr_item_2_initial_die">Initial</label>
+                    <select name="attr_item_2_initial_die" class="select-dice">
+                        <option value="1d12" selected>D12</option>
+                        <option value="1d10">D10</option>
+                        <option value="1d8">D8</option>
+                        <option value="1d6">D6</option>
+                        <option value="1d4">D4</option>
+                    </select>
+                </div>
+
+                <div class="die-selection-container">
+                    <label for="attr_item_2_current_die">Current</label>
+                    <select name="attr_item_2_current_die" class="select-dice">
+                        <option value="1d12" selected>D12</option>
+                        <option value="1d10">D10</option>
+                        <option value="1d8">D8</option>
+                        <option value="1d6">D6</option>
+                        <option value="1d4">D4</option>
+                    </select>
+
+                    <button type="action" name="act_additem2">Add</button>
+                </div>
+
             </div>
 
-            <div class="line item">
-                <label for="attr_item_3">Item</label>
+            <div class="line rectangular item">
+
                 <input type="text" spellcheck="false" name="attr_item_3">
 
-                <label for="attr_item_3_initial_die">Initial</label>
-                <select name="attr_item_3_initial_die">
-                    <option value="1d12" selected>D12</option>
-                    <option value="1d10">D10</option>
-                    <option value="1d8">D8</option>
-                    <option value="1d6">D6</option>
-                    <option value="1d4">D4</option>
-                </select>
-                <label for="attr_item_3_current_die">Current</label>
-                <select name="attr_item_3_current_die">
-                    <option value="1d12" selected>D12</option>
-                    <option value="1d10">D10</option>
-                    <option value="1d8">D8</option>
-                    <option value="1d6">D6</option>
-                    <option value="1d4">D4</option>
-                </select>
-                <button type="action" name="act_additem3">Add Die</button>
+                <div class="die-selection-container">
+                    <label for="attr_item_3_initial_die">Initial</label>
+                    <select name="attr_item_3_initial_die" class="select-dice">
+                        <option value="1d12" selected>D12</option>
+                        <option value="1d10">D10</option>
+                        <option value="1d8">D8</option>
+                        <option value="1d6">D6</option>
+                        <option value="1d4">D4</option>
+                    </select>
+                </div>
+
+                <div class="die-selection-container">
+                    <label for="attr_item_3_current_die">Current</label>
+                    <select name="attr_item_3_current_die" class="select-dice">
+                        <option value="1d12" selected>D12</option>
+                        <option value="1d10">D10</option>
+                        <option value="1d8">D8</option>
+                        <option value="1d6">D6</option>
+                        <option value="1d4">D4</option>
+                    </select>
+                    
+                    <button type="action" name="act_additem3">Add</button>
+                </div>
+
             </div>
 
         </div> <!-- end equipment section -->
@@ -468,23 +510,30 @@
 
                 <div class="line">
                     <h3>Gutter</h3>
-                    <label for="attr_gutter_initial_die">Initial</label>
-                    <select name="attr_gutter_initial_die">
-                        <option value="1d12" selected>D12</option>
-                        <option value="1d10">D10</option>
-                        <option value="1d8">D8</option>
-                        <option value="1d6">D6</option>
-                        <option value="1d4">D4</option>
-                    </select>
-                    <label for="attr_gutter_current_die">Current</label>
-                    <select name="attr_gutter_current_die">
-                        <option value="1d12" selected>D12</option>
-                        <option value="1d10">D10</option>
-                        <option value="1d8">D8</option>
-                        <option value="1d6">D6</option>
-                        <option value="1d4">D4</option>
-                    </select>
-                    <button type="action" name="act_addgutter">Add Die</button>
+
+                    <div class="die-selection-container">
+                        <label for="attr_gutter_initial_die">Initial</label>
+                        <select name="attr_gutter_initial_die" class="select-dice">
+                            <option value="1d12" selected>D12</option>
+                            <option value="1d10">D10</option>
+                            <option value="1d8">D8</option>
+                            <option value="1d6">D6</option>
+                            <option value="1d4">D4</option>
+                        </select>
+                    </div>
+
+                    <div class="die-selection-container">
+                        <label for="attr_gutter_current_die">Current</label>
+                        <select name="attr_gutter_current_die" class="select-dice">
+                            <option value="1d12" selected>D12</option>
+                            <option value="1d10">D10</option>
+                            <option value="1d8">D8</option>
+                            <option value="1d6">D6</option>
+                            <option value="1d4">D4</option>
+                        </select>
+                        <button type="action" name="act_addgutter">Add</button>
+                    </div>
+
                 </div>
 
                 <div> <!-- gutter info -->
@@ -524,23 +573,31 @@
 
                 <div class="line">
                     <h3>Disintegrator</h3>
-                    <label for="attr_disintegrator_initial_die">Initial</label>
-                    <select name="attr_disintegrator_initial_die">
-                        <option value="1d12" selected>D12</option>
-                        <option value="1d10">D10</option>
-                        <option value="1d8">D8</option>
-                        <option value="1d6">D6</option>
-                        <option value="1d4">D4</option>
-                    </select>
-                    <label for="attr_disintegrator_current_die">Current</label>
-                    <select name="attr_disintegrator_current_die">
-                        <option value="1d12" selected>D12</option>
-                        <option value="1d10">D10</option>
-                        <option value="1d8">D8</option>
-                        <option value="1d6">D6</option>
-                        <option value="1d4">D4</option>
-                    </select>
-                    <button type="action" name="act_adddisintegrator">Add Die</button>
+
+                    <div class="die-selection-container">
+                        <label for="attr_disintegrator_initial_die">Initial</label>
+                        <select name="attr_disintegrator_initial_die" class="select-dice">
+                            <option value="1d12" selected>D12</option>
+                            <option value="1d10">D10</option>
+                            <option value="1d8">D8</option>
+                            <option value="1d6">D6</option>
+                            <option value="1d4">D4</option>
+                        </select>
+                    </div>
+
+                    <div class="die-selection-container">
+                        <label for="attr_disintegrator_current_die">Current</label>
+                        <select name="attr_disintegrator_current_die" class="select-dice">
+                            <option value="1d12" selected>D12</option>
+                            <option value="1d10">D10</option>
+                            <option value="1d8">D8</option>
+                            <option value="1d6">D6</option>
+                            <option value="1d4">D4</option>
+                        </select>
+
+                        <button type="action" name="act_adddisintegrator">Add</button>
+                    </div>
+
                 </div>
 
                 <div> <!-- disintegrator info -->
@@ -580,34 +637,35 @@
 
     </div> <!-- end 4th row container -->
 
+    <div class="row-container">
+        <div class="section roll-section">
+            <!-- HIDDEN VALUES -->
+                <!-- 1 approach die - required -->
+                <input type="hidden" name="attr_approach-die" value="0" class="selected-approach-die">
+                <!-- <input type="hidden" name="attr_approach-die-query" value="?{Choose an Approach|Aware,+@{aware_current_die}|Mighty,+@{mighty_current_die}|Quick,+@{quick_current_die}|Sneaky,+@{sneaky_current_die}}"/> -->
+                <!-- 1 stamina die - optional -->
+                <input type="hidden" name="attr_stamina-die" value="0">
+                <!-- 1 to 5 item or weapon die - optional -->
+                <input type="hidden" name="attr_item-1-die" value="0">
+                <input type="hidden" name="attr_item-2-die" value="0">
+                <input type="hidden" name="attr_item-3-die" value="0">
+                <input type="hidden" name="attr_gutter-die" value="0">
+                <input type="hidden" name="attr_disintegrator-die" value="0">
+                <!-- 1 help from another player - optional -->
+                <input type="hidden" name="attr_help_query" value="?{Add Help Die|No, + 0|D12, + 1d12 |D10, + 1d10 |D8, + 1d8 |D6, + 1d6 |D4, + 1d4}"/>
+                            <!-- 1 bonus - optional -->
+                            <input type="hidden" name="attr_bonus_query" value="?{Add Bonus Die|No, + 0|D12, + 1d12 |D10, + 1d10 |D8, + 1d8 |D6, + 1d6 |D4, + 1d4}"/>
+            <!-- end HIDDEN VALUES -->
 
-    <div class="section" style="background-color: palevioletred;">
-        <!-- HIDDEN VALUES -->
-            <!-- 1 approach die - required -->
-            <input type="hidden" name="attr_approach-die" value="0" class="selected-approach-die">
-            <!-- <input type="hidden" name="attr_approach-die-query" value="?{Choose an Approach|Aware,+@{aware_current_die}|Mighty,+@{mighty_current_die}|Quick,+@{quick_current_die}|Sneaky,+@{sneaky_current_die}}"/> -->
-            <!-- 1 stamina die - optional -->
-            <input type="hidden" name="attr_stamina-die" value="0">
-            <!-- 1 to 5 item or weapon die - optional -->
-            <input type="hidden" name="attr_item-1-die" value="0">
-            <input type="hidden" name="attr_item-2-die" value="0">
-            <input type="hidden" name="attr_item-3-die" value="0">
-            <input type="hidden" name="attr_gutter-die" value="0">
-            <input type="hidden" name="attr_disintegrator-die" value="0">
-            <!-- 1 help from another player - optional -->
-            <input type="hidden" name="attr_help_query" value="?{Add Help Die|No, + 0|D12, + 1d12 |D10, + 1d10 |D8, + 1d8 |D6, + 1d6 |D4, + 1d4}"/>
-                        <!-- 1 bonus - optional -->
-                        <input type="hidden" name="attr_bonus_query" value="?{Add Bonus Die|No, + 0|D12, + 1d12 |D10, + 1d10 |D8, + 1d8 |D6, + 1d6 |D4, + 1d4}"/>
-        <!-- end HIDDEN VALUES -->
-
-        <!-- explaination / warning text -->
-        <p class="roll-explaination">To roll, choose an approach</p>
-        <!-- dice pool text -->
-        <span name="attr_dice-pool" value="" class="dice-pool"></span>
-        <!-- roll button -->
-        <button type="roll" value="/roll { @{approach-die} + @{stamina-die} + @{item-1-die} + @{item-2-die} + @{item-3-die} + @{gutter-die} + @{disintegrator-die} @{help_query} @{bonus_query} }kh1" name="roll_ReactionRoll">Reaction Roll!</button>
-        <!-- clear dice pool button -->
-        <button type="action" name="act_clear">Clear</button>
+            <!-- explaination / warning text -->
+            <p class="roll-explaination">To roll, choose an approach</p>
+            <!-- dice pool text -->
+            <span name="attr_dice-pool" value="" class="dice-pool"></span>
+            <!-- roll button -->
+            <button type="roll" value="/roll { @{approach-die} + @{stamina-die} + @{item-1-die} + @{item-2-die} + @{item-3-die} + @{gutter-die} + @{disintegrator-die} @{help_query} @{bonus_query} }kh1" name="roll_ReactionRoll">Reaction Roll!</button>
+            <!-- clear dice pool button -->
+            <button type="action" name="act_clear">Clear</button>
+        </div>
     </div>
 
 </div>

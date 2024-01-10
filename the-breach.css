@@ -1,98 +1,119 @@
+/* FONTS */
+@import url('https://fonts.googleapis.com/css?family=Space+Grotesk:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Space+Grotesk:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto:ital,wght@1,300&display=swap');
+
 /* COLORS */
 :root {
     --the-breach-black: #1D1D1D;
     --the-breach-white: #FFFFFF;
-    --accent-color: palevioletred;
+    --the-breach-accent-color: #702C91;
 }
-
 
 * {
     box-sizing: border-box;
-    text-transform: uppercase;
 }
 
-/* .main {
+.main {
     min-width: 800px;
-} */
+    max-width: 1500px;
+}
 
+/* TITLE */
 .header {
     text-align: center;
-    padding: 1rem 0;
+    margin-bottom: 2rem;
+    padding: 2rem 0 1rem;
     background-color: var(--the-breach-black);
     background-image: url(https://github.com/wellenina/roll20-the-breach-character-sheet/blob/73f2aa3dd0bd8b5b2aef518a87586a98c46b5e5e/Assets/background-title.jpg?raw=true);
-    background-size: cover;
+    background-size: 1300px;
 }
 h1 {
     color: var(--the-breach-white);
 }
 
+h1, h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600 !important;
+    text-transform: uppercase;
+    text-wrap: nowrap;
+}
+h3 {
+    font-size: 16px;
+    color: var(--the-breach-black);
+}
+h3.with-margins {
+    margin: 1.6rem 0 1rem;
+}
+
+/* ROWS AND SECTIONS */
 .row-container {
     width: 100%;
+    padding: 0 1rem;
+}
+.row-container, .line, .line-content, .text-line, .die-selection-container {
+    display: flex;
+    justify-content: space-between;
+}
+.line, .die-selection-container {
+    align-items: center;
 }
 
 .section {
     background-color: lightgray;
-    background-image: url(https://github.com/wellenina/roll20-the-breach-character-sheet/blob/73f2aa3dd0bd8b5b2aef518a87586a98c46b5e5e/Assets/background-box.jpg?raw=true);
-    background-size: cover;
+    background-image: linear-gradient(rgba(211, 211, 211, 0.8), rgba(211, 211, 211, 0.8)), url(https://github.com/wellenina/roll20-the-breach-character-sheet/blob/73f2aa3dd0bd8b5b2aef518a87586a98c46b5e5e/Assets/background-box.jpg?raw=true);
+    background-size: 600px;
 
     border-radius: 2px;
     border: 4px solid var(--the-breach-black);
     outline: 2px solid var(--the-breach-black);
     outline-offset: -9px;
 
-    padding: 3rem;
-    width: 48%;
+    padding: 1.5rem;
     margin: 1.2rem 0;
+    flex-shrink: 0;
 }
 
-
+.section.smaller {
+    width: 42%;
+}
+.section.larger {
+    width: 56%;
+}
+.section.half {
+    width: 49%;
+}
+.weapons, .roll-section {
+    width: 100%;
+}
 .weapons {
-    width: 100% !important;
     display: flex;
     column-gap: 3rem;
 }
-
 .weapon-column {
     width: 48.6%;
 }
 
-
-/* rows */
-.row-container, .line, .line-content, .text-line {
-    display: flex;
-    justify-content: space-between;
+/* single rows */
+.line + .line {
+    margin-top: 0.8rem;
 }
 
 .line {
-    margin: 0.6rem 0;
-    align-items: center;
-}
-
-.line.identity {
+    height: 46px;
+    background-color: rgba(255, 255, 255, 0.5);
     border: 2px solid var(--the-breach-black);
-    padding: 1rem 1.8rem;
 }
-
-.line.approach {
-    position: relative;
+.line.rectangular {
+    border-radius: 2px;
+    padding: 0.9rem;
 }
-.line.approach::before {
-    margin: 0 auto;
-    content: ' ';
-    position: absolute;
-    top: 0;
-    left: 22px;
-    right: 22px;
-    bottom: 0px;
-    border-top: 2px solid var(--the-breach-black);
-    border-bottom: 2px solid var(--the-breach-black);
+.line.rounded {
+    border-radius: 999rem;
+    padding: 0.3rem;
 }
-
-
-.line-title {
-    font-size: 18px;
-    font-weight: bold;
-    color: var(--the-breach-black);
+.line.rounded h3 {
+    margin-left: 1.5rem;
 }
 
 .line-content {
@@ -102,9 +123,8 @@ h1 {
 label {
     width: auto !important;
     margin: 0 !important;
-    padding: 0 !important;
+    padding: 0;
 }
-
 
 /* INPUT */
 input {
@@ -112,33 +132,78 @@ input {
     min-width: 0;
 }
 
-select {
-    flex-basis: content;
-    margin: 0 !important;
-    padding: 0 !important;
+input, select {
+    z-index: 2;
+}
+input[type=text], select {
+    background-color: var(--the-breach-white);
+    border-radius: 2px;
+    border: none;
 }
 
+input:focus, input:focus-visible, select:focus-visible {
+    outline: none !important;
+}
+
+input[type=text] {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: 14px;
+    height: 26px !important;
+}
+
+.cloak input[type=text] {
+    width: 40%;
+}
+.item input[type=text] {
+    width: 30%;
+}
+
+select, button, label {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 12px !important;
+    color: var(--the-breach-black) !important;
+}
+
+select {
+    flex-basis: content;
+    margin: 0;
+
+    cursor: pointer;
+    width: min-content;
+    height: 26px;
+}
+select.select-dice {
+    padding: 0;
+}
+select.select-clock {
+    padding: 0 6px;
+}
 
 /* CHECKBOXES */
 input[type=checkbox] {
-    margin: 0 1rem;
+    appearance: none;
+    width: 12px !important;
+    height: 12px !important;
+    border: 2px solid var(--the-breach-black);
+    border-radius: 2px;
+}
+input[type=checkbox]:checked {
+    background-color: var(--the-breach-accent-color);
 }
 
 .trait-checkboxes {
-    width: min-content;
-}
-
-.trait-checkboxes > * {
-    width: 100% !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 0.6rem;
 }
 
 /* TEXT AREA ROWS */
 .text-row {
-    border-radius: 0;
-    border: none;
-    border-bottom: 1px dashed darkgray;
+    border-bottom: 1px dashed darkgray !important;
 }
-
 .text-row:disabled {
     border-color: darkgray;
     width: 24%;
@@ -148,38 +213,47 @@ input[type=checkbox] {
 /* TOOLTIPS */
 .approach-tooltip {
     position: relative;
-    border-bottom: 1px dotted var(--the-breach-black);
-    /* text-decoration: underline; */
+    width: 16%;
 }
-
 .tooltiptext {
     visibility: hidden;
     width: 340%;
-    background-color: var(--the-breach-black);
-    color: var(--the-breach-white);
-    border-radius: 6px;
-    padding: 0.6rem 1rem;
     position: absolute;
     left: 30%;
-    z-index: 1;
+    z-index: 3;
+    padding: 0.6rem 1rem;
+    border-radius: 3px;
+    background-color: var(--the-breach-black);
+    color: var(--the-breach-white);
+    font-family: 'Space Grotesk', sans-serif;
+    text-wrap: wrap;
+    text-transform: none;
 }
 
 .approach-tooltip:hover > .tooltiptext {
     visibility: visible;
 }
 
+/* BUTTONS */
+button {
+    border: 2px solid var(--the-breach-black);
+    border-radius: 999rem;
+    background-color: var(--the-breach-white);
+    margin-left: 0.6rem;
+}
+
 /* ICONS */
 .approach-icon {
-    height: 44px;
-    width: 44px;
+    width: 38px;
+    height: 38px;
 }
 
 /* CLOCK */
 .clock-container {
     position: relative;
     z-index: 1;
-    height: 44px;
-    width: 44px;
+    width: 38px;
+    height: 38px;
     cursor: pointer;
 }
 
@@ -200,15 +274,14 @@ input[type=checkbox] {
 .xp-icon-container input[type=radio],
 .harms-icon-container input[type=radio] {
     opacity: 0;
-    z-index: 3;
 }
 
 /* spokes */
 .clock-spoke {
-    height: 44px;
+    height: 38px;
     width: 2px;
     position: absolute;
-    left: 0;
+    left: -3px;
     top: 0;
     background: var(--the-breach-black);
 }
@@ -237,10 +310,10 @@ input[type=checkbox] {
 /* reset clock icon */
 .clock-progress-zero, .reset-clock-icon {
     position: absolute;
-    top: 37px;
-    left: -5px;
-    width: 11px;
-    height: 11px;
+    top: 28px;
+    left: -10px;
+    width: 10px !important;
+    height: 10px !important;
 }
 
 .reset-clock-icon {
@@ -249,22 +322,23 @@ input[type=checkbox] {
     border-radius: 50%;
     border: 1px solid var(--the-breach-black);
     background: var(--the-breach-white);
-    /* transition: all 0.2s; */
 }
 
 .reset-clock-icon::before, .reset-clock-icon::after {
-    position: absolute;
-    width: 1px;
     content: "";
-    left: 0;
+    width: 1px;
+    height: 10px;
     background: var(--the-breach-black);
-    height: 11px;
+    position: absolute;
+    left: 4px;
+    top: -1px;
 }
 .reset-clock-icon::before {
-    transform: translate(4px, -1px) rotate(45deg);
+    transform: rotate(45deg);
+
 }
 .reset-clock-icon::after {
-    transform: translate(4px, -1px) rotate(135deg);
+    transform: rotate(135deg);
 }
 
 .clock-progress-zero:checked + .reset-clock-icon {
@@ -363,57 +437,57 @@ input[type=checkbox] {
 /* color - 4 and 8 segments clock */
 .clock-container-4 .clock-progress[value="1"]:checked ~ .clock-color-fill,
 .clock-container-8 .clock-progress[value="2"]:checked ~ .clock-color-fill {
-    background-image: linear-gradient(90deg, var(--the-breach-white) 50%, transparent 50%), linear-gradient(180deg, var(--accent-color) 50%, var(--the-breach-white) 50%);
+    background-image: linear-gradient(90deg, var(--the-breach-white) 50%, transparent 50%), linear-gradient(180deg, var(--the-breach-accent-color) 50%, var(--the-breach-white) 50%);
 }
 .clock-container-4 .clock-progress[value="2"]:checked ~ .clock-color-fill,
 .clock-container-8 .clock-progress[value="4"]:checked ~ .clock-color-fill {
-    background-image: linear-gradient(90deg, var(--the-breach-white) 50%, var(--accent-color) 50%);
+    background-image: linear-gradient(90deg, var(--the-breach-white) 50%, var(--the-breach-accent-color) 50%);
 }
 .clock-container-4 .clock-progress[value="3"]:checked ~ .clock-color-fill,
-.clock-container-4 .clock-progress[value="6"]:checked ~ .clock-color-fill {
-    background-image: linear-gradient(180deg, transparent 50%, var(--accent-color) 50%), linear-gradient(90deg, var(--the-breach-white) 50%, var(--accent-color) 50%);
+.clock-container-8 .clock-progress[value="6"]:checked ~ .clock-color-fill {
+    background-image: linear-gradient(180deg, transparent 50%, var(--the-breach-accent-color) 50%), linear-gradient(90deg, var(--the-breach-white) 50%, var(--the-breach-accent-color) 50%);
 }
 .clock-container-4 .clock-progress[value="4"]:checked ~ .clock-color-fill,
 .clock-container-8 .clock-progress[value="8"]:checked ~ .clock-color-fill {
-    background: var(--accent-color);
+    background: var(--the-breach-accent-color);
 }
 /* color - 6-segments clock */
 .clock-container-6 .clock-progress[value="1"]:checked ~ .clock-color-fill {
-    background-image: linear-gradient(90deg, var(--the-breach-white) 50%, transparent 50%), linear-gradient(150deg, var(--accent-color) 50%, var(--the-breach-white) 50%);
+    background-image: linear-gradient(90deg, var(--the-breach-white) 50%, transparent 50%), linear-gradient(150deg, var(--the-breach-accent-color) 50%, var(--the-breach-white) 50%);
 }
 .clock-container-6 .clock-progress[value="2"]:checked ~ .clock-color-fill {
-    background-image: linear-gradient(90deg, var(--the-breach-white) 50%, transparent 50%), linear-gradient(210deg, var(--accent-color) 50%, var(--the-breach-white) 50%);
+    background-image: linear-gradient(90deg, var(--the-breach-white) 50%, transparent 50%), linear-gradient(210deg, var(--the-breach-accent-color) 50%, var(--the-breach-white) 50%);
 }
 .clock-container-6 .clock-progress[value="3"]:checked ~ .clock-color-fill {
-    background-image: linear-gradient(90deg, var(--the-breach-white) 50%, var(--accent-color) 50%);
+    background-image: linear-gradient(90deg, var(--the-breach-white) 50%, var(--the-breach-accent-color) 50%);
 }
 .clock-container-6 .clock-progress[value="4"]:checked ~ .clock-color-fill {
-    background-image: linear-gradient(90deg, transparent 50%, var(--accent-color) 50%), linear-gradient(150deg, var(--the-breach-white) 50%, var(--accent-color) 50%);
+    background-image: linear-gradient(90deg, transparent 50%, var(--the-breach-accent-color) 50%), linear-gradient(150deg, var(--the-breach-white) 50%, var(--the-breach-accent-color) 50%);
 }
 .clock-container-6 .clock-progress[value="5"]:checked ~ .clock-color-fill {
-    background-image: linear-gradient(90deg, transparent 50%, var(--accent-color) 50%), linear-gradient(210deg, var(--the-breach-white) 50%, var(--accent-color) 50%);
+    background-image: linear-gradient(90deg, transparent 50%, var(--the-breach-accent-color) 50%), linear-gradient(210deg, var(--the-breach-white) 50%, var(--the-breach-accent-color) 50%);
 }
 .clock-container-6 .clock-progress[value="6"]:checked ~ .clock-color-fill {
-    background: var(--accent-color);
+    background: var(--the-breach-accent-color);
 }
 /* color - 8-segments clock */
 .clock-container-8 .clock-progress[value="1"]:checked ~ .clock-color-fill {
-    background-image: linear-gradient(90deg, var(--the-breach-white) 50%, transparent 50%), linear-gradient(135deg, var(--accent-color) 50%, var(--the-breach-white) 50%);
+    background-image: linear-gradient(90deg, var(--the-breach-white) 50%, transparent 50%), linear-gradient(135deg, var(--the-breach-accent-color) 50%, var(--the-breach-white) 50%);
 }
 .clock-container-8 .clock-progress[value="3"]:checked ~ .clock-color-fill {
-    background-image: linear-gradient(90deg, var(--the-breach-white) 50%, transparent 50%), linear-gradient(225deg, var(--accent-color) 50%, var(--the-breach-white) 50%);
+    background-image: linear-gradient(90deg, var(--the-breach-white) 50%, transparent 50%), linear-gradient(225deg, var(--the-breach-accent-color) 50%, var(--the-breach-white) 50%);
 }
 .clock-container-8 .clock-progress[value="5"]:checked ~ .clock-color-fill {
-    background-image: linear-gradient(90deg, transparent 50%, var(--accent-color) 50%), linear-gradient(135deg, var(--the-breach-white) 50%, var(--accent-color) 50%);
+    background-image: linear-gradient(90deg, transparent 50%, var(--the-breach-accent-color) 50%), linear-gradient(135deg, var(--the-breach-white) 50%, var(--the-breach-accent-color) 50%);
 }
 .clock-container-8 .clock-progress[value="7"]:checked ~ .clock-color-fill {
-    background-image: linear-gradient(90deg, transparent 50%, var(--accent-color) 50%), linear-gradient(225deg, var(--the-breach-white) 50%, var(--accent-color) 50%);
+    background-image: linear-gradient(90deg, transparent 50%, var(--the-breach-accent-color) 50%), linear-gradient(225deg, var(--the-breach-white) 50%, var(--the-breach-accent-color) 50%);
 }
 
 /* show different clock depending on option selected */
 .clock-options-container {
-    height: 46px;
-    width: 46px;
+    height: 38px;
+    width: 38px;
 }
 .clock-option {
     display: none;
@@ -430,106 +504,64 @@ input[type=checkbox] {
 
 
 /* XP and HARMS ICONS */
-.xp-icon-container, .harms-icon-container {
-    position: relative;
+.line.progress-points {
+    justify-content: flex-start;
+}
+.progress-points-container {
+    width: 190px;
+    margin-left: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
 }
 
-.xp-icon, .harms-icon {
-    border: 2px solid var(--the-breach-black);
-}
-
-.xp-icon, .reset-xp-icon,
-.harms-icon, .reset-harms-icon {
-    position: absolute;
-    cursor: pointer;
-    border-radius: 50%;
+.progress-point, .reset-progress-points {
+    appearance: none;
     background: var(--the-breach-white);
 }
 
-.xp-icon, .xp-radio,
-.harms-icon, .harms-radio {
-    width: 20px !important;
-    height: 20px !important;
+.progress-point {
+    border: 2px solid var(--the-breach-black);
+    width: 18px !important;
+    height: 18px !important;
 }
 
-/* xp icon positioning */
-.xp-icon.xp-1, .harms-icon.harms-1 {
-    left: 0;
+.progress-point.round, .reset-progress-points {
+    border-radius: 50% !important;
 }
-.xp-icon.xp-2, .harms-icon.harms-2 {
-    left: 23%;
-}
-.xp-icon.xp-3, .harms-icon.harms-3 {
-    left: 47%;
-}
-.xp-icon.xp-4, .harms-icon.harms-4 {
-    left: 70%;
-}
-.xp-icon.xp-5, .harms-icon.harms-5 {
-    right: 0;
+.progress-point.square {
+    transform: rotate(135deg);
 }
 
-/* xp icon color */
-.xp-radio[value="1"]:checked ~ .xp-icon.xp-1,
-.xp-radio[value="2"]:checked ~ .xp-icon.xp-1,
-.xp-radio[value="3"]:checked ~ .xp-icon.xp-1,
-.xp-radio[value="4"]:checked ~ .xp-icon.xp-1,
-.xp-radio[value="5"]:checked ~ .xp-icon.xp-1,
-.xp-radio[value="2"]:checked ~ .xp-icon.xp-2,
-.xp-radio[value="3"]:checked ~ .xp-icon.xp-2,
-.xp-radio[value="4"]:checked ~ .xp-icon.xp-2,
-.xp-radio[value="5"]:checked ~ .xp-icon.xp-2,
-.xp-radio[value="3"]:checked ~ .xp-icon.xp-3,
-.xp-radio[value="4"]:checked ~ .xp-icon.xp-3,
-.xp-radio[value="5"]:checked ~ .xp-icon.xp-3,
-.xp-radio[value="4"]:checked ~ .xp-icon.xp-4,
-.xp-radio[value="5"]:checked ~ .xp-icon.xp-4,
-.xp-radio[value="5"]:checked ~ .xp-icon.xp-5,
-.harms-radio[value="1"]:checked ~ .harms-icon.harms-1,
-.harms-radio[value="2"]:checked ~ .harms-icon.harms-1,
-.harms-radio[value="3"]:checked ~ .harms-icon.harms-1,
-.harms-radio[value="4"]:checked ~ .harms-icon.harms-1,
-.harms-radio[value="5"]:checked ~ .harms-icon.harms-1,
-.harms-radio[value="2"]:checked ~ .harms-icon.harms-2,
-.harms-radio[value="3"]:checked ~ .harms-icon.harms-2,
-.harms-radio[value="4"]:checked ~ .harms-icon.harms-2,
-.harms-radio[value="5"]:checked ~ .harms-icon.harms-2,
-.harms-radio[value="3"]:checked ~ .harms-icon.harms-3,
-.harms-radio[value="4"]:checked ~ .harms-icon.harms-3,
-.harms-radio[value="5"]:checked ~ .harms-icon.harms-3,
-.harms-radio[value="4"]:checked ~ .harms-icon.harms-4,
-.harms-radio[value="5"]:checked ~ .harms-icon.harms-4,
-.harms-radio[value="5"]:checked ~ .harms-icon.harms-5 {
-    outline: 6px solid var(--accent-color);
-    outline-offset: -15px;
+/* xp and harms icon color */
+.progress-point:checked,
+.progress[value="2"] ~ .progress-point[value="1"],
+.progress[value="3"] ~ .progress-point[value="1"],
+.progress[value="4"] ~ .progress-point[value="1"],
+.progress[value="5"] ~ .progress-point[value="1"],
+.progress[value="3"] ~ .progress-point[value="2"],
+.progress[value="4"] ~ .progress-point[value="2"],
+.progress[value="5"] ~ .progress-point[value="2"],
+.progress[value="4"] ~ .progress-point[value="3"],
+.progress[value="5"] ~ .progress-point[value="3"],
+.progress[value="5"] ~ .progress-point[value="4"] {
+    background-color: var(--the-breach-accent-color);
 }
+
 
 /* RESET XP and HARMS ICON */
-
-.xp-radio-zero, .harms-radio-zero {
-    position: absolute;
-}
-
-.reset-xp-icon, .reset-harms-icon {
-    display: inline-block;
+.reset-progress-points {
     border: 1px solid var(--the-breach-black);
-}
-
-.xp-radio-zero, .reset-xp-icon,
-.harms-radio-zero, .reset-harms-icon {
-    top: 5px;
-    left: -35px;
     width: 11px !important;
     height: 11px !important;
 }
 
-.xp-radio-zero:checked + .reset-xp-icon,
-.harms-radio-zero:checked + .reset-harms-icon {
+.reset-progress-points:checked {
     visibility: hidden;
 }
 
-.reset-xp-icon::before, .reset-xp-icon::after,
-.reset-harms-icon::before, .reset-harms-icon::after {
+.reset-progress-points::before,
+.reset-progress-points::after {
     position: absolute;
     width: 1px;
     content: "";
@@ -537,10 +569,10 @@ input[type=checkbox] {
     background: var(--the-breach-black);
     height: 11px;
 }
-.reset-xp-icon::before, .reset-harms-icon::before {
+.reset-progress-points::before {
     transform: translate(4px, -1px) rotate(45deg);
 }
-.reset-xp-icon::after, .reset-harms-icon::after {
+.reset-progress-points::after {
     transform: translate(4px, -1px) rotate(135deg);
 }
 
@@ -555,9 +587,7 @@ input[type=checkbox] {
     font-weight: bold;
 }
 
-.dice-pool:focus-visible {
-    outline: none;
-}
+
 
 
 
