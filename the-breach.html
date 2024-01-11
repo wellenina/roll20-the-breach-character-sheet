@@ -652,8 +652,8 @@
                 <input type="hidden" name="attr_bonus_query" value="?{Add Bonus Die|No, + 0|D12, + 1d12 |D10, + 1d10 |D8, + 1d8 |D6, + 1d6 |D4, + 1d4}"/>
             <!-- end HIDDEN VALUES -->
 
-            <!-- explaination / warning text -->
-            <!-- <p class="roll-explaination">To roll, choose an approach</p> -->
+            <!-- title -->
+            <h3>Assemble your dice pool</h3>
             <!-- dice pool text -->
             <span name="attr_dice-pool" value="" class="dice-pool"></span>
             <div class="buttons">
@@ -793,7 +793,6 @@
     }
 
     function setDicePoolText(textContent) {
-        console.log("setting text to: " + textContent);
         setAttrs({
             ['dice-pool']: textContent
         });
