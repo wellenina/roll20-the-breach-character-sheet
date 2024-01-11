@@ -51,7 +51,8 @@ h3.with-margins {
     width: 100%;
     padding: 0 1rem;
 }
-.row-container, .line, .line-content, .text-line, .die-selection-container {
+.row-container, .line, .line-content, .weapons,
+.trait-checkboxes, .die-selection-container, .progress-points-container {
     display: flex;
     justify-content: space-between;
 }
@@ -86,17 +87,37 @@ h3.with-margins {
 .weapons, .roll-section {
     width: 100%;
 }
-.weapons {
-    display: flex;
-    column-gap: 3rem;
-}
 .weapon-column {
-    width: 48.6%;
+    width: 48.8%;
+}
+
+.weapon-info {
+    border: 2px solid var(--the-breach-black);
+    border-radius: 2px;
+    margin-top: 1rem;
+}
+.text-line {
+    display: flex;
+}
+.text-line + .text-line {
+    border-top: 1px dashed darkgray;
+}
+.weapon-info span {
+    display: block;
+    width: 35%;
+    height: 26px;
+    padding: 4px;
+    background-color: var(--the-breach-white);
+    border-right: 1px solid darkgray;
+}
+.text-row {
+    width: 100%;
+    border-radius: 0 !important;
 }
 
 /* single rows */
 .line + .line {
-    margin-top: 0.8rem;
+    margin-top: 8px;
 }
 
 .line {
@@ -116,6 +137,10 @@ h3.with-margins {
     margin-left: 1.5rem;
 }
 
+.approach-title {
+    width: 16%;
+}
+
 .line-content {
 	width: 70%;
 }
@@ -128,40 +153,50 @@ label {
 
 /* INPUT */
 input {
-    width: 100%;
     min-width: 0;
 }
 
 input, select {
     z-index: 2;
 }
-input[type=text], select {
+input[type=text], textarea, select {
+    color: var(--the-breach-black);
     background-color: var(--the-breach-white);
     border-radius: 2px;
-    border: none;
 }
 
-input:focus, input:focus-visible, select:focus-visible {
+input:focus, input:focus-visible, textarea:focus-visible, select:focus-visible {
     outline: none !important;
 }
 
-input[type=text] {
+input[type=text], textarea, .weapon-info span {
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
     font-style: italic;
     font-size: 14px;
-    height: 26px !important;
 }
 
+input[type=text] {
+    height: 26px !important;
+    border: none;
+}
 .cloak input[type=text] {
     width: 40%;
 }
 .item input[type=text] {
-    width: 30%;
+    width: 42%;
 }
 
-select, button, label {
-    font-family: 'Space Grotesk', sans-serif;
+textarea {
+    width: 100% !important;
+    height: 154px !important;
+    margin: 0;
+    border: 2px solid var(--the-breach-black);
+    line-height: 1.7;
+}
+
+select, label {
+    font-family: 'Space Grotesk', sans-serif !important;
     font-size: 12px !important;
     color: var(--the-breach-black) !important;
 }
@@ -173,8 +208,9 @@ select {
     cursor: pointer;
     width: min-content;
     height: 26px;
+    border: none;
 }
-select.select-dice {
+.die-selection-container select {
     padding: 0;
 }
 select.select-clock {
@@ -194,52 +230,53 @@ input[type=checkbox]:checked {
 }
 
 .trait-checkboxes {
-    display: flex;
     flex-direction: column;
-    justify-content: space-between;
     margin-left: 0.6rem;
 }
 
-/* TEXT AREA ROWS */
-.text-row {
-    border-bottom: 1px dashed darkgray !important;
-}
-.text-row:disabled {
-    border-color: darkgray;
-    width: 24%;
-    border-right: 1px solid darkgray;
-}
 
 /* TOOLTIPS */
-.approach-tooltip {
+.tooltip-container {
     position: relative;
-    width: 16%;
 }
+
 .tooltiptext {
     visibility: hidden;
-    width: 340%;
     position: absolute;
-    left: 30%;
     z-index: 3;
     padding: 0.6rem 1rem;
     border-radius: 3px;
     background-color: var(--the-breach-black);
-    color: var(--the-breach-white);
+    color: var(--the-breach-white) !important;
     font-family: 'Space Grotesk', sans-serif;
     text-wrap: wrap;
     text-transform: none;
 }
 
-.approach-tooltip:hover > .tooltiptext {
+.approach-title .tooltiptext {
+    width: 340%;
+    left: 30%;
+}
+
+.approach-title.tooltip-container:hover > .tooltiptext {
     visibility: visible;
 }
 
 /* BUTTONS */
 button {
-    border: 2px solid var(--the-breach-black);
-    border-radius: 999rem;
-    background-color: var(--the-breach-white);
+    font-family: 'Space Grotesk', sans-serif !important;
+    color: var(--the-breach-black) !important;
+
+    border: 2px solid var(--the-breach-black) !important;
+    border-radius: 999rem !important;
+    background-color: var(--the-breach-white) !important;
+    background-image: none !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+}
+button.add-die {
     margin-left: 0.6rem;
+    font-size: 12px !important;
 }
 
 /* ICONS */
@@ -510,8 +547,6 @@ button {
 .progress-points-container {
     width: 190px;
     margin-left: 2rem;
-    display: flex;
-    justify-content: space-between;
     align-items: end;
 }
 
@@ -577,34 +612,54 @@ button {
 }
 
 
+/* ROLL SECTION */
+
+.roll-section * {
+    font-family: 'Space Grotesk', sans-serif;
+    color: var(--the-breach-black);
+}
+
 /* DICE POOL TEXT */
 .dice-pool {
     display: block;
     height: 50px;
-    border: 1px solid var(--the-breach-black);
+    border: 2px solid var(--the-breach-black);
 
     font-size: larger;
     font-weight: bold;
+
+    padding: 0.6rem;
 }
 
-
-
-
-
-.roll-explaination {
-    background-color: green;
-    padding: 5px;
-    border-radius: 3px;
-}
-.selected-approach-die[value="0"] ~ .roll-explaination {
-    background-color: red;
+.buttons {
+    margin-top: 1.5rem;
+    text-align: center;
+    position: relative;
 }
 
 button[type=roll] {
-    background: green;
+    padding: 1rem 2rem !important;
+    font-size: 16px !important;
 }
 
-.selected-approach-die[value="0"] ~ button[type=roll] {
+.clear-button {
+    height: fit-content;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+/* if NO approach is selected */
+.selected-approach-die[value="0"] ~ .buttons button[type=roll] {
     pointer-events: none;
-    background: red;
+    background: var(--the-breach-accent-color) !important;
+    color: var(--the-breach-white) !important;
+}
+.roll-section .tooltiptext {
+    width: 200px;
+    left: 50%;
+    top: -40px;
+}
+.selected-approach-die[value="0"] ~ .buttons .tooltip-container:hover > .tooltiptext {
+    visibility: visible;
 }
