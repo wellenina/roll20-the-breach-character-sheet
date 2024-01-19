@@ -16,8 +16,8 @@
             </div>
 
             <div class="line rectangular">
-                <h3>Pronoun</h3>
-                <input type="text" spellcheck="false" name="attr_pronoun" class="line-content">
+                <h3>Pronouns</h3>
+                <input type="text" spellcheck="false" name="attr_pronouns" class="line-content">
             </div>
 
             <div class="line rectangular">
@@ -52,6 +52,7 @@
         <div class="section larger">
 
             <!-- aware approach -->
+            <input type="hidden" name="attr_selectable-aware-die" value="0" class="selectable-die">
             <div class="line rounded">
 
                 <img src="https://github.com/wellenina/roll20-the-breach-character-sheet/blob/main/Assets/icon-approach-aware.png?raw=true" class="approach-icon">
@@ -63,22 +64,22 @@
                 <div class="die-selection-container">
                     <label for="attr_aware_initial_die">Initial</label>
                     <select name="attr_aware_initial_die">
-                        <option value="1d12" selected>D12</option>
-                        <option value="1d10">D10</option>
-                        <option value="1d8">D8</option>
-                        <option value="1d6">D6</option>
-                        <option value="1d4">D4</option>
+                        <option value="12" selected>D12</option>
+                        <option value="10">D10</option>
+                        <option value="8">D8</option>
+                        <option value="6">D6</option>
+                        <option value="4">D4</option>
                     </select>
                 </div>
 
                 <div class="die-selection-container">
                     <label for="attr_aware_current_die">Current</label>
                     <select name="attr_aware_current_die">
-                        <option value="1d12" selected>D12</option>
-                        <option value="1d10">D10</option>
-                        <option value="1d8">D8</option>
-                        <option value="1d6">D6</option>
-                        <option value="1d4">D4</option>
+                        <option value="12" selected>D12</option>
+                        <option value="10">D10</option>
+                        <option value="8">D8</option>
+                        <option value="6">D6</option>
+                        <option value="4">D4</option>
                     </select>
 
                     <button type="action" name="act_addapproachaware" class="add-die">Add</button>
@@ -99,6 +100,7 @@
             </div>
 
             <!-- mighty approach -->
+            <input type="hidden" name="attr_selectable-mighty-die" value="0" class="selectable-die">
             <div class="line rounded">
                 <img src="https://github.com/wellenina/roll20-the-breach-character-sheet/blob/main/Assets/icon-approach-mighty.png?raw=true" class="approach-icon">
                 <h3 class="approach-title tooltip-container">
@@ -109,22 +111,22 @@
                 <div class="die-selection-container">
                     <label for="attr_mighty_initial_die">Initial</label>
                     <select name="attr_mighty_initial_die">
-                        <option value="1d12" selected>D12</option>
-                        <option value="1d10">D10</option>
-                        <option value="1d8">D8</option>
-                        <option value="1d6">D6</option>
-                        <option value="1d4">D4</option>
+                        <option value="12" selected>D12</option>
+                        <option value="10">D10</option>
+                        <option value="8">D8</option>
+                        <option value="6">D6</option>
+                        <option value="4">D4</option>
                     </select>
                 </div>
 
                 <div class="die-selection-container">
                     <label for="attr_mighty_current_die">Current</label>
                     <select name="attr_mighty_current_die">
-                        <option value="1d12" selected>D12</option>
-                        <option value="1d10">D10</option>
-                        <option value="1d8">D8</option>
-                        <option value="1d6">D6</option>
-                        <option value="1d4">D4</option>
+                        <option value="12" selected>D12</option>
+                        <option value="10">D10</option>
+                        <option value="8">D8</option>
+                        <option value="6">D6</option>
+                        <option value="4">D4</option>
                     </select>
 
                     <button type="action" name="act_addapproachmighty" class="add-die">Add</button>
@@ -145,6 +147,7 @@
             </div>
 
             <!-- quick approach -->
+            <input type="hidden" name="attr_selectable-quick-die" value="0" class="selectable-die">
             <div class="line rounded">
                 <img src="https://github.com/wellenina/roll20-the-breach-character-sheet/blob/main/Assets/icon-approach-quick.png?raw=true" class="approach-icon">
                 <h3 class="approach-title tooltip-container">
@@ -155,22 +158,22 @@
                 <div class="die-selection-container">
                     <label for="attr_quick_initial_die">Initial</label>
                     <select name="attr_quick_initial_die">
-                        <option value="1d12" selected>D12</option>
-                        <option value="1d10">D10</option>
-                        <option value="1d8">D8</option>
-                        <option value="1d6">D6</option>
-                        <option value="1d4">D4</option>
+                        <option value="12" selected>D12</option>
+                        <option value="10">D10</option>
+                        <option value="8">D8</option>
+                        <option value="6">D6</option>
+                        <option value="4">D4</option>
                     </select>
                 </div>
 
                 <div class="die-selection-container">
                     <label for="attr_quick_current_die">Current</label>
                     <select name="attr_quick_current_die">
-                        <option value="1d12" selected>D12</option>
-                        <option value="1d10">D10</option>
-                        <option value="1d8">D8</option>
-                        <option value="1d6">D6</option>
-                        <option value="1d4">D4</option>
+                        <option value="12" selected>D12</option>
+                        <option value="10">D10</option>
+                        <option value="8">D8</option>
+                        <option value="6">D6</option>
+                        <option value="4">D4</option>
                     </select>
 
                     <button type="action" name="act_addapproachquick" class="add-die">Add</button>
@@ -191,6 +194,7 @@
             </div>
 
             <!-- sneaky approach -->
+            <input type="hidden" name="attr_selectable-sneaky-die" value="0" class="selectable-die">
             <div class="line rounded">
                 <img src="https://github.com/wellenina/roll20-the-breach-character-sheet/blob/main/Assets/icon-approach-sneaky.png?raw=true" class="approach-icon">
                 <h3 class="approach-title tooltip-container">
@@ -201,22 +205,22 @@
                 <div class="die-selection-container">
                     <label for="attr_sneaky_initial_die">Initial</label>
                     <select name="attr_sneaky_initial_die">
-                        <option value="1d12" selected>D12</option>
-                        <option value="1d10">D10</option>
-                        <option value="1d8">D8</option>
-                        <option value="1d6">D6</option>
-                        <option value="1d4">D4</option>
+                        <option value="12" selected>D12</option>
+                        <option value="10">D10</option>
+                        <option value="8">D8</option>
+                        <option value="6">D6</option>
+                        <option value="4">D4</option>
                     </select>
                 </div>
 
                 <div class="die-selection-container">
                     <label for="attr_sneaky_current_die">Current</label>
                     <select name="attr_sneaky_current_die">
-                        <option value="1d12" selected>D12</option>
-                        <option value="1d10">D10</option>
-                        <option value="1d8">D8</option>
-                        <option value="1d6">D6</option>
-                        <option value="1d4">D4</option>
+                        <option value="12" selected>D12</option>
+                        <option value="10">D10</option>
+                        <option value="8">D8</option>
+                        <option value="6">D6</option>
+                        <option value="4">D4</option>
                     </select>
 
                     <button type="action" name="act_addapproachsneaky" class="add-die">Add</button>
@@ -259,28 +263,29 @@
 
         <!-- STAMINA -->
         <div class="section half">
+            <input type="hidden" name="attr_selectable-stamina-die" value="0" class="selectable-die">
             <div class="line rectangular">
                 <h3>Stamina</h3>
 
                 <div class="die-selection-container">
                     <label for="attr_stamina_initial_die">Initial</label>
                     <select name="attr_stamina_initial_die">
-                        <option value="1d12" selected>D12</option>
-                        <option value="1d10">D10</option>
-                        <option value="1d8">D8</option>
-                        <option value="1d6">D6</option>
-                        <option value="1d4">D4</option>
+                        <option value="12" selected>D12</option>
+                        <option value="10">D10</option>
+                        <option value="8">D8</option>
+                        <option value="6">D6</option>
+                        <option value="4">D4</option>
                     </select>
                 </div>
 
                 <div class="die-selection-container">
                     <label for="attr_stamina_current_die">Current</label>
                     <select name="attr_stamina_current_die">
-                        <option value="1d12" selected>D12</option>
-                        <option value="1d10">D10</option>
-                        <option value="1d8">D8</option>
-                        <option value="1d6">D6</option>
-                        <option value="1d4">D4</option>
+                        <option value="12" selected>D12</option>
+                        <option value="10">D10</option>
+                        <option value="8">D8</option>
+                        <option value="6">D6</option>
+                        <option value="4">D4</option>
                     </select>
                     
                     <button type="action" name="act_addstamina" class="add-die">Add</button>
@@ -363,13 +368,16 @@
             <div class="line rectangular progress-points">
                 <h3>Harms</h3>
                 <div class="progress-points-container">
-                    <input type="hidden" name="attr_harms" value="" class="progress">
+                    <input type="hidden" name="attr_harms" value="" class="progress harms-points">
                     <input type="radio" name="attr_harms" value="0" class="reset-progress-points" checked>
                     <input type="radio" name="attr_harms" value="1" class="progress-point round">
                     <input type="radio" name="attr_harms" value="2" class="progress-point round">
                     <input type="radio" name="attr_harms" value="3" class="progress-point round">
                     <input type="radio" name="attr_harms" value="4" class="progress-point round">
                     <input type="radio" name="attr_harms" value="5" class="progress-point round">
+
+                    <!-- SAVE ROLL BUTTON -->
+                    <button type="roll" value="/roll { @{harms}d@{stamina_current_die} }kl1" name="roll_SaveRoll" class="save-roll">Save Roll</button>
                 </div>
             </div>
 
@@ -404,64 +412,72 @@
             </div>
 
             <h3 class="with-margins">Items</h3>
+
+            <input type="hidden" name="attr_selectable-item-1-die" value="0" class="selectable-die">
             <div class="line rectangular item">
                 <input type="text" spellcheck="false" name="attr_item_1">
 
                 <div class="die-selection-container">
                     <label for="attr_item_1_initial_die">Initial</label>
                     <select name="attr_item_1_initial_die">
-                        <option value="1d12" selected>D12</option>
-                        <option value="1d10">D10</option>
-                        <option value="1d8">D8</option>
-                        <option value="1d6">D6</option>
-                        <option value="1d4">D4</option>
+                        <option value="12" selected>D12</option>
+                        <option value="10">D10</option>
+                        <option value="8">D8</option>
+                        <option value="6">D6</option>
+                        <option value="4">D4</option>
                     </select>
                 </div>
 
                 <div class="die-selection-container">
-                    <label for="attr_item_1_current_die">Current</label>
-                    <select name="attr_item_1_current_die">
-                        <option value="1d12" selected>D12</option>
-                        <option value="1d10">D10</option>
-                        <option value="1d8">D8</option>
-                        <option value="1d6">D6</option>
-                        <option value="1d4">D4</option>
+                    <label for="attr_cons-item_1_current_die">Current</label>
+                    <select name="attr_cons-item_1_current_die">
+                        <option value="12" selected>D12</option>
+                        <option value="10">D10</option>
+                        <option value="8">D8</option>
+                        <option value="6">D6</option>
+                        <option value="4">D4</option>
+                        <option value="0">0</option>
                     </select>
 
+                    <input name="attr_cons-item_1_current_die" type="hidden" class="consumable-object">
                     <button type="action" name="act_additem1" class="add-die">Add</button>
                 </div>
 
             </div>
 
+            <input type="hidden" name="attr_selectable-item-2-die" value="0" class="selectable-die">
             <div class="line rectangular item">
                 <input type="text" spellcheck="false" name="attr_item_2">
 
                 <div class="die-selection-container">
                     <label for="attr_item_2_initial_die">Initial</label>
                     <select name="attr_item_2_initial_die">
-                        <option value="1d12" selected>D12</option>
-                        <option value="1d10">D10</option>
-                        <option value="1d8">D8</option>
-                        <option value="1d6">D6</option>
-                        <option value="1d4">D4</option>
+                        <option value="12" selected>D12</option>
+                        <option value="10">D10</option>
+                        <option value="8">D8</option>
+                        <option value="6">D6</option>
+                        <option value="4">D4</option>
                     </select>
                 </div>
 
                 <div class="die-selection-container">
-                    <label for="attr_item_2_current_die">Current</label>
-                    <select name="attr_item_2_current_die">
-                        <option value="1d12" selected>D12</option>
-                        <option value="1d10">D10</option>
-                        <option value="1d8">D8</option>
-                        <option value="1d6">D6</option>
-                        <option value="1d4">D4</option>
+                    <label for="attr_cons-item_2_current_die">Current</label>
+                    <select name="attr_cons-item_2_current_die">
+                        <option value="12" selected>D12</option>
+                        <option value="10">D10</option>
+                        <option value="8">D8</option>
+                        <option value="6">D6</option>
+                        <option value="4">D4</option>
+                        <option value="0">0</option>
                     </select>
 
+                    <input name="attr_cons-item_2_current_die" type="hidden" class="consumable-object">
                     <button type="action" name="act_additem2" class="add-die">Add</button>
                 </div>
 
             </div>
 
+            <input type="hidden" name="attr_selectable-item-3-die" value="0" class="selectable-die">
             <div class="line rectangular item">
 
                 <input type="text" spellcheck="false" name="attr_item_3">
@@ -469,24 +485,26 @@
                 <div class="die-selection-container">
                     <label for="attr_item_3_initial_die">Initial</label>
                     <select name="attr_item_3_initial_die">
-                        <option value="1d12" selected>D12</option>
-                        <option value="1d10">D10</option>
-                        <option value="1d8">D8</option>
-                        <option value="1d6">D6</option>
-                        <option value="1d4">D4</option>
+                        <option value="12" selected>D12</option>
+                        <option value="10">D10</option>
+                        <option value="8">D8</option>
+                        <option value="6">D6</option>
+                        <option value="4">D4</option>
                     </select>
                 </div>
 
                 <div class="die-selection-container">
-                    <label for="attr_item_3_current_die">Current</label>
-                    <select name="attr_item_3_current_die">
-                        <option value="1d12" selected>D12</option>
-                        <option value="1d10">D10</option>
-                        <option value="1d8">D8</option>
-                        <option value="1d6">D6</option>
-                        <option value="1d4">D4</option>
+                    <label for="attr_cons-item_3_current_die">Current</label>
+                    <select name="attr_cons-item_3_current_die">
+                        <option value="12" selected>D12</option>
+                        <option value="10">D10</option>
+                        <option value="8">D8</option>
+                        <option value="6">D6</option>
+                        <option value="4">D4</option>
+                        <option value="0">0</option>
                     </select>
                     
+                    <input name="attr_cons-item_3_current_die" type="hidden" class="consumable-object">
                     <button type="action" name="act_additem3" class="add-die">Add</button>
                 </div>
 
@@ -504,29 +522,33 @@
 
             <div class="weapon-column"> <!-- gutter column -->
 
+                <input type="hidden" name="attr_selectable-gutter-die" value="0" class="selectable-die">
                 <div class="line rectangular">
                     <h3>Gutter</h3>
 
                     <div class="die-selection-container">
                         <label for="attr_gutter_initial_die">Initial</label>
                         <select name="attr_gutter_initial_die">
-                            <option value="1d12" selected>D12</option>
-                            <option value="1d10">D10</option>
-                            <option value="1d8">D8</option>
-                            <option value="1d6">D6</option>
-                            <option value="1d4">D4</option>
+                            <option value="12" selected>D12</option>
+                            <option value="10">D10</option>
+                            <option value="8">D8</option>
+                            <option value="6">D6</option>
+                            <option value="4">D4</option>
                         </select>
                     </div>
 
                     <div class="die-selection-container">
-                        <label for="attr_gutter_current_die">Current</label>
-                        <select name="attr_gutter_current_die">
-                            <option value="1d12" selected>D12</option>
-                            <option value="1d10">D10</option>
-                            <option value="1d8">D8</option>
-                            <option value="1d6">D6</option>
-                            <option value="1d4">D4</option>
+                        <label for="attr_cons-gutter_current_die">Current</label>
+                        <select name="attr_cons-gutter_current_die">
+                            <option value="12" selected>D12</option>
+                            <option value="10">D10</option>
+                            <option value="8">D8</option>
+                            <option value="6">D6</option>
+                            <option value="4">D4</option>
+                            <option value="0">0</option>
                         </select>
+
+                        <input name="attr_cons-gutter_current_die" type="hidden" class="consumable-object">
                         <button type="action" name="act_addgutter" class="add-die">Add</button>
                     </div>
 
@@ -567,30 +589,33 @@
 
             <div class="weapon-column"> <!-- disintegrator column -->
 
+                <input type="hidden" name="attr_selectable-disintegrator-die" value="0" class="selectable-die">
                 <div class="line rectangular">
                     <h3>Disintegrator</h3>
 
                     <div class="die-selection-container">
                         <label for="attr_disintegrator_initial_die">Initial</label>
                         <select name="attr_disintegrator_initial_die">
-                            <option value="1d12" selected>D12</option>
-                            <option value="1d10">D10</option>
-                            <option value="1d8">D8</option>
-                            <option value="1d6">D6</option>
-                            <option value="1d4">D4</option>
+                            <option value="12" selected>D12</option>
+                            <option value="10">D10</option>
+                            <option value="8">D8</option>
+                            <option value="6">D6</option>
+                            <option value="4">D4</option>
                         </select>
                     </div>
 
                     <div class="die-selection-container">
-                        <label for="attr_disintegrator_current_die">Current</label>
-                        <select name="attr_disintegrator_current_die">
-                            <option value="1d12" selected>D12</option>
-                            <option value="1d10">D10</option>
-                            <option value="1d8">D8</option>
-                            <option value="1d6">D6</option>
-                            <option value="1d4">D4</option>
+                        <label for="attr_cons-disintegrator_current_die">Current</label>
+                        <select name="attr_cons-disintegrator_current_die">
+                            <option value="12" selected>D12</option>
+                            <option value="10">D10</option>
+                            <option value="8">D8</option>
+                            <option value="6">D6</option>
+                            <option value="4">D4</option>
+                            <option value="0">0</option>
                         </select>
 
+                        <input name="attr_cons-disintegrator_current_die" type="hidden" class="consumable-object">
                         <button type="action" name="act_adddisintegrator" class="add-die">Add</button>
                     </div>
 
@@ -636,16 +661,12 @@
     <div class="row-container">
         <div class="section roll-section">
             <!-- HIDDEN VALUES -->
+
                 <!-- 1 approach die - required -->
-                <input type="hidden" name="attr_approach-die" value="0" class="selected-approach-die">
-                <!-- 1 stamina die - optional -->
-                <input type="hidden" name="attr_stamina-die" value="0">
-                <!-- 1 to 5 item or weapon die - optional -->
-                <input type="hidden" name="attr_item-1-die" value="0">
-                <input type="hidden" name="attr_item-2-die" value="0">
-                <input type="hidden" name="attr_item-3-die" value="0">
-                <input type="hidden" name="attr_gutter-die" value="0">
-                <input type="hidden" name="attr_disintegrator-die" value="0">
+                <input type="hidden" name="attr_approach-die-value" value="0" class="selected-approach-die">
+                <!-- DICE POOL VALUES -->
+                <input type="hidden" name="attr_dice-pool-value" value="0">
+
                 <!-- 1 help from another player - optional -->
                 <input type="hidden" name="attr_help_query" value="?{Add Help Die|No, + 0|D12, + 1d12 |D10, + 1d10 |D8, + 1d8 |D6, + 1d6 |D4, + 1d4}"/>
                 <!-- 1 bonus - optional -->
@@ -655,14 +676,21 @@
             <!-- title -->
             <h3>Assemble your dice pool</h3>
             <!-- dice pool text -->
-            <span name="attr_dice-pool" value="" class="dice-pool"></span>
+            <div class="dice-pool">
+                <span name="attr_approach-die-text" value=""></span>
+                <span name="attr_dice-pool-text" value=""></span>
+            </div>
+
             <div class="buttons">
 
                 <div class="tooltip-container">
                     <!-- roll button -->
-                    <button type="roll" value="/roll { @{approach-die} + @{stamina-die} + @{item-1-die} + @{item-2-die} + @{item-3-die} + @{gutter-die} + @{disintegrator-die} @{help_query} @{bonus_query} }kh1" name="roll_ReactionRoll">Reaction Roll!</button>
+                    <button type="roll" value="/roll { @{approach-die-value} + @{dice-pool-value} @{help_query} @{bonus_query} }kh1" name="roll_ReactionRoll" class="reaction-roll">Reaction Roll!</button>
                     <p class="tooltiptext">In order to roll, you need to choose an approach</p>
                 </div>
+
+                                <!-- reduce dice size button -->
+                                <button type="action" name="act_updateDiceSize" class="reduce-size-button">Reduce Dice Size</button>
 
                 <!-- clear dice pool button -->
                 <button type="action" name="act_clear" class="clear-button">Clear</button>
@@ -674,133 +702,256 @@
 
 <script type="text/worker">
 
-    // reset the clock when changing clock size
-    on("change:cloak-clock-size", function() {
-        setToZero('cloak-clock-4');
-        setToZero('cloak-clock-6');
-        setToZero('cloak-clock-8');
+    const selectableDice = ['selectable-aware-die', 'selectable-mighty-die', 'selectable-quick-die', 'selectable-sneaky-die',
+    'selectable-item-1-die', 'selectable-item-2-die', 'selectable-item-3-die',
+    'selectable-gutter-die', 'selectable-disintegrator-die', 'selectable-stamina-die']
+
+on('sheet:opened',function(){
+    selectableDice.forEach(setToZero);
+    //deselectDice();
+    //deselectApproach();
+    clearDicePool();
+    clearApproach();
+});
+
+// reset the clock when changing clock size
+on("change:cloak-clock-size", function() {
+    setToZero('cloak-clock-4');
+    setToZero('cloak-clock-6');
+    setToZero('cloak-clock-8');
+});
+
+function setToZero(attribute) {
+    setAttrs({
+        [attribute]: 0
     });
+}
 
 
-    // add approach die
-    on("clicked:addapproachaware", function() {
-        addDie('aware_current_die', 'approach-die');
-    });
-    on("clicked:addapproachmighty", function() {
-        addDie('mighty_current_die', 'approach-die');
-    });
-    on("clicked:addapproachquick", function() {
-        addDie('quick_current_die', 'approach-die');
-    });
-    on("clicked:addapproachsneaky", function() {
-        addDie('sneaky_current_die', 'approach-die');
-    });
+// APPROACH
 
-    // add item die
-    on("clicked:additem1", function() {
-        addDie('item_1_current_die', 'item-1-die');
-    });
-    on("clicked:additem2", function() {
-        addDie('item_2_current_die', 'item-2-die');
-    });
-    on("clicked:additem3", function() {
-        addDie('item_3_current_die', 'item-3-die');
-    });
+// add approach die
+on("clicked:addapproachaware", function() {
+    addApproach('aware_current_die', 'Aware');
+    highlightApproach('selectable-aware-die');
+});
+on("clicked:addapproachmighty", function() {
+    addApproach('mighty_current_die', 'Mighty');
+    highlightApproach('selectable-mighty-die');
+});
+on("clicked:addapproachquick", function() {
+    addApproach('quick_current_die', 'Quick');
+    highlightApproach('selectable-quick-die');
+});
+on("clicked:addapproachsneaky", function() {
+    addApproach('sneaky_current_die', 'Sneaky');
+    highlightApproach('selectable-sneaky-die');
+});
 
-    // add weapon die
-    on("clicked:addgutter", function() {
-        addDie('gutter_current_die', 'gutter-die');
-    });
-    on("clicked:adddisintegrator", function() {
-        addDie('disintegrator_current_die', 'disintegrator-die');
-    });
+// currently selected approach die value-attr (size to be reduced)
+let selectedApproachDieValueAttr = "";
+// currently highlighted approach
+let highlightedApproach = "";
 
-    // add stamina die
-    on("clicked:addstamina", function() {
-        addDie('stamina_current_die', 'stamina-die');
-        
+function addApproach(dieValueAttr, approachName) {
+    selectedApproachDieValueAttr = dieValueAttr;
+    // gets the value of the die for the ROLL
+    getAttrs([dieValueAttr], function(values) {
+        let dieValueString = "1D" + values[dieValueAttr];
+        setAttrs({
+            ['approach-die-value']: dieValueString
+        });
+        // updates text:
+        setAttrs({
+            ['approach-die-text']: "Approach " + approachName + ": " + dieValueString + ", "
+        });
     });
+}
 
-    function addDie(attrToGet, attrToSet) {
-        getAttrs([attrToGet], function(values) {
-            let die = values[attrToGet];
-            setAttrs({
-                [attrToSet]: die
-            });
-            updateDicePoolText();
-        })
+function highlightApproach(attribute) {
+    deselectApproach();
+    setAttrs({
+        [attribute]: "selected"
+    });
+    highlightedApproach = attribute;
+}
+
+function deselectApproach() {
+    if (highlightedApproach != "") {
+        setToZero(highlightedApproach);
     }
+    highlightedApproach = "";
+}
 
-
-    // clear dice pool
-    on("clicked:clear", function() {
-        setToZero('approach-die');
-        setToZero('stamina-die');
-        setToZero('item-1-die');
-        setToZero('item-2-die');
-        setToZero('item-3-die');
-        setToZero('gutter-die');
-        setToZero('disintegrator-die');
-        setToZero('help-die');
-
-        setDicePoolText(' ');
+function clearApproach() {
+    setToZero('approach-die-value');
+    setAttrs({
+        ['approach-die-text']: " "
     });
+    selectedApproachDieValueAttr = "";
+}
 
 
-    // update text
-    function updateDicePoolText() {
-        let dicePoolText = '';
+// ASSEMBLE DICE POOL
+
+// add item die
+on("clicked:additem1", function() {
+    getAttrs(['item_1'], function(values) {
+        let itemName = values['item_1'];
+        addToDicePool('cons-item_1_current_die', itemName);
+    });
+    highlightDie('selectable-item-1-die');
+});
+on("clicked:additem2", function() {
+    getAttrs(['item_2'], function(values) {
+        let itemName = values['item_2'];
+        addToDicePool('cons-item_2_current_die', itemName);
+    });
+    highlightDie('selectable-item-2-die');
+});
+on("clicked:additem3", function() {
+    getAttrs(['item_3'], function(values) {
+        let itemName = values['item_3'];
+        addToDicePool('cons-item_3_current_die', itemName);
+    });
+    highlightDie('selectable-item-3-die');
+});
+
+// add weapon die
+on("clicked:addgutter", function() {
+    addToDicePool('cons-gutter_current_die', "Gutter");
+    highlightDie('selectable-gutter-die');
+});
+on("clicked:adddisintegrator", function() {
+    addToDicePool('cons-disintegrator_current_die', "Disintegrator");
+    highlightDie('selectable-disintegrator-die');
+});
+
+// add stamina die
+on("clicked:addstamina", function() {
+    addToDicePool('stamina_current_die', "Stamina");
+    highlightDie('selectable-stamina-die');
+});
+
+
+// dice pool to be rolled
+let selectedDicePoolValue = "";
+// dice pool text to be shown
+let selectedDicePoolText = "";
+// currently selected dice value-attr (size to be reduced)
+let selectedDiceValueAttr = [];
+// currently highlighted dice
+let highlightedDice = [];
+
+function addToDicePool(dieValueAttr, dieName) {
+    // check if die has already been added
+    if (selectedDiceValueAttr.includes(dieValueAttr)) {
+        return;
+    }
+    selectedDiceValueAttr.push(dieValueAttr);
+
+    // gets the value of the die
+    getAttrs([dieValueAttr], function(values) {
+        let dieValueString = "1D" + values[dieValueAttr];
+
+        // adds die to the dice pool to be rolled
+        if (selectedDicePoolValue != "") {
+            selectedDicePoolValue += " + ";
+        }
+        selectedDicePoolValue += dieValueString;
+
+        // adds die and name to the text to be shown
+        if (selectedDicePoolText != "") {
+            selectedDicePoolText += ", ";
+        }
+        selectedDicePoolText += dieName + " " + dieValueString;
+
+        updateDicePool();
+    })
+}
+
+function updateDicePool() {
+    setAttrs({
+        ['dice-pool-value']: selectedDicePoolValue
+    });
+    setAttrs({
+        ['dice-pool-text']: selectedDicePoolText
+    });
+}
+
+
+// HIGHLIGHT SELECTED DICE
+function highlightDie(attribute) {
+    // check if die has already been highlighted
+    if (highlightedDice.includes(attribute)) {
+        return;
+    }
+    highlightedDice.push(attribute);
+    setAttrs({
+        [attribute]: "selected"
+    });
+}
+
+
+// CLEAR BUTTON
+on("clicked:clear", function() {
+    deselectDice();
+    deselectApproach();
+    clearDicePool();
+    clearApproach();
+});
+
+function deselectDice() {
+    highlightedDice.forEach(setToZero);
+    highlightedDice = [];
+}
+
+function clearDicePool() {
+    setToZero('dice-pool-value');
+    selectedDicePoolValue = "";
+    setAttrs({
+        ['dice-pool-text']: " "
+    });
+    selectedDiceValueAttr = [];
+    selectedDicePoolText = "";
+}
+
+
+// UPDATE DICE SIZE button
+on("clicked:updateDiceSize", function() {
+    reduceDiceSize();
+
+    deselectDice();
+    deselectApproach();
+    clearDicePool();
+    clearApproach();
+});
+
+function reduceDiceSize() {
+    selectedDiceValueAttr.forEach(reduceSize);
     
-        getAttrs(['approach-die', 'stamina-die', 'item_1', 'item-1-die', 'item_2', 'item-2-die', 'item_3', 'item-3-die', 'gutter-die', 'disintegrator-die'], function(values) {
-
-            let approach = values['approach-die'];
-            if (approach != '0') {
-                dicePoolText += "Approach: " + approach + ", ";
-            }
-
-            let stamina = values['stamina-die'];
-            if (stamina != '0') {
-                dicePoolText += "Stamina: " + stamina + ", ";
-            }
-
-            let item1 = values['item-1-die'];
-            if (item1 != '0') {
-                dicePoolText += values['item_1'] + ": " + item1 + ", ";
-            }
-
-            let item2 = values['item-2-die'];
-            if (item2 != '0') {
-                dicePoolText += values['item_2'] + ": " + item2 + ", ";
-            }
-
-            let item3 = values['item-3-die'];
-            if (item3 != '0') {
-                dicePoolText += values['item_3'] + ": " + item3 + ", ";
-            }
-
-            let gutter = values['gutter-die'];
-            if (gutter != '0') {
-                dicePoolText += "Gutter: " + gutter + ", ";
-            }
-
-            let disintegrator = values['disintegrator-die'];
-            if (disintegrator != '0') {
-                dicePoolText += "Disintegrator: " + disintegrator + ", ";
-            }
-
-            setDicePoolText(dicePoolText);
-        })
+    if (selectedApproachDieValueAttr != "") {
+        reduceSize(selectedApproachDieValueAttr);
     }
+}
 
-    function setDicePoolText(textContent) {
+function reduceSize(dieValueAttr) {
+    getAttrs([dieValueAttr], function(values) {
+        let dieValue = parseInt(values[dieValueAttr]);
+        let newDieValue;
+
+        if (dieValue > 4) {
+            newDieValue = dieValue - 2;
+        } else if (dieValueAttr.startsWith("cons-")) {
+            newDieValue = 0; // consumable items and weapons
+        } else {
+            newDieValue = 4; // approach and stamina
+        }
         setAttrs({
-            ['dice-pool']: textContent
+            [dieValueAttr]: newDieValue
         });
-    }
+    })
+}
 
-    function setToZero(attribute) {
-        setAttrs({
-            [attribute]: 0
-        });
-    }
+
 </script>

@@ -274,7 +274,7 @@ button {
     box-shadow: none !important;
     text-shadow: none !important;
 }
-button.add-die {
+button.add-die, button.save-roll {
     margin-left: 0.6rem;
     font-size: 12px !important;
 }
@@ -643,23 +643,28 @@ button.add-die {
     position: relative;
 }
 
-button[type=roll] {
+button.reaction-roll {
     padding: 1rem 2rem !important;
     font-size: 16px !important;
 }
-button[type=roll]::before {
+button.reaction-roll::before {
     margin-right: 6px;
 }
 
-.clear-button {
+.clear-button, .reduce-size-button {
     height: fit-content;
     position: absolute;
     bottom: 0;
+}
+.clear-button {
     right: 0;
+}
+.reduce-size-button {
+    right: 10%;
 }
 
 /* if NO approach is selected */
-.selected-approach-die[value="0"] ~ .buttons button[type=roll] {
+.selected-approach-die[value="0"] ~ .buttons button.reaction-roll {
     pointer-events: none;
     background: var(--the-breach-accent-color) !important;
     color: var(--the-breach-white) !important;
@@ -671,4 +676,19 @@ button[type=roll]::before {
 }
 .selected-approach-die[value="0"] ~ .buttons .tooltip-container:hover > .tooltiptext {
     visibility: visible;
+}
+
+/* HIGHLIGHT SELECTED DIE */
+.selectable-die {
+    display: none;
+}
+.selectable-die[value="selected"] + .line {
+    background-color: rgba(112, 44, 145, 0.5);
+}
+
+/* DISABLE CONSUMED ITEM OR WEAPON + SAVE ROLL BUTTON*/
+.consumable-object[value="0"] + .add-die,
+.harms-points[value="0"] ~ button.save-roll {
+    pointer-events: none;
+    background-color: var(--the-breach-accent-color) !important;
 }
