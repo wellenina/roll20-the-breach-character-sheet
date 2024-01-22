@@ -6,6 +6,7 @@
 /* COLORS */
 :root {
     --the-breach-black: #1D1D1D;
+    --the-breach-darkgrey: #5D5D5D;
     --the-breach-white: #FFFFFF;
     --the-breach-accent-color: #702C91;
 }
@@ -58,6 +59,10 @@ h3.with-margins {
 }
 .line, .die-selection-container {
     align-items: center;
+}
+
+.select-condition-die {
+    margin: 0 1rem;
 }
 
 .section {
@@ -116,7 +121,7 @@ h3.with-margins {
 }
 
 /* single rows */
-.line + .line {
+.line + .line, input[type="hidden"] + .line, .repitem + .repitem {
     margin-top: 8px;
 }
 
@@ -133,22 +138,23 @@ h3.with-margins {
     border-radius: 999rem;
     padding: 0.3rem;
 }
-.line.rounded h3 {
+.cloak h3, .equipment h3 {
     margin-left: 1.5rem;
 }
 
 .approach-title {
     width: 16%;
+    margin-left: .5rem;
 }
 
 .line-content {
-	width: 70%;
+	width: 66%;
 }
 
 label {
     width: auto !important;
     margin: 0 !important;
-    padding: 0;
+    padding: 0 5px 0 0 !important;
 }
 
 /* INPUT */
@@ -156,20 +162,20 @@ input {
     min-width: 0;
 }
 
-input, select {
+input[type=checkbox], select {
     z-index: 2;
 }
-input[type=text], textarea, select {
+input[type=text], select {
     color: var(--the-breach-black);
     background-color: var(--the-breach-white);
     border-radius: 2px;
 }
 
-input:focus, input:focus-visible, textarea:focus-visible, select:focus-visible {
+input:focus, input:focus-visible, select:focus-visible {
     outline: none !important;
 }
 
-input[type=text], textarea, .weapon-info span {
+input[type=text], .weapon-info span {
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
     font-style: italic;
@@ -181,18 +187,10 @@ input[type=text] {
     border: none;
 }
 .cloak input[type=text] {
-    width: 40%;
+    width: 30%;
 }
 .item input[type=text] {
     width: 42%;
-}
-
-textarea {
-    width: 100% !important;
-    height: 154px !important;
-    margin: 0;
-    border: 2px solid var(--the-breach-black);
-    line-height: 1.7;
 }
 
 select, label {
@@ -263,20 +261,34 @@ input[type=checkbox]:checked {
 }
 
 /* BUTTONS */
-button {
-    font-family: 'Space Grotesk', sans-serif !important;
-    color: var(--the-breach-black) !important;
 
-    border: 2px solid var(--the-breach-black) !important;
+button, .itemcontrol .repcontrol_move {
+    color: var(--the-breach-black) !important;
     border-radius: 999rem !important;
-    background-color: var(--the-breach-white) !important;
     background-image: none !important;
     box-shadow: none !important;
     text-shadow: none !important;
 }
-button.add-die, button.save-roll {
+
+/* all buttons EXCEPT the delete button */
+button[type="action"], button[type="roll"], 
+.repcontrol button, .itemcontrol .repcontrol_move {
+    background-color: var(--the-breach-white) !important;
+}
+
+button[type="action"], button[type="roll"] {
+    font-family: 'Space Grotesk', sans-serif !important;
+    border: 2px solid var(--the-breach-black) !important;
+}
+
+button.add-die, button.save-roll, button.condition-roll {
     margin-left: 0.6rem;
     font-size: 12px !important;
+}
+
+button[type="action"]:hover, button[type="roll"]:hover, 
+.repcontrol button:hover, .itemcontrol .repcontrol_move:hover {
+    background-color: #c6abd2 !important;
 }
 
 /* ICONS */
@@ -647,8 +659,9 @@ button.reaction-roll {
     padding: 1rem 2rem !important;
     font-size: 16px !important;
 }
-button.reaction-roll::before {
+button[type=roll]::before {
     margin-right: 6px;
+    vertical-align: bottom;
 }
 
 .clear-button, .reduce-size-button {
@@ -663,10 +676,12 @@ button.reaction-roll::before {
     right: 10%;
 }
 
-/* if NO approach is selected */
-.selected-approach-die[value="0"] ~ .buttons button.reaction-roll {
+/* DISABLED BUTTONS */
+.selected-approach-die[value="0"] ~ .buttons button.reaction-roll,
+.consumable-object[value="0"] + .add-die,
+.harms-points[value="0"] ~ button.save-roll {
     pointer-events: none;
-    background: var(--the-breach-accent-color) !important;
+    background: var(--the-breach-darkgrey) !important;
     color: var(--the-breach-white) !important;
 }
 .roll-section .tooltiptext {
@@ -686,9 +701,48 @@ button.reaction-roll::before {
     background-color: rgba(112, 44, 145, 0.5);
 }
 
-/* DISABLE CONSUMED ITEM OR WEAPON + SAVE ROLL BUTTON*/
-.consumable-object[value="0"] + .add-die,
-.harms-points[value="0"] ~ button.save-roll {
-    pointer-events: none;
-    background-color: var(--the-breach-accent-color) !important;
+/* permanent condition roll button */
+.condition-die[value="permanent"] + button.condition-roll {
+    visibility: hidden;
+}
+
+/* REPEATING SECTION CONTROLS */
+.repcontrol {
+    margin-top: 2px;
+    position: relative;
+    text-align: center;
+}
+
+.repcontrol button, .itemcontrol button, .itemcontrol .repcontrol_move {
+    border: 1px solid var(--the-breach-black) !important;
+    transition: all 0.2s;
+}
+
+.repcontrol button.repcontrol_edit, .itemcontrol button, .itemcontrol .repcontrol_move {
+    font-family: pictos;
+}
+
+.repcontrol button {
+    font-size: 0;
+    padding: 0.6rem 1rem 0.3rem;
+    line-height: 8px;
+}
+
+.repcontrol .repcontrol_edit {
+    position: absolute;
+    right: 0;
+}
+
+.repcontrol button.repcontrol_edit::after {
+    content: "(";
+}
+.repcontrol button.repcontrol_add::after {
+    content: "New condition or effect";
+    font-family: 'Space Grotesk', sans-serif !important;
+}
+.repcontrol button.repcontrol_edit::after, .repcontrol button.repcontrol_add::after {
+    font-size: 12px;
+} 
+.repcontainer.editmode + .repcontrol button.repcontrol_edit::after {
+    content: ")";
 }

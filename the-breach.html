@@ -300,12 +300,14 @@
                 <h3>Cloak</h3>
                 <input type="text" spellcheck="false" name="attr_cloak_color" placeholder="Color">
 
-                <!-- <label for="attr_cloak-clock-size">Cloack Dice</label> -->
-                <select name="attr_cloak-clock-size" class="select-clock">
-                    <option class="option-4" value="4" selected>4</option>
-                    <option value="6">6</option>
-                    <option value="8">8</option>
-                </select>
+                <div class="die-selection-container">
+                    <label for="attr_cloak-clock-size">Clock size</label>
+                    <select name="attr_cloak-clock-size" class="select-clock">
+                        <option class="option-4" value="4" selected>4</option>
+                        <option value="6">6</option>
+                        <option value="8">8</option>
+                    </select>
+                </div>
 
                 <input name="attr_cloak-clock-size" type="hidden" class="cloak-clock-size">
                 <div class="clock-options-container">
@@ -383,13 +385,43 @@
 
             <div>
                 <h3 class="with-margins">Conditions / Effects</h3>
-                <textarea spellcheck="false" name="attr_conditions_effects">
-            </div>
 
+
+
+                <!-- CONDITION / EFFECT REPEATING SECTION -->
+                <fieldset class="repeating_condition-effect">
+                    <div class="line rectangular">
+                        <!-- CAMPO DI TESTO -->
+                        <input type="text" spellcheck="false" name="attr_condition">
+
+                        <!-- DROP DOWN: PERMANENTE O SCELTA DADO -->
+                        <div class="die-selection-container">
+                            <select name="attr_condition-die" class="select-condition-die">
+                                <option value="permanent" selected>Permanent</option>
+                                <hr />
+                                <optgroup label="Temporary">
+                                    <option value="1d12" selected>D12</option>
+                                    <option value="1d10">D10</option>
+                                    <option value="1d8">D8</option>
+                                    <option value="1d6">D6</option>
+                                    <option value="1d4">D4</option>
+                                </optgroup>
+                            </select>
+                        </div>
+
+                        <!-- TASTO ROLL -->
+                        <input type="hidden" name="attr_condition-die" class="condition-die">
+                        <button type="roll" value="/roll @{condition-die}" name="roll_ConditionRoll" class="condition-roll">Roll</button>
+                    </div>
+                </fieldset>
+
+
+
+            </div>
         </div> <!-- end health section -->
 
         <!-- EQUIPMENT -->
-        <div class="section larger">
+        <div class="section larger equipment">
 
             <div class="line rounded">
                 <h3>Equipment R&D</h3>
@@ -757,13 +789,13 @@ function addApproach(dieValueAttr, approachName) {
     selectedApproachDieValueAttr = dieValueAttr;
     // gets the value of the die for the ROLL
     getAttrs([dieValueAttr], function(values) {
-        let dieValueString = "1D" + values[dieValueAttr];
+        let dieSize = values[dieValueAttr];
         setAttrs({
-            ['approach-die-value']: dieValueString
+            ['approach-die-value']: "1d" + dieSize
         });
         // updates text:
         setAttrs({
-            ['approach-die-text']: "Approach " + approachName + ": " + dieValueString + ", "
+            ['approach-die-text']: "Approach: " + approachName + " (D" + dieSize + "), "
         });
     });
 }
@@ -852,19 +884,19 @@ function addToDicePool(dieValueAttr, dieName) {
 
     // gets the value of the die
     getAttrs([dieValueAttr], function(values) {
-        let dieValueString = "1D" + values[dieValueAttr];
+        let dieSize = values[dieValueAttr];
 
         // adds die to the dice pool to be rolled
         if (selectedDicePoolValue != "") {
             selectedDicePoolValue += " + ";
         }
-        selectedDicePoolValue += dieValueString;
+        selectedDicePoolValue += "1d" + dieSize;
 
         // adds die and name to the text to be shown
         if (selectedDicePoolText != "") {
             selectedDicePoolText += ", ";
         }
-        selectedDicePoolText += dieName + " " + dieValueString;
+        selectedDicePoolText += dieName + " (D" + dieSize + ")";
 
         updateDicePool();
     })
@@ -952,6 +984,5 @@ function reduceSize(dieValueAttr) {
         });
     })
 }
-
 
 </script>
