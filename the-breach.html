@@ -1,8 +1,7 @@
 <div class="main">
     <!-- HEADER -->
     <div class="header">
-        <h1>The Breach - Character Sheet</h1>
-        <!-- <span>Character Sheet</span> -->
+        <h1 data-i18n="the-breach-character-sheet">The Breach - Character Sheet</h1>
     </div>
 
     <!-- 1st ROW -->
@@ -11,22 +10,22 @@
         <!-- IDENTITY -->
         <div class="section smaller">
             <div class="line rectangular">
-                <h3>Name</h3>
+                <h3 data-i18n="character-name">Name</h3>
                 <input type="text" spellcheck="false" name="attr_character_name" class="line-content">
             </div>
 
             <div class="line rectangular">
-                <h3>Pronouns</h3>
+                <h3 data-i18n="pronouns">Pronouns</h3>
                 <input type="text" spellcheck="false" name="attr_pronouns" class="line-content">
             </div>
 
             <div class="line rectangular">
-                <h3>Call Sign</h3>
+                <h3 data-i18n="call-sign">Call Sign</h3>
                 <input type="text" spellcheck="false" name="attr_call_sign" class="line-content">
             </div>
 
             <div class="line rectangular">
-                <h3>Trait</h3>
+                <h3 data-i18n="trait">Trait</h3>
                 <div class="line-content">
                     <input type="text" spellcheck="false" name="attr_trait_1">
                     <div class="trait-checkboxes">
@@ -37,7 +36,7 @@
             </div>
 
             <div class="line rectangular">
-                <h3>Trait</h3>
+                <h3 data-i18n="trait">Trait</h3>
                 <div class="line-content">
                     <input type="text" spellcheck="false" name="attr_trait_2">
                     <div class="trait-checkboxes">
@@ -56,13 +55,14 @@
             <div class="line rounded">
 
                 <img src="https://github.com/wellenina/roll20-the-breach-character-sheet/blob/main/Assets/icon-approach-aware.png?raw=true" class="approach-icon">
-                <h3 class="approach-title tooltip-container">
-                    Aware
-                    <p class="tooltiptext">An approach used to move carefully, evaluate situations and consequences, and reason calmly spending time.</p>
-                </h3>
+
+                <div class="tooltip-container approach-title">
+                    <h3 data-i18n="aware">Aware</h3>
+                    <p data-i18n="aware-description" class="tooltiptext">An approach used to move carefully, evaluate situations and consequences, and reason calmly spending time.</p>
+                </div>
 
                 <div class="die-selection-container">
-                    <label for="attr_aware_initial_die">Initial</label>
+                    <label data-i18n="initial-die" for="attr_aware_initial_die">Initial</label>
                     <select name="attr_aware_initial_die">
                         <option value="12" selected>D12</option>
                         <option value="10">D10</option>
@@ -73,7 +73,7 @@
                 </div>
 
                 <div class="die-selection-container">
-                    <label for="attr_aware_current_die">Current</label>
+                    <label data-i18n="current-die" for="attr_aware_current_die">Current</label>
                     <select name="attr_aware_current_die">
                         <option value="12" selected>D12</option>
                         <option value="10">D10</option>
@@ -82,7 +82,7 @@
                         <option value="4">D4</option>
                     </select>
 
-                    <button type="action" name="act_addapproachaware" class="add-die">Add</button>
+                    <button data-i18n="add-to-dice-pool" type="action" name="act_addapproachaware" class="add-die">Add</button>
                 </div>
 
                 <!-- 4-segments clock -->
@@ -103,13 +103,14 @@
             <input type="hidden" name="attr_selectable-mighty-die" value="0" class="selectable-die">
             <div class="line rounded">
                 <img src="https://github.com/wellenina/roll20-the-breach-character-sheet/blob/main/Assets/icon-approach-mighty.png?raw=true" class="approach-icon">
-                <h3 class="approach-title tooltip-container">
-                    Mighty
-                    <p class="tooltiptext">An approach based on physical strength used to damage, attack, and carry out violent actions.</p>
-                </h3>
+                
+                <div class="tooltip-container approach-title">
+                    <h3 data-i18n="mighty">Mighty</h3>
+                    <p data-i18n="mighty-description" class="tooltiptext">An approach based on physical strength used to damage, attack, and carry out violent actions.</p>
+                </div>
 
                 <div class="die-selection-container">
-                    <label for="attr_mighty_initial_die">Initial</label>
+                    <label data-i18n="initial-die" for="attr_mighty_initial_die">Initial</label>
                     <select name="attr_mighty_initial_die">
                         <option value="12" selected>D12</option>
                         <option value="10">D10</option>
@@ -120,7 +121,7 @@
                 </div>
 
                 <div class="die-selection-container">
-                    <label for="attr_mighty_current_die">Current</label>
+                    <label data-i18n="current-die" for="attr_mighty_current_die">Current</label>
                     <select name="attr_mighty_current_die">
                         <option value="12" selected>D12</option>
                         <option value="10">D10</option>
@@ -129,7 +130,7 @@
                         <option value="4">D4</option>
                     </select>
 
-                    <button type="action" name="act_addapproachmighty" class="add-die">Add</button>
+                    <button data-i18n="add-to-dice-pool" type="action" name="act_addapproachmighty" class="add-die">Add</button>
                 </div>
 
                 <!-- 4-segments clock -->
@@ -150,13 +151,14 @@
             <input type="hidden" name="attr_selectable-quick-die" value="0" class="selectable-die">
             <div class="line rounded">
                 <img src="https://github.com/wellenina/roll20-the-breach-character-sheet/blob/main/Assets/icon-approach-quick.png?raw=true" class="approach-icon">
-                <h3 class="approach-title tooltip-container">
-                    Quick
-                    <p class="tooltiptext">An approach that allows you to act quickly, with agility and precision, but without dwelling on the details.</p>
-                </h3>
+                
+                <div class="tooltip-container approach-title">
+                    <h3 data-i18n="quick">Quick</h3>
+                    <p data-i18n="quick-description" class="tooltiptext">An approach that allows you to act quickly, with agility and precision, but without dwelling on the details.</p>
+                </div>
 
                 <div class="die-selection-container">
-                    <label for="attr_quick_initial_die">Initial</label>
+                    <label data-i18n="initial-die" for="attr_quick_initial_die">Initial</label>
                     <select name="attr_quick_initial_die">
                         <option value="12" selected>D12</option>
                         <option value="10">D10</option>
@@ -167,7 +169,7 @@
                 </div>
 
                 <div class="die-selection-container">
-                    <label for="attr_quick_current_die">Current</label>
+                    <label data-i18n="current-die" for="attr_quick_current_die">Current</label>
                     <select name="attr_quick_current_die">
                         <option value="12" selected>D12</option>
                         <option value="10">D10</option>
@@ -176,7 +178,7 @@
                         <option value="4">D4</option>
                     </select>
 
-                    <button type="action" name="act_addapproachquick" class="add-die">Add</button>
+                    <button data-i18n="add-to-dice-pool" type="action" name="act_addapproachquick" class="add-die">Add</button>
                 </div>
                     
                 <!-- 4-segments clock -->
@@ -197,13 +199,14 @@
             <input type="hidden" name="attr_selectable-sneaky-die" value="0" class="selectable-die">
             <div class="line rounded">
                 <img src="https://github.com/wellenina/roll20-the-breach-character-sheet/blob/main/Assets/icon-approach-sneaky.png?raw=true" class="approach-icon">
-                <h3 class="approach-title tooltip-container">
-                    Sneaky
-                    <p class="tooltiptext">An approach used to act stealthily, misleading or deceiving.</p>
-                </h3>
+                
+                <div class="tooltip-container approach-title">
+                    <h3 data-i18n="sneaky">Sneaky</h3>
+                    <p data-i18n="sneaky-description" class="tooltiptext">An approach used to act stealthily, misleading or deceiving.</p>
+                </div>
 
                 <div class="die-selection-container">
-                    <label for="attr_sneaky_initial_die">Initial</label>
+                    <label data-i18n="initial-die" for="attr_sneaky_initial_die">Initial</label>
                     <select name="attr_sneaky_initial_die">
                         <option value="12" selected>D12</option>
                         <option value="10">D10</option>
@@ -214,7 +217,7 @@
                 </div>
 
                 <div class="die-selection-container">
-                    <label for="attr_sneaky_current_die">Current</label>
+                    <label data-i18n="current-die" for="attr_sneaky_current_die">Current</label>
                     <select name="attr_sneaky_current_die">
                         <option value="12" selected>D12</option>
                         <option value="10">D10</option>
@@ -223,7 +226,7 @@
                         <option value="4">D4</option>
                     </select>
 
-                    <button type="action" name="act_addapproachsneaky" class="add-die">Add</button>
+                    <button data-i18n="add-to-dice-pool" type="action" name="act_addapproachsneaky" class="add-die">Add</button>
                 </div>
                     
                 <!-- 4-segments clock -->
@@ -242,7 +245,7 @@
 
             <!-- xp -->
             <div class="line rectangular progress-points">
-                <h3>Experience (XP)</h3>
+                <h3 data-i18n="experience">Experience (XP)</h3>
                 <div class="progress-points-container">
                     <input type="hidden" name="attr_xp" value="" class="progress">
                     <input type="radio" name="attr_xp" value="0" class="reset-progress-points" checked>
@@ -265,10 +268,10 @@
         <div class="section half">
             <input type="hidden" name="attr_selectable-stamina-die" value="0" class="selectable-die">
             <div class="line rectangular">
-                <h3>Stamina</h3>
+                <h3 data-i18n="stamina">Stamina</h3>
 
                 <div class="die-selection-container">
-                    <label for="attr_stamina_initial_die">Initial</label>
+                    <label data-i18n="initial-die" for="attr_stamina_initial_die">Initial</label>
                     <select name="attr_stamina_initial_die">
                         <option value="12" selected>D12</option>
                         <option value="10">D10</option>
@@ -279,7 +282,7 @@
                 </div>
 
                 <div class="die-selection-container">
-                    <label for="attr_stamina_current_die">Current</label>
+                    <label data-i18n="current-die" for="attr_stamina_current_die">Current</label>
                     <select name="attr_stamina_current_die">
                         <option value="12" selected>D12</option>
                         <option value="10">D10</option>
@@ -288,7 +291,7 @@
                         <option value="4">D4</option>
                     </select>
                     
-                    <button type="action" name="act_addstamina" class="add-die">Add</button>
+                    <button data-i18n="add-to-dice-pool" type="action" name="act_addstamina" class="add-die">Add</button>
                 </div>
 
             </div>
@@ -297,11 +300,11 @@
         <!-- CLOAK -->
         <div class="section half">
             <div class="line rounded cloak">
-                <h3>Cloak</h3>
-                <input type="text" spellcheck="false" name="attr_cloak_color" placeholder="Color">
+                <h3 data-i18n="cloak">Cloak</h3>
+                <input type="text" spellcheck="false" name="attr_cloak_color" placeholder="Color" data-i18n-placeholder="color">
 
                 <div class="die-selection-container">
-                    <label for="attr_cloak-clock-size">Clock size</label>
+                    <label data-i18n="clock-size" for="attr_cloak-clock-size">Clock size</label>
                     <select name="attr_cloak-clock-size" class="select-clock">
                         <option class="option-4" value="4" selected>4</option>
                         <option value="6">6</option>
@@ -368,7 +371,7 @@
         <div class="section smaller">
 
             <div class="line rectangular progress-points">
-                <h3>Harms</h3>
+                <h3 data-i18n="harms">Harms</h3>
                 <div class="progress-points-container">
                     <input type="hidden" name="attr_harms" value="" class="progress harms-points">
                     <input type="radio" name="attr_harms" value="0" class="reset-progress-points" checked>
@@ -379,39 +382,38 @@
                     <input type="radio" name="attr_harms" value="5" class="progress-point round">
 
                     <!-- SAVE ROLL BUTTON -->
-                    <button type="roll" value="/roll { @{harms}d@{stamina_current_die} }kl1" name="roll_SaveRoll" class="save-roll">Save Roll</button>
+                    <button data-i18n="save-roll" type="roll" value="&{template:saveroll} {{charactername=@{character_name}}} {{theroll=[[{@{harms}d@{stamina_current_die}}kl1]]}}" name="roll_SaveRoll" class="save-roll">Save Roll</button>
                 </div>
             </div>
 
             <div>
-                <h3 class="with-margins">Conditions / Effects</h3>
+                <h3 data-i18n="conditions-and-effects" class="with-margins">Conditions / Effects</h3>
 
 
 
                 <!-- CONDITION / EFFECT REPEATING SECTION -->
                 <fieldset class="repeating_condition-effect">
                     <div class="line rectangular">
-                        <!-- CAMPO DI TESTO -->
+
                         <input type="text" spellcheck="false" name="attr_condition">
 
-                        <!-- DROP DOWN: PERMANENTE O SCELTA DADO -->
+
                         <div class="die-selection-container">
                             <select name="attr_condition-die" class="select-condition-die">
-                                <option value="permanent" selected>Permanent</option>
+                                <option data-i18n-label="permanent-condition" value="permanent" selected>Permanent</option>
                                 <hr />
                                 <optgroup label="Temporary">
-                                    <option value="1d12" selected>D12</option>
-                                    <option value="1d10">D10</option>
-                                    <option value="1d8">D8</option>
-                                    <option value="1d6">D6</option>
-                                    <option value="1d4">D4</option>
+                                    <option value="12" selected>D12</option>
+                                    <option value="10">D10</option>
+                                    <option value="8">D8</option>
+                                    <option value="6">D6</option>
+                                    <option value="4">D4</option>
                                 </optgroup>
                             </select>
                         </div>
 
-                        <!-- TASTO ROLL -->
                         <input type="hidden" name="attr_condition-die" class="condition-die">
-                        <button type="roll" value="/roll @{condition-die}" name="roll_ConditionRoll" class="condition-roll">Roll</button>
+                        <button data-i18n="roll" type="roll" value="&{template:conditionroll} {{charactername=@{character_name}}} {{conditionname=@{condition}}} {{conditiondie=[[@{condition-die}]]}} {{theroll=[[1d@{condition-die}]]}}" name="roll_ConditionRoll" class="condition-roll last-condition-roll">Roll</button>
                     </div>
                 </fieldset>
 
@@ -424,7 +426,7 @@
         <div class="section larger equipment">
 
             <div class="line rounded">
-                <h3>Equipment R&D</h3>
+                <h3 data-i18n="equipment-research-and-development">Equipment R&D</h3>
 
                 <!-- 6-segments clock -->
                 <div class="clock-container clock-container-6">
@@ -443,14 +445,14 @@
 
             </div>
 
-            <h3 class="with-margins">Items</h3>
+            <h3 data-i18n="items" class="with-margins">Items</h3>
 
             <input type="hidden" name="attr_selectable-item-1-die" value="0" class="selectable-die">
             <div class="line rectangular item">
                 <input type="text" spellcheck="false" name="attr_item_1">
 
                 <div class="die-selection-container">
-                    <label for="attr_item_1_initial_die">Initial</label>
+                    <label data-i18n="initial-die" for="attr_item_1_initial_die">Initial</label>
                     <select name="attr_item_1_initial_die">
                         <option value="12" selected>D12</option>
                         <option value="10">D10</option>
@@ -461,7 +463,7 @@
                 </div>
 
                 <div class="die-selection-container">
-                    <label for="attr_cons-item_1_current_die">Current</label>
+                    <label data-i18n="current-die" for="attr_cons-item_1_current_die">Current</label>
                     <select name="attr_cons-item_1_current_die">
                         <option value="12" selected>D12</option>
                         <option value="10">D10</option>
@@ -472,7 +474,7 @@
                     </select>
 
                     <input name="attr_cons-item_1_current_die" type="hidden" class="consumable-object">
-                    <button type="action" name="act_additem1" class="add-die">Add</button>
+                    <button data-i18n="add-to-dice-pool" type="action" name="act_additem1" class="add-die">Add</button>
                 </div>
 
             </div>
@@ -482,7 +484,7 @@
                 <input type="text" spellcheck="false" name="attr_item_2">
 
                 <div class="die-selection-container">
-                    <label for="attr_item_2_initial_die">Initial</label>
+                    <label data-i18n="initial-die" for="attr_item_2_initial_die">Initial</label>
                     <select name="attr_item_2_initial_die">
                         <option value="12" selected>D12</option>
                         <option value="10">D10</option>
@@ -493,7 +495,7 @@
                 </div>
 
                 <div class="die-selection-container">
-                    <label for="attr_cons-item_2_current_die">Current</label>
+                    <label data-i18n="current-die" for="attr_cons-item_2_current_die">Current</label>
                     <select name="attr_cons-item_2_current_die">
                         <option value="12" selected>D12</option>
                         <option value="10">D10</option>
@@ -504,7 +506,7 @@
                     </select>
 
                     <input name="attr_cons-item_2_current_die" type="hidden" class="consumable-object">
-                    <button type="action" name="act_additem2" class="add-die">Add</button>
+                    <button data-i18n="add-to-dice-pool" type="action" name="act_additem2" class="add-die">Add</button>
                 </div>
 
             </div>
@@ -515,7 +517,7 @@
                 <input type="text" spellcheck="false" name="attr_item_3">
 
                 <div class="die-selection-container">
-                    <label for="attr_item_3_initial_die">Initial</label>
+                    <label data-i18n="initial-die" for="attr_item_3_initial_die">Initial</label>
                     <select name="attr_item_3_initial_die">
                         <option value="12" selected>D12</option>
                         <option value="10">D10</option>
@@ -526,7 +528,7 @@
                 </div>
 
                 <div class="die-selection-container">
-                    <label for="attr_cons-item_3_current_die">Current</label>
+                    <label data-i18n="current-die" for="attr_cons-item_3_current_die">Current</label>
                     <select name="attr_cons-item_3_current_die">
                         <option value="12" selected>D12</option>
                         <option value="10">D10</option>
@@ -537,7 +539,7 @@
                     </select>
                     
                     <input name="attr_cons-item_3_current_die" type="hidden" class="consumable-object">
-                    <button type="action" name="act_additem3" class="add-die">Add</button>
+                    <button data-i18n="add-to-dice-pool" type="action" name="act_additem3" class="add-die">Add</button>
                 </div>
 
             </div>
@@ -556,10 +558,10 @@
 
                 <input type="hidden" name="attr_selectable-gutter-die" value="0" class="selectable-die">
                 <div class="line rectangular">
-                    <h3>Gutter</h3>
+                    <h3 data-i18n="gutter">Gutter</h3>
 
                     <div class="die-selection-container">
-                        <label for="attr_gutter_initial_die">Initial</label>
+                        <label data-i18n="initial-die" for="attr_gutter_initial_die">Initial</label>
                         <select name="attr_gutter_initial_die">
                             <option value="12" selected>D12</option>
                             <option value="10">D10</option>
@@ -570,7 +572,7 @@
                     </div>
 
                     <div class="die-selection-container">
-                        <label for="attr_cons-gutter_current_die">Current</label>
+                        <label data-i18n="current-die" for="attr_cons-gutter_current_die">Current</label>
                         <select name="attr_cons-gutter_current_die">
                             <option value="12" selected>D12</option>
                             <option value="10">D10</option>
@@ -581,38 +583,38 @@
                         </select>
 
                         <input name="attr_cons-gutter_current_die" type="hidden" class="consumable-object">
-                        <button type="action" name="act_addgutter" class="add-die">Add</button>
+                        <button data-i18n="add-to-dice-pool" type="action" name="act_addgutter" class="add-die">Add</button>
                     </div>
 
                 </div>
 
                 <div class="weapon-info"> <!-- gutter info -->
                     <div class="text-line">
-                        <span>Damage</span>
+                        <span data-i18n="damage">Damage</span>
                         <input type="text" spellcheck="false" name="attr_gutter_damage" class="text-row">
                     </div>
                     <div class="text-line">
-                        <span>Range</span>
+                        <span data-i18n="range">Range</span>
                         <input type="text" spellcheck="false" name="attr_gutter_range" class="text-row">
                     </div>
                     <div class="text-line">
-                        <span>Reload Time</span>
+                        <span data-i18n="reload-time">Reload Time</span>
                         <input type="text" spellcheck="false" name="attr_gutter_reload_time" class="text-row">
                     </div>
                     <div class="text-line">
-                        <span>Mod. 1</span>
+                        <span data-i18n="modifier-1">Mod. 1</span>
                         <input type="text" spellcheck="false" name="attr_gutter_mod_1" class="text-row">
                     </div>
                     <div class="text-line">
-                        <span>Mod. 2</span>
+                        <span data-i18n="modifier-2">Mod. 2</span>
                         <input type="text" spellcheck="false" name="attr_gutter_mod_2" class="text-row">
                     </div>
                     <div class="text-line">
-                        <span>Mod. 3</span>
+                        <span data-i18n="modifier-3">Mod. 3</span>
                         <input type="text" spellcheck="false" name="attr_gutter_mod_3" class="text-row">
                     </div>
                     <div class="text-line">
-                        <span>Other Info</span>
+                        <span data-i18n="other-info">Other Info</span>
                         <input type="text" spellcheck="false" name="attr_gutter_other_info" class="text-row">
                     </div>
                 </div>
@@ -623,10 +625,10 @@
 
                 <input type="hidden" name="attr_selectable-disintegrator-die" value="0" class="selectable-die">
                 <div class="line rectangular">
-                    <h3>Disintegrator</h3>
+                    <h3 data-i18n="disintegrator">Disintegrator</h3>
 
                     <div class="die-selection-container">
-                        <label for="attr_disintegrator_initial_die">Initial</label>
+                        <label data-i18n="initial-die" for="attr_disintegrator_initial_die">Initial</label>
                         <select name="attr_disintegrator_initial_die">
                             <option value="12" selected>D12</option>
                             <option value="10">D10</option>
@@ -637,7 +639,7 @@
                     </div>
 
                     <div class="die-selection-container">
-                        <label for="attr_cons-disintegrator_current_die">Current</label>
+                        <label data-i18n="current-die" for="attr_cons-disintegrator_current_die">Current</label>
                         <select name="attr_cons-disintegrator_current_die">
                             <option value="12" selected>D12</option>
                             <option value="10">D10</option>
@@ -648,38 +650,38 @@
                         </select>
 
                         <input name="attr_cons-disintegrator_current_die" type="hidden" class="consumable-object">
-                        <button type="action" name="act_adddisintegrator" class="add-die">Add</button>
+                        <button data-i18n="add-to-dice-pool" type="action" name="act_adddisintegrator" class="add-die">Add</button>
                     </div>
 
                 </div>
 
                 <div class="weapon-info"> <!-- disintegrator info -->
                     <div class="text-line">
-                        <span>Damage</span>
+                        <span data-i18n="damage">Damage</span>
                         <input type="text" spellcheck="false" name="attr_disintegrator_damage" class="text-row">
                     </div>
                     <div class="text-line">
-                        <span>Range</span>
+                        <span data-i18n="range">Range</span>
                         <input type="text" spellcheck="false" name="attr_disintegrator_range" class="text-row">
                     </div>
                     <div class="text-line">
-                        <span>Reload Time</span>
+                        <span data-i18n="reload-time">Reload Time</span>
                         <input type="text" spellcheck="false" name="attr_disintegrator_reload_time" class="text-row">
                     </div>
                     <div class="text-line">
-                        <span>Mod. 1</span>
+                        <span data-i18n="modifier-1">Mod. 1</span>
                         <input type="text" spellcheck="false" name="attr_disintegrator_mod_1" class="text-row">
                     </div>
                     <div class="text-line">
-                        <span>Mod. 2</span>
+                        <span data-i18n="modifier-2">Mod. 2</span>
                         <input type="text" spellcheck="false" name="attr_disintegrator_mod_2" class="text-row">
                     </div>
                     <div class="text-line">
-                        <span>Mod. 3</span>
+                        <span data-i18n="modifier-3">Mod. 3</span>
                         <input type="text" spellcheck="false" name="attr_disintegrator_mod_3" class="text-row">
                     </div>
                     <div class="text-line">
-                        <span>Other Info</span>
+                        <span data-i18n="other-info">Other Info</span>
                         <input type="text" spellcheck="false" name="attr_disintegrator_other_info" class="text-row">
                     </div>
                 </div>
@@ -699,14 +701,20 @@
                 <!-- DICE POOL VALUES -->
                 <input type="hidden" name="attr_dice-pool-value" value="0">
 
+
+                <span data-i18n="ask-help" name="attr_ask-help">Add Help Die?</span>
+                <span data-i18n="ask-bonus" name="attr_ask-bonus">Add Bonus Die?</span>
+
+
+
                 <!-- 1 help from another player - optional -->
-                <input type="hidden" name="attr_help_query" value="?{Add Help Die|No, + 0|D12, + 1d12 |D10, + 1d10 |D8, + 1d8 |D6, + 1d6 |D4, + 1d4}"/>
+                <input type="hidden" name="attr_help_query" value=""/>
                 <!-- 1 bonus - optional -->
-                <input type="hidden" name="attr_bonus_query" value="?{Add Bonus Die|No, + 0|D12, + 1d12 |D10, + 1d10 |D8, + 1d8 |D6, + 1d6 |D4, + 1d4}"/>
+                <input type="hidden" name="attr_bonus_query" value=""/>
             <!-- end HIDDEN VALUES -->
 
             <!-- title -->
-            <h3>Assemble your dice pool</h3>
+            <h3 data-i18n="assemble-your-dice-pool">Assemble your dice pool</h3>
             <!-- dice pool text -->
             <div class="dice-pool">
                 <span name="attr_approach-die-text" value=""></span>
@@ -717,15 +725,15 @@
 
                 <div class="tooltip-container">
                     <!-- roll button -->
-                    <button type="roll" value="/roll { @{approach-die-value} + @{dice-pool-value} @{help_query} @{bonus_query} }kh1" name="roll_ReactionRoll" class="reaction-roll">Reaction Roll!</button>
-                    <p class="tooltiptext">In order to roll, you need to choose an approach</p>
+                    <button data-i18n="reaction-roll" type="roll" value="/roll { @{approach-die-value} + @{dice-pool-value} @{help_query} @{bonus_query} }kh1" name="roll_ReactionRoll" class="reaction-roll">Reaction Roll!</button>
+                    <p data-i18n="reaction-roll-warning" class="tooltiptext">In order to roll, you need to choose an approach</p>
                 </div>
 
-                                <!-- reduce dice size button -->
-                                <button type="action" name="act_updateDiceSize" class="reduce-size-button">Reduce Dice Size</button>
+                <!-- reduce dice size button -->
+                <button data-i18n="reduce-dice-size" type="action" name="act_updateDiceSize" class="reduce-size-button">Reduce Dice Size</button>
 
                 <!-- clear dice pool button -->
-                <button type="action" name="act_clear" class="clear-button">Clear</button>
+                <button data-i18n="clear-dice-pool" type="action" name="act_clear" class="clear-button">Clear</button>
             </div>
         </div>
     </div>
@@ -740,8 +748,6 @@
 
 on('sheet:opened',function(){
     selectableDice.forEach(setToZero);
-    //deselectDice();
-    //deselectApproach();
     clearDicePool();
     clearApproach();
 });
