@@ -740,6 +740,55 @@
 
 </div>
 
+
+<rolltemplate class="sheet-rolltemplate-saveroll">
+    <div class="template-container">
+
+        <p>{{charactername}}</p>
+        <h3>Save Roll:</h3>
+        <div class="template-separator"></div>
+        <p>{{theroll}}</p>
+        <div class="template-separator"></div>
+        <p class="result-description">
+            {{#rollTotal() theroll 1}}<span>Instant death</span>{{/rollTotal() theroll 1}}
+            {{#rollTotal() theroll 2}}<span>Severed limb (<em>permanent</em>)</span>{{/rollTotal() theroll 2}}
+            {{#rollTotal() theroll 3}}<span>Broken limb (<em>temporary</em>, until end of mission)</span>{{/rollTotal() theroll 3}}
+            {{#rollTotal() theroll 4}}<span>Bleeding (<em>temporary damage over time</em>, <strong>d8</strong>)</span>{{/rollTotal() theroll 4}}
+            {{#rollTotal() theroll 5}}<span>Bleeding (<em>temporary damage over time</em>, <strong>d6</strong>)</span>{{/rollTotal() theroll 5}}
+            {{#rollTotal() theroll 6}}<span>Blinded (<em>temporary</em>, <strong>d10</strong>)</span>{{/rollTotal() theroll 6}}
+            {{#rollTotal() theroll 7}}<span>Deafened (<em>temporary</em>, <strong>d10</strong>)</span>{{/rollTotal() theroll 7}}
+            {{#rollTotal() theroll 8}}<span>Confused (<em>temporary</em>, <strong>d8</strong>)</span>{{/rollTotal() theroll 8}}
+            {{#rollTotal() theroll 9}}<span>Fatigued (<em>temporary</em>, <strong>d6</strong>)</span>{{/rollTotal() theroll 9}}
+            {{#rollTotal() theroll 10}}<span>Dazed (<em>temporary</em>, <strong>d6</strong>)</span>{{/rollTotal() theroll 10}}
+            {{#rollTotal() theroll 11}}<span>Bruised (<em>temporary</em>, <strong>d4</strong>)</span>{{/rollTotal() theroll 11}}
+            {{#rollTotal() theroll 12}}<span>Nothing</span>{{/rollTotal() theroll 12}}
+        </p>
+    </div>
+</rolltemplate>
+
+<rolltemplate class="sheet-rolltemplate-conditionroll">
+    <div class="template-container">
+
+        <p>{{charactername}}</p>
+        <h3>{{conditionname}}</h3>
+        <div class="template-separator"></div>
+        <p>{{theroll}}</p>
+        <div class="template-separator"></div>
+        <p class="result-description">
+            {{#rollBetween() theroll 1 3}}<span>La condizione non si attiva.</span>{{/rollBetween() theroll 1 3}}
+
+            {{#rollGreater() theroll 3}}<span>La condizione si attiva per il turno!
+
+            {{#rollGreater() conditiondie 4}} Ricordati di abbassare il dado.{{/rollGreater() conditiondie 4}}
+
+            {{#rollTotal() conditiondie 4}} Cancella la condizione dalla scheda.{{/rollTotal() conditiondie 4}}
+
+            </span>{{/rollGreater() theroll 3}}
+        </p>
+    </div>
+</rolltemplate>
+
+
 <script type="text/worker">
 
     const selectableDice = ['selectable-aware-die', 'selectable-mighty-die', 'selectable-quick-die', 'selectable-sneaky-die',

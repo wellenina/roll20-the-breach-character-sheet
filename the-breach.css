@@ -162,7 +162,7 @@ input {
     min-width: 0;
 }
 
-input[type=checkbox], select {
+input[type=checkbox], input[type=radio], select {
     z-index: 2;
 }
 input[type=text], select {
@@ -392,6 +392,10 @@ button[type="action"]:hover, button[type="roll"]:hover,
 
 .clock-progress-zero:checked + .reset-clock-icon {
     visibility: hidden;
+}
+
+.clock-progress-zero:checked ~ .clock-color-fill {
+    background-image: none;
 }
 
 .clock-progress {
@@ -706,6 +710,7 @@ button[type=roll]::before {
     visibility: hidden;
 }
 
+
 /* REPEATING SECTION CONTROLS */
 .repcontrol {
     margin-top: 2px;
@@ -745,4 +750,63 @@ button[type=roll]::before {
 } 
 .repcontainer.editmode + .repcontrol button.repcontrol_edit::after {
     content: ")";
+}
+
+
+/* ////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* ROLLTEMPLATE */
+
+.sheet-rolltemplate-saveroll, .sheet-rolltemplate-conditionroll {
+    box-sizing: border-box;
+    padding-top: 0.8rem;
+}
+
+.sheet-rolltemplate-saveroll .sheet-template-container *,
+.sheet-rolltemplate-conditionroll .sheet-template-container * {
+    color: #1D1D1D;
+    font-family: 'Space Grotesk', sans-serif;
+    line-height: normal;
+}
+
+.sheet-rolltemplate-saveroll .sheet-template-container,
+.sheet-rolltemplate-conditionroll .sheet-template-container {
+    padding: 1.5rem;
+
+    background-color: lightgray;
+    background-image: linear-gradient(rgba(211, 211, 211, 0.8), rgba(211, 211, 211, 0.8)), url(https://github.com/wellenina/roll20-the-breach-character-sheet/blob/73f2aa3dd0bd8b5b2aef518a87586a98c46b5e5e/Assets/background-box.jpg?raw=true);
+    background-size: 600px;
+
+    border-radius: 2px;
+    border: 4px solid #1D1D1D;
+    outline: 2px solid #1D1D1D;
+    outline-offset: -9px;
+}
+
+.sheet-rolltemplate-saveroll h3,
+.sheet-rolltemplate-conditionroll h3 {
+    text-align: center;
+    font-size: large;
+    font-weight: 700;
+}
+
+.sheet-rolltemplate-saveroll .inlinerollresult,
+.sheet-rolltemplate-conditionroll .inlinerollresult {
+    background-color: transparent !important;
+    border: none !important;
+    font-size: xxx-large;
+    text-align: center;
+    display: block;
+}
+
+.sheet-rolltemplate-saveroll p,
+.sheet-rolltemplate-conditionroll p {
+    margin-top: 1rem;
+}
+
+.sheet-rolltemplate-saveroll .sheet-template-separator,
+.sheet-rolltemplate-conditionroll .sheet-template-separator {
+    width: 70%;
+    height: 2px;
+    margin: 0.6rem auto;
+    background-color: #1D1D1D;
 }
