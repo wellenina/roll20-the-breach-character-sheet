@@ -557,12 +557,12 @@ button[type="action"]:hover, button[type="roll"]:hover,
 
 
 /* XP and HARMS ICONS */
-.line.progress-points {
+.line.experience {
     justify-content: flex-start;
 }
 .progress-points-container {
     width: 190px;
-    margin-left: 2rem;
+    margin: 0 2rem;
     align-items: end;
 }
 
@@ -630,7 +630,6 @@ button[type="action"]:hover, button[type="roll"]:hover,
 
 
 /* ROLL SECTION */
-
 .roll-section * {
     font-family: 'Space Grotesk', sans-serif;
     color: var(--the-breach-black);
@@ -681,20 +680,11 @@ button[type=roll]::before {
 }
 
 /* DISABLED BUTTONS */
-.selected-approach-die[value="0"] ~ .buttons button.reaction-roll,
 .consumable-object[value="0"] + .add-die,
 .harms-points[value="0"] ~ button.save-roll {
     pointer-events: none;
     background: var(--the-breach-darkgrey) !important;
     color: var(--the-breach-white) !important;
-}
-.roll-section .tooltiptext {
-    width: 200px;
-    left: 50%;
-    top: -40px;
-}
-.selected-approach-die[value="0"] ~ .buttons .tooltip-container:hover > .tooltiptext {
-    visibility: visible;
 }
 
 /* HIGHLIGHT SELECTED DIE */
@@ -756,20 +746,24 @@ button[type=roll]::before {
 /* ////////////////////////////////////////////////////////////////////////////////////////////////////////// */
 /* ROLLTEMPLATE */
 
-.sheet-rolltemplate-saveroll, .sheet-rolltemplate-conditionroll {
+.sheet-rolltemplate-saveroll,
+.sheet-rolltemplate-conditionroll,
+.sheet-rolltemplate-reactionroll {
     box-sizing: border-box;
     padding-top: 0.8rem;
 }
 
 .sheet-rolltemplate-saveroll .sheet-template-container *,
-.sheet-rolltemplate-conditionroll .sheet-template-container * {
+.sheet-rolltemplate-conditionroll .sheet-template-container *,
+.sheet-rolltemplate-reactionroll .sheet-template-container * {
     color: #1D1D1D;
     font-family: 'Space Grotesk', sans-serif;
     line-height: normal;
 }
 
 .sheet-rolltemplate-saveroll .sheet-template-container,
-.sheet-rolltemplate-conditionroll .sheet-template-container {
+.sheet-rolltemplate-conditionroll .sheet-template-container,
+.sheet-rolltemplate-reactionroll .sheet-template-container {
     padding: 1.5rem;
 
     background-color: lightgray;
@@ -783,14 +777,16 @@ button[type=roll]::before {
 }
 
 .sheet-rolltemplate-saveroll h3,
-.sheet-rolltemplate-conditionroll h3 {
+.sheet-rolltemplate-conditionroll h3,
+.sheet-rolltemplate-reactionroll h3 {
     text-align: center;
     font-size: large;
     font-weight: 700;
 }
 
 .sheet-rolltemplate-saveroll .inlinerollresult,
-.sheet-rolltemplate-conditionroll .inlinerollresult {
+.sheet-rolltemplate-conditionroll .inlinerollresult,
+.sheet-rolltemplate-reactionroll .inlinerollresult {
     background-color: transparent !important;
     border: none !important;
     font-size: xxx-large;
@@ -799,14 +795,22 @@ button[type=roll]::before {
 }
 
 .sheet-rolltemplate-saveroll p,
-.sheet-rolltemplate-conditionroll p {
+.sheet-rolltemplate-conditionroll p,
+.sheet-rolltemplate-reactionroll p {
     margin-top: 1rem;
 }
 
 .sheet-rolltemplate-saveroll .sheet-template-separator,
-.sheet-rolltemplate-conditionroll .sheet-template-separator {
+.sheet-rolltemplate-conditionroll .sheet-template-separator,
+.sheet-rolltemplate-reactionroll .sheet-template-separator {
     width: 70%;
     height: 2px;
     margin: 0.6rem auto;
     background-color: #1D1D1D;
+}
+
+.sheet-rolltemplate-saveroll .sheet-result-description,
+.sheet-rolltemplate-conditionroll .sheet-result-description,
+.sheet-rolltemplate-reactionroll .sheet-result-description {
+    font-style: italic;
 }

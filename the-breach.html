@@ -244,7 +244,7 @@
             </div>
 
             <!-- xp -->
-            <div class="line rectangular progress-points">
+            <div class="line rectangular experience">
                 <h3 data-i18n="experience">Experience (XP)</h3>
                 <div class="progress-points-container">
                     <input type="hidden" name="attr_xp" value="" class="progress">
@@ -312,7 +312,7 @@
                     </select>
                 </div>
 
-                <input name="attr_cloak-clock-size" type="hidden" class="cloak-clock-size">
+                <input name="attr_cloak-clock-size" type="hidden" class="cloak-clock-size" value="4">
                 <div class="clock-options-container">
                     <!-- 4-segments clock -->
                     <div class="clock-container clock-container-4 clock-option">
@@ -380,10 +380,9 @@
                     <input type="radio" name="attr_harms" value="3" class="progress-point round">
                     <input type="radio" name="attr_harms" value="4" class="progress-point round">
                     <input type="radio" name="attr_harms" value="5" class="progress-point round">
-
-                    <!-- SAVE ROLL BUTTON -->
-                    <button data-i18n="save-roll" type="roll" value="&{template:saveroll} {{charactername=@{character_name}}} {{theroll=[[{@{harms}d@{stamina_current_die}}kl1]]}}" name="roll_SaveRoll" class="save-roll">Save Roll</button>
                 </div>
+                <!-- SAVE ROLL BUTTON -->
+                <button data-i18n="save-roll-button" type="roll" value="&{template:saveroll} {{charactername=@{character_name}}} {{theroll=[[{@{harms}d@{stamina_current_die}}kl1]]}}" name="roll_SaveRoll" class="save-roll">Save Roll</button>
             </div>
 
             <div>
@@ -413,7 +412,7 @@
                         </div>
 
                         <input type="hidden" name="attr_condition-die" class="condition-die">
-                        <button data-i18n="roll" type="roll" value="&{template:conditionroll} {{charactername=@{character_name}}} {{conditionname=@{condition}}} {{conditiondie=[[@{condition-die}]]}} {{theroll=[[1d@{condition-die}]]}}" name="roll_ConditionRoll" class="condition-roll last-condition-roll">Roll</button>
+                        <button data-i18n="roll-button" type="roll" value="&{template:conditionroll} {{charactername=@{character_name}}} {{conditionname=@{condition}}} {{conditiondie=[[@{condition-die}]]}} {{theroll=[[1d@{condition-die}]]}}" name="roll_ConditionRoll" class="condition-roll last-condition-roll">Roll</button>
                     </div>
                 </fieldset>
 
@@ -696,21 +695,20 @@
         <div class="section roll-section">
             <!-- HIDDEN VALUES -->
 
-                <!-- 1 approach die - required -->
-                <input type="hidden" name="attr_approach-die-value" value="0" class="selected-approach-die">
+                <!-- 1 approach die -->
+                <input type="hidden" name="attr_approach-die-value" value="0">
                 <!-- DICE POOL VALUES -->
                 <input type="hidden" name="attr_dice-pool-value" value="0">
 
 
-                <span data-i18n="ask-help" name="attr_ask-help">Add Help Die?</span>
-                <span data-i18n="ask-bonus" name="attr_ask-bonus">Add Bonus Die?</span>
-
 
 
                 <!-- 1 help from another player - optional -->
-                <input type="hidden" name="attr_help_query" value=""/>
+                <input type="hidden" name="attr_help_query" value="?{Add Help Die?|No, |D12, + 1d12 |D10, + 1d10 |D8, + 1d8 |D6, + 1d6 |D4, + 1d4}"/>
                 <!-- 1 bonus - optional -->
-                <input type="hidden" name="attr_bonus_query" value=""/>
+                <input type="hidden" name="attr_bonus_query" value="?{Add Bonus Die?|No, |D12, + 1d12 |D10, + 1d10 |D8, + 1d8 |D6, + 1d6 |D4, + 1d4}"/>
+
+
             <!-- end HIDDEN VALUES -->
 
             <!-- title -->
@@ -723,11 +721,8 @@
 
             <div class="buttons">
 
-                <div class="tooltip-container">
-                    <!-- roll button -->
-                    <button data-i18n="reaction-roll" type="roll" value="/roll { @{approach-die-value} + @{dice-pool-value} @{help_query} @{bonus_query} }kh1" name="roll_ReactionRoll" class="reaction-roll">Reaction Roll!</button>
-                    <p data-i18n="reaction-roll-warning" class="tooltiptext">In order to roll, you need to choose an approach</p>
-                </div>
+                <!-- roll button -->
+                <button data-i18n="reaction-roll-button" type="roll" value="&{template:reactionroll} {{charactername=@{character_name}}} {{theroll=[[{@{approach-die-value} + @{dice-pool-value} @{help_query} @{bonus_query} }kh1]]}}" name="roll_ReactionRoll" class="reaction-roll">Reaction Roll!</button>
 
                 <!-- reduce dice size button -->
                 <button data-i18n="reduce-dice-size" type="action" name="act_updateDiceSize" class="reduce-size-button">Reduce Dice Size</button>
@@ -744,24 +739,25 @@
 <rolltemplate class="sheet-rolltemplate-saveroll">
     <div class="template-container">
 
-        <p>{{charactername}}</p>
-        <h3>Save Roll:</h3>
+        <p>{{charactername}} <span data-i18n="save-roll-title">is making a Save Roll</span></p>
         <div class="template-separator"></div>
+        <h3 data-i18n="result">Result:</h3>
+        
         <p>{{theroll}}</p>
         <div class="template-separator"></div>
         <p class="result-description">
-            {{#rollTotal() theroll 1}}<span>Instant death</span>{{/rollTotal() theroll 1}}
-            {{#rollTotal() theroll 2}}<span>Severed limb (<em>permanent</em>)</span>{{/rollTotal() theroll 2}}
-            {{#rollTotal() theroll 3}}<span>Broken limb (<em>temporary</em>, until end of mission)</span>{{/rollTotal() theroll 3}}
-            {{#rollTotal() theroll 4}}<span>Bleeding (<em>temporary damage over time</em>, <strong>d8</strong>)</span>{{/rollTotal() theroll 4}}
-            {{#rollTotal() theroll 5}}<span>Bleeding (<em>temporary damage over time</em>, <strong>d6</strong>)</span>{{/rollTotal() theroll 5}}
-            {{#rollTotal() theroll 6}}<span>Blinded (<em>temporary</em>, <strong>d10</strong>)</span>{{/rollTotal() theroll 6}}
-            {{#rollTotal() theroll 7}}<span>Deafened (<em>temporary</em>, <strong>d10</strong>)</span>{{/rollTotal() theroll 7}}
-            {{#rollTotal() theroll 8}}<span>Confused (<em>temporary</em>, <strong>d8</strong>)</span>{{/rollTotal() theroll 8}}
-            {{#rollTotal() theroll 9}}<span>Fatigued (<em>temporary</em>, <strong>d6</strong>)</span>{{/rollTotal() theroll 9}}
-            {{#rollTotal() theroll 10}}<span>Dazed (<em>temporary</em>, <strong>d6</strong>)</span>{{/rollTotal() theroll 10}}
-            {{#rollTotal() theroll 11}}<span>Bruised (<em>temporary</em>, <strong>d4</strong>)</span>{{/rollTotal() theroll 11}}
-            {{#rollTotal() theroll 12}}<span>Nothing</span>{{/rollTotal() theroll 12}}
+            {{#rollTotal() theroll 1}}<span data-i18n="save-result-1">Instant death</span>{{/rollTotal() theroll 1}}
+            {{#rollTotal() theroll 2}}<span data-i18n="save-result-2">Severed limb (permanent)</span>{{/rollTotal() theroll 2}}
+            {{#rollTotal() theroll 3}}<span data-i18n="save-result-3">Broken limb (temporary, until end of mission)</span>{{/rollTotal() theroll 3}}
+            {{#rollTotal() theroll 4}}<span data-i18n="save-result-4">Bleeding (temporary damage over time, d8)</span>{{/rollTotal() theroll 4}}
+            {{#rollTotal() theroll 5}}<span data-i18n="save-result-5">Bleeding (temporary damage over time, d6)</span>{{/rollTotal() theroll 5}}
+            {{#rollTotal() theroll 6}}<span data-i18n="save-result-6">Blinded (temporary, d10)</span>{{/rollTotal() theroll 6}}
+            {{#rollTotal() theroll 7}}<span data-i18n="save-result-7">Deafened (temporary, d10)</span>{{/rollTotal() theroll 7}}
+            {{#rollTotal() theroll 8}}<span data-i18n="save-result-8">Confused (temporary, d8)</span>{{/rollTotal() theroll 8}}
+            {{#rollTotal() theroll 9}}<span data-i18n="save-result-9">Fatigued (temporary, d6)</span>{{/rollTotal() theroll 9}}
+            {{#rollTotal() theroll 10}}<span data-i18n="save-result-10">Dazed (temporary, d6)</span>{{/rollTotal() theroll 10}}
+            {{#rollTotal() theroll 11}}<span data-i18n="save-result-11">Bruised (temporary, d4)</span>{{/rollTotal() theroll 11}}
+            {{#rollTotal() theroll 12}}<span data-i18n="save-result-12">Nothing</span>{{/rollTotal() theroll 12}}
         </p>
     </div>
 </rolltemplate>
@@ -769,21 +765,34 @@
 <rolltemplate class="sheet-rolltemplate-conditionroll">
     <div class="template-container">
 
-        <p>{{charactername}}</p>
-        <h3>{{conditionname}}</h3>
+        <p>{{charactername}} <span data-i18n="condition-check-title">is checking</span> {{conditionname}}</p>
         <div class="template-separator"></div>
+        <h3 data-i18n="result">Result:</h3>
         <p>{{theroll}}</p>
         <div class="template-separator"></div>
         <p class="result-description">
-            {{#rollBetween() theroll 1 3}}<span>La condizione non si attiva.</span>{{/rollBetween() theroll 1 3}}
+            {{#rollBetween() theroll 1 3}}<span data-i18n="condition-result-1">The condition or effect doesn't trigger for this turn.</span>{{/rollBetween() theroll 1 3}}
 
-            {{#rollGreater() theroll 3}}<span>La condizione si attiva per il turno!
+            {{#rollGreater() theroll 3}}<span data-i18n="condition-result-2">The condition or effect triggers for this turn!</span>
+            {{#rollGreater() conditiondie 4}} <span data-i18n="condition-result-3">Remember to reduce the die rating.</span>{{/rollGreater() conditiondie 4}}
+            {{#rollTotal() conditiondie 4}} <span data-i18n="condition-result-4">The condition or effect has ceased. Remove it from your character sheet.</span>{{/rollTotal() conditiondie 4}}
+            {{/rollGreater() theroll 3}}
+        </p>
+    </div>
+</rolltemplate>
 
-            {{#rollGreater() conditiondie 4}} Ricordati di abbassare il dado.{{/rollGreater() conditiondie 4}}
+<rolltemplate class="sheet-rolltemplate-reactionroll">
+    <div class="template-container">
 
-            {{#rollTotal() conditiondie 4}} Cancella la condizione dalla scheda.{{/rollTotal() conditiondie 4}}
-
-            </span>{{/rollGreater() theroll 3}}
+        <p>{{charactername}} <span data-i18n="reaction-roll-title">is making a Reaction Roll</span></p>
+        <div class="template-separator"></div>
+        <h3 data-i18n="result">Result:</h3>
+        
+        <p>{{theroll}}</p>
+        <div class="template-separator"></div>
+        <p class="result-description">
+            Risultato spiegazione
+            {{^help-die}} Dado aiuto amico!{{/help-die}}
         </p>
     </div>
 </rolltemplate>
@@ -792,252 +801,279 @@
 <script type="text/worker">
 
     const selectableDice = ['selectable-aware-die', 'selectable-mighty-die', 'selectable-quick-die', 'selectable-sneaky-die',
-    'selectable-item-1-die', 'selectable-item-2-die', 'selectable-item-3-die',
-    'selectable-gutter-die', 'selectable-disintegrator-die', 'selectable-stamina-die']
+        'selectable-item-1-die', 'selectable-item-2-die', 'selectable-item-3-die',
+        'selectable-gutter-die', 'selectable-disintegrator-die', 'selectable-stamina-die'];
 
-on('sheet:opened',function(){
-    selectableDice.forEach(setToZero);
-    clearDicePool();
-    clearApproach();
-});
-
-// reset the clock when changing clock size
-on("change:cloak-clock-size", function() {
-    setToZero('cloak-clock-4');
-    setToZero('cloak-clock-6');
-    setToZero('cloak-clock-8');
-});
-
-function setToZero(attribute) {
-    setAttrs({
-        [attribute]: 0
+    on('sheet:opened',function(){
+        setRollQueries();
+        selectableDice.forEach(setToZero);
+        clearDicePool();
+        clearApproach();
     });
-}
 
-
-// APPROACH
-
-// add approach die
-on("clicked:addapproachaware", function() {
-    addApproach('aware_current_die', 'Aware');
-    highlightApproach('selectable-aware-die');
-});
-on("clicked:addapproachmighty", function() {
-    addApproach('mighty_current_die', 'Mighty');
-    highlightApproach('selectable-mighty-die');
-});
-on("clicked:addapproachquick", function() {
-    addApproach('quick_current_die', 'Quick');
-    highlightApproach('selectable-quick-die');
-});
-on("clicked:addapproachsneaky", function() {
-    addApproach('sneaky_current_die', 'Sneaky');
-    highlightApproach('selectable-sneaky-die');
-});
-
-// currently selected approach die value-attr (size to be reduced)
-let selectedApproachDieValueAttr = "";
-// currently highlighted approach
-let highlightedApproach = "";
-
-function addApproach(dieValueAttr, approachName) {
-    selectedApproachDieValueAttr = dieValueAttr;
-    // gets the value of the die for the ROLL
-    getAttrs([dieValueAttr], function(values) {
-        let dieSize = values[dieValueAttr];
+    function setRollQueries() {
+        const dieOptions = "No, |D12, + 1d12 |D10, + 1d10 |D8, + 1d8 |D6, + 1d6 |D4, + 1d4";
         setAttrs({
-            ['approach-die-value']: "1d" + dieSize
+            help_query: query("ask-help", dieOptions),
+            bonus_query: query("ask-bonus", dieOptions),
         });
-        // updates text:
+    }
+
+    function getTranslation(key) {
+        return getTranslationByKey(key) || `TRANSLATION_KEY_UNDEFINED: ${key}`;
+    }
+    function query(question, options) {
+        return `?{${getTranslation(question)}|${options}}`;
+    }
+
+
+    // reset the clock when changing clock size
+    on("change:cloak-clock-size", function() {
+        setToZero('cloak-clock-4');
+        setToZero('cloak-clock-6');
+        setToZero('cloak-clock-8');
+    });
+
+    function setToZero(attribute) {
         setAttrs({
-            ['approach-die-text']: "Approach: " + approachName + " (D" + dieSize + "), "
+            [attribute]: 0
         });
-    });
-}
-
-function highlightApproach(attribute) {
-    deselectApproach();
-    setAttrs({
-        [attribute]: "selected"
-    });
-    highlightedApproach = attribute;
-}
-
-function deselectApproach() {
-    if (highlightedApproach != "") {
-        setToZero(highlightedApproach);
     }
-    highlightedApproach = "";
-}
 
-function clearApproach() {
-    setToZero('approach-die-value');
-    setAttrs({
-        ['approach-die-text']: " "
+
+    // APPROACH
+
+    // add approach die
+    on("clicked:addapproachaware", function() {
+        addApproach('aware_current_die', 'aware');
+        highlightApproach('selectable-aware-die');
     });
-    selectedApproachDieValueAttr = "";
-}
-
-
-// ASSEMBLE DICE POOL
-
-// add item die
-on("clicked:additem1", function() {
-    getAttrs(['item_1'], function(values) {
-        let itemName = values['item_1'];
-        addToDicePool('cons-item_1_current_die', itemName);
+    on("clicked:addapproachmighty", function() {
+        addApproach('mighty_current_die', 'mighty');
+        highlightApproach('selectable-mighty-die');
     });
-    highlightDie('selectable-item-1-die');
-});
-on("clicked:additem2", function() {
-    getAttrs(['item_2'], function(values) {
-        let itemName = values['item_2'];
-        addToDicePool('cons-item_2_current_die', itemName);
+    on("clicked:addapproachquick", function() {
+        addApproach('quick_current_die', 'quick');
+        highlightApproach('selectable-quick-die');
     });
-    highlightDie('selectable-item-2-die');
-});
-on("clicked:additem3", function() {
-    getAttrs(['item_3'], function(values) {
-        let itemName = values['item_3'];
-        addToDicePool('cons-item_3_current_die', itemName);
+    on("clicked:addapproachsneaky", function() {
+        addApproach('sneaky_current_die', 'sneaky');
+        highlightApproach('selectable-sneaky-die');
     });
-    highlightDie('selectable-item-3-die');
-});
 
-// add weapon die
-on("clicked:addgutter", function() {
-    addToDicePool('cons-gutter_current_die', "Gutter");
-    highlightDie('selectable-gutter-die');
-});
-on("clicked:adddisintegrator", function() {
-    addToDicePool('cons-disintegrator_current_die', "Disintegrator");
-    highlightDie('selectable-disintegrator-die');
-});
+    // currently selected approach die value-attr (size to be reduced)
+    let selectedApproachDieValueAttr = "";
+    // currently highlighted approach
+    let highlightedApproach = "";
 
-// add stamina die
-on("clicked:addstamina", function() {
-    addToDicePool('stamina_current_die', "Stamina");
-    highlightDie('selectable-stamina-die');
-});
-
-
-// dice pool to be rolled
-let selectedDicePoolValue = "";
-// dice pool text to be shown
-let selectedDicePoolText = "";
-// currently selected dice value-attr (size to be reduced)
-let selectedDiceValueAttr = [];
-// currently highlighted dice
-let highlightedDice = [];
-
-function addToDicePool(dieValueAttr, dieName) {
-    // check if die has already been added
-    if (selectedDiceValueAttr.includes(dieValueAttr)) {
-        return;
+    function addApproach(dieValueAttr, approachKey) {
+        selectedApproachDieValueAttr = dieValueAttr;
+        // gets translated name
+        let approachName = getTranslation(approachKey);
+        // gets the value of the die for the ROLL
+        getAttrs([dieValueAttr], function(values) {
+            let dieSize = values[dieValueAttr];
+            setAttrs({
+                ['approach-die-value']: `1d ${dieSize}`,
+                // updates text:
+                ['approach-die-text']: `Approach: ${approachName} (D${dieSize}), `
+            });
+        });
     }
-    selectedDiceValueAttr.push(dieValueAttr);
 
-    // gets the value of the die
-    getAttrs([dieValueAttr], function(values) {
-        let dieSize = values[dieValueAttr];
-
-        // adds die to the dice pool to be rolled
-        if (selectedDicePoolValue != "") {
-            selectedDicePoolValue += " + ";
-        }
-        selectedDicePoolValue += "1d" + dieSize;
-
-        // adds die and name to the text to be shown
-        if (selectedDicePoolText != "") {
-            selectedDicePoolText += ", ";
-        }
-        selectedDicePoolText += dieName + " (D" + dieSize + ")";
-
-        updateDicePool();
-    })
-}
-
-function updateDicePool() {
-    setAttrs({
-        ['dice-pool-value']: selectedDicePoolValue
-    });
-    setAttrs({
-        ['dice-pool-text']: selectedDicePoolText
-    });
-}
-
-
-// HIGHLIGHT SELECTED DICE
-function highlightDie(attribute) {
-    // check if die has already been highlighted
-    if (highlightedDice.includes(attribute)) {
-        return;
-    }
-    highlightedDice.push(attribute);
-    setAttrs({
-        [attribute]: "selected"
-    });
-}
-
-
-// CLEAR BUTTON
-on("clicked:clear", function() {
-    deselectDice();
-    deselectApproach();
-    clearDicePool();
-    clearApproach();
-});
-
-function deselectDice() {
-    highlightedDice.forEach(setToZero);
-    highlightedDice = [];
-}
-
-function clearDicePool() {
-    setToZero('dice-pool-value');
-    selectedDicePoolValue = "";
-    setAttrs({
-        ['dice-pool-text']: " "
-    });
-    selectedDiceValueAttr = [];
-    selectedDicePoolText = "";
-}
-
-
-// UPDATE DICE SIZE button
-on("clicked:updateDiceSize", function() {
-    reduceDiceSize();
-
-    deselectDice();
-    deselectApproach();
-    clearDicePool();
-    clearApproach();
-});
-
-function reduceDiceSize() {
-    selectedDiceValueAttr.forEach(reduceSize);
-    
-    if (selectedApproachDieValueAttr != "") {
-        reduceSize(selectedApproachDieValueAttr);
-    }
-}
-
-function reduceSize(dieValueAttr) {
-    getAttrs([dieValueAttr], function(values) {
-        let dieValue = parseInt(values[dieValueAttr]);
-        let newDieValue;
-
-        if (dieValue > 4) {
-            newDieValue = dieValue - 2;
-        } else if (dieValueAttr.startsWith("cons-")) {
-            newDieValue = 0; // consumable items and weapons
-        } else {
-            newDieValue = 4; // approach and stamina
-        }
+    function highlightApproach(attribute) {
+        deselectApproach();
         setAttrs({
-            [dieValueAttr]: newDieValue
+            [attribute]: "selected"
         });
-    })
-}
+        highlightedApproach = attribute;
+    }
+
+    function deselectApproach() {
+        if (highlightedApproach != "") {
+            setToZero(highlightedApproach);
+        }
+        highlightedApproach = "";
+    }
+
+    function clearApproach() {
+        setToZero('approach-die-value');
+        setAttrs({
+            ['approach-die-text']: " "
+        });
+        selectedApproachDieValueAttr = "";
+    }
+
+
+    // ASSEMBLE DICE POOL
+
+    // add item die
+    on("clicked:additem1", function() {
+        getAttrs(["item_1"], function(values) {
+            let itemName = values["item_1"];
+            if (itemName == "") {
+                itemName = getTranslation("item");
+            }
+            addToDicePool('cons-item_1_current_die', itemName);
+        });        
+        highlightDie('selectable-item-1-die');
+    });
+    on("clicked:additem2", function() {
+        getAttrs(["item_2"], function(values) {
+            let itemName = values["item_2"];
+            if (itemName == "") {
+                itemName = getTranslation("item");
+            }
+            addToDicePool('cons-item_2_current_die', itemName);
+        });
+        highlightDie('selectable-item-2-die');
+    });
+    on("clicked:additem3", function() {
+        getAttrs(["item_3"], function(values) {
+            let itemName = values["item_3"];
+            if (itemName == "") {
+                itemName = getTranslation("item");
+            }
+            addToDicePool('cons-item_3_current_die', itemName);
+        });
+        highlightDie('selectable-item-3-die');
+    });
+
+    // add weapon die
+    on("clicked:addgutter", function() {
+        let translatedName = getTranslation("gutter");
+        addToDicePool('cons-gutter_current_die', translatedName);
+        highlightDie('selectable-gutter-die');
+    });
+    on("clicked:adddisintegrator", function() {
+        let translatedName = getTranslation("disintegrator");
+        addToDicePool('cons-disintegrator_current_die', translatedName);
+        highlightDie('selectable-disintegrator-die');
+    });
+
+    // add stamina die
+    on("clicked:addstamina", function() {
+        let translatedName = getTranslation("stamina");
+        addToDicePool('stamina_current_die', translatedName);
+        highlightDie('selectable-stamina-die');
+    });
+
+
+    // dice pool to be rolled
+    let selectedDicePoolValue = "";
+    // dice pool text to be shown
+    let selectedDicePoolText = "";
+    // currently selected dice value-attr (size to be reduced)
+    let selectedDiceValueAttr = [];
+    // currently highlighted dice
+    let highlightedDice = [];
+
+    function addToDicePool(dieValueAttr, dieName) {
+        // check if die has already been added
+        if (selectedDiceValueAttr.includes(dieValueAttr)) {
+            return;
+        }
+        selectedDiceValueAttr.push(dieValueAttr);
+
+        // gets the value of the die
+        getAttrs([dieValueAttr], function(values) {
+            let dieSize = values[dieValueAttr];
+
+            // adds die to the dice pool to be rolled
+            if (selectedDicePoolValue != "") {
+                selectedDicePoolValue += " + ";
+            }
+            selectedDicePoolValue += `1d${dieSize}`;
+
+            // adds die and name to the text to be shown
+            if (selectedDicePoolText != "") {
+                selectedDicePoolText += ", ";
+            }
+            selectedDicePoolText += `${dieName} (D${dieSize})`;
+
+            updateDicePool();
+        })
+    }
+
+    function updateDicePool() {
+        setAttrs({
+            ['dice-pool-value']: selectedDicePoolValue,
+            ['dice-pool-text']: selectedDicePoolText
+        });
+    }
+
+
+    // HIGHLIGHT SELECTED DICE
+    function highlightDie(attribute) {
+        // check if die has already been highlighted
+        if (highlightedDice.includes(attribute)) {
+            return;
+        }
+        highlightedDice.push(attribute);
+        setAttrs({
+            [attribute]: "selected"
+        });
+    }
+
+
+    // CLEAR BUTTON
+    on("clicked:clear", function() {
+        deselectDice();
+        deselectApproach();
+        clearDicePool();
+        clearApproach();
+    });
+
+    function deselectDice() {
+        highlightedDice.forEach(setToZero);
+        highlightedDice = [];
+    }
+
+    function clearDicePool() {
+        setToZero('dice-pool-value');
+        selectedDicePoolValue = "";
+        setAttrs({
+            ['dice-pool-text']: " ",
+        });
+        selectedDiceValueAttr = [];
+        selectedDicePoolText = "";
+    }
+
+
+    // UPDATE DICE SIZE button
+    on("clicked:updateDiceSize", function() {
+        reduceDiceSize();
+
+        deselectDice();
+        deselectApproach();
+        clearDicePool();
+        clearApproach();
+    });
+
+    function reduceDiceSize() {
+        selectedDiceValueAttr.forEach(reduceSize);
+        
+        if (selectedApproachDieValueAttr != "") {
+            reduceSize(selectedApproachDieValueAttr);
+        }
+    }
+
+    function reduceSize(dieValueAttr) {
+        getAttrs([dieValueAttr], function(values) {
+            let dieValue = parseInt(values[dieValueAttr]);
+            let newDieValue;
+
+            if (dieValue > 4) {
+                newDieValue = dieValue - 2;
+            } else if (dieValueAttr.startsWith("cons-")) {
+                newDieValue = 0; // consumable items and weapons
+            } else {
+                newDieValue = 4; // approach and stamina
+            }
+            setAttrs({
+                [dieValueAttr]: newDieValue
+            });
+        })
+    }
 
 </script>
