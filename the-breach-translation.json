@@ -4,6 +4,7 @@
     "pronouns": "Pronouns",
     "call-sign": "Call Sign",
     "trait": "Trait",
+    "approach": "Approach",
     "aware": "Aware",
     "aware-description": "An approach used to move carefully, evaluate situations and consequences, and reason calmly spending time.",
     "mighty": "Mighty",
@@ -40,9 +41,11 @@
     "assemble-your-dice-pool": "Assemble your dice pool",
     "reaction-roll-button": "Reaction Roll",
     "ask-help": "Add Help Die?",
+    "help": "Help",
     "ask-bonus": "Add Bonus Die?",
+    "bonus": "Bonus",
     "reduce-dice-size": "Reduce Dice Size",
-    "clear-dice-pool": "Clear",
+    "clear-dice-pool": "Clear Dice Pool",
 
     "save-roll-title": "is making a Save Roll",
     "save-result-1": "Instant death",
@@ -64,7 +67,17 @@
     "condition-result-3": "Remember to reduce the die rating.",
     "condition-result-4": "The condition or effect has ceased. Remove it from your character sheet.",
 
-    "reaction-roll-title": "is making a Reaction Roll",
+    "result": "Result:",
+    "success": "Success!",
+    "fail": "Fail",
 
-    "result": "Result:"
+    "reaction-roll-title": "is making a Reaction Roll",
+    "reaction-result-fail": "It's a fail: something wrong happens.",
+    "reaction-result-success-consequences": "It's a success, but there are consequences.",
+    "reaction-result-success": "It's a success. The higher the result, the better the effect.",
+    "result-trait-advantage": "You may reroll one die",
+    "result-trait-disadvantage": "You get a check.",
+    "reduce-dice-size-reminder": "Remember to reduce the rating of the dice you used by one level."
+
+    
 }

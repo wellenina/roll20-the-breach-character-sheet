@@ -782,6 +782,7 @@ button[type=roll]::before {
     text-align: center;
     font-size: large;
     font-weight: 700;
+    font-style: normal;
 }
 
 .sheet-rolltemplate-saveroll .inlinerollresult,

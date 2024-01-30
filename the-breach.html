@@ -700,8 +700,8 @@
                 <!-- DICE POOL VALUES -->
                 <input type="hidden" name="attr_dice-pool-value" value="0">
 
-
-
+                <!-- TRAIT QUERY -->
+                <input type="hidden" name="attr_trait_query" value="?{Use trait?|No, 0|Yes: to gain advantage, 1|Yes: to gain disadvantage, 2}">
 
                 <!-- 1 help from another player - optional -->
                 <input type="hidden" name="attr_help_query" value="?{Add Help Die?|No, |D12, + 1d12 |D10, + 1d10 |D8, + 1d8 |D6, + 1d6 |D4, + 1d4}"/>
@@ -722,7 +722,7 @@
             <div class="buttons">
 
                 <!-- roll button -->
-                <button data-i18n="reaction-roll-button" type="roll" value="&{template:reactionroll} {{charactername=@{character_name}}} {{theroll=[[{@{approach-die-value} + @{dice-pool-value} @{help_query} @{bonus_query} }kh1]]}}" name="roll_ReactionRoll" class="reaction-roll">Reaction Roll!</button>
+                <button data-i18n="reaction-roll-button" type="roll" value="&{template:reactionroll} {{charactername=@{character_name}}} {{trait=[[@{trait_query}]]}} {{theroll=[[{@{approach-die-value} + @{dice-pool-value} @{help_query} @{bonus_query} }kh1]]}}" name="roll_ReactionRoll" class="reaction-roll">Reaction Roll!</button>
 
                 <!-- reduce dice size button -->
                 <button data-i18n="reduce-dice-size" type="action" name="act_updateDiceSize" class="reduce-size-button">Reduce Dice Size</button>
@@ -790,10 +790,43 @@
         
         <p>{{theroll}}</p>
         <div class="template-separator"></div>
-        <p class="result-description">
-            Risultato spiegazione
-            {{^help-die}} Dado aiuto amico!{{/help-die}}
-        </p>
+        <div class="result-description">
+
+            <!-- FALLIMENTO: 1-3 -->
+            {{#rollLess() theroll 4}}
+                <h3 data-i18n="fail">Fail</h3>    
+                <p data-i18n="reaction-result-fail">It's a fail: something wrong happens.</p>
+            {{/rollLess() theroll 4}}
+
+            {{#rollBetween() theroll 4 5}}
+                <!-- CONDIZIONI NORMALI (senza tratto / tratto con vantaggio): SUCCESSO CON CONSEGUENZE -->
+                {{#rollLess() trait 2}}
+                    <h3 data-i18n="success">Success</h3>   
+                    <p data-i18n="reaction-result-success-consequences">It's a success, but there are consequences.</p>
+                {{/rollLess() trait 2}}
+
+                <!-- TRATTO CON SVANTAGGIO: FALLIMENTO -->
+                {{#rollTotal() trait 2}}
+                <h3 data-i18n="fail">Fail</h3>   
+                <p data-i18n="reaction-result-fail">It's a fail, something wrong happens.</p>
+                {{/rollTotal() trait 2}}
+            {{/rollBetween() theroll 4 5}}
+
+            <!-- SUCCESSO: 6+ -->
+            {{#rollGreater() theroll 5}}
+                <h3 data-i18n="success">Success</h3>  
+                <p data-i18n="reaction-result-success">It's a success. The higher the result, the better the effect.</p>
+            {{/rollGreater() theroll 5}}
+
+
+            <!-- TRATTO CON VANTAGGIO -->
+            {{#rollTotal() trait 1}}<p data-i18n="result-trait-advantage">Puoi tirare una seconda volta uno qualsiasi dei dadi.</p>{{/rollTotal() trait 1}}
+            <!-- TRATTO CON SVANTAGGIO -->
+            {{#rollTotal() trait 2}}<p data-i18n="result-trait-disadvantage">Ottieni un check.</p>{{/rollTotal() trait 2}}
+
+            <p data-i18n="reduce-dice-size-reminder">Ricordati di ridurre di una dimensione ogni dado che hai usato.</p>
+
+        </div>
     </div>
 </rolltemplate>
 
@@ -801,279 +834,284 @@
 <script type="text/worker">
 
     const selectableDice = ['selectable-aware-die', 'selectable-mighty-die', 'selectable-quick-die', 'selectable-sneaky-die',
-        'selectable-item-1-die', 'selectable-item-2-die', 'selectable-item-3-die',
-        'selectable-gutter-die', 'selectable-disintegrator-die', 'selectable-stamina-die'];
+    'selectable-item-1-die', 'selectable-item-2-die', 'selectable-item-3-die',
+    'selectable-gutter-die', 'selectable-disintegrator-die', 'selectable-stamina-die'];
 
-    on('sheet:opened',function(){
-        setRollQueries();
-        selectableDice.forEach(setToZero);
-        clearDicePool();
-        clearApproach();
+on('sheet:opened',function(){
+    setRollQueries();
+    approachTitle = getTranslation("approach");
+    selectableDice.forEach(setToZero);
+    clearDicePool();
+    clearApproach();
+});
+
+function setRollQueries() {
+    setAttrs({
+        help_query: query("ask-help", "help"),
+        bonus_query: query("ask-bonus", "bonus"),
     });
+}
 
-    function setRollQueries() {
-        const dieOptions = "No, |D12, + 1d12 |D10, + 1d10 |D8, + 1d8 |D6, + 1d6 |D4, + 1d4";
+function getTranslation(key) {
+    return getTranslationByKey(key) || `TRANSLATION_KEY_UNDEFINED: ${key}`;
+}
+function query(questionKey, labelKey) {
+    let options = getQueryOptions(getTranslation(labelKey));
+    return `?{${getTranslation(questionKey)}|${options}}`;
+}
+function getQueryOptions(label) {
+    return `No, |D12, + 1d12[${label}] |D10, + 1d10[${label}] |D8, + 1d8[${label}] |D6, + 1d6[${label}] |D4, + 1d4[${label}]`;
+}
+
+// reset the clock when changing clock size
+on("change:cloak-clock-size", function() {
+    setToZero('cloak-clock-4');
+    setToZero('cloak-clock-6');
+    setToZero('cloak-clock-8');
+});
+
+function setToZero(attribute) {
+    setAttrs({
+        [attribute]: 0
+    });
+}
+
+
+// APPROACH
+
+// add approach die
+on("clicked:addapproachaware", function() {
+    addApproach('aware_current_die', 'aware');
+    highlightApproach('selectable-aware-die');
+});
+on("clicked:addapproachmighty", function() {
+    addApproach('mighty_current_die', 'mighty');
+    highlightApproach('selectable-mighty-die');
+});
+on("clicked:addapproachquick", function() {
+    addApproach('quick_current_die', 'quick');
+    highlightApproach('selectable-quick-die');
+});
+on("clicked:addapproachsneaky", function() {
+    addApproach('sneaky_current_die', 'sneaky');
+    highlightApproach('selectable-sneaky-die');
+});
+
+let approachTitle = "";
+// currently selected approach die value-attr (size to be reduced)
+let selectedApproachDieValueAttr = "";
+// currently highlighted approach
+let highlightedApproach = "";
+
+function addApproach(dieValueAttr, approachKey) {
+    selectedApproachDieValueAttr = dieValueAttr;
+    // gets translated name
+    let approachName = getTranslation(approachKey);
+    // gets the value of the die for the ROLL
+    getAttrs([dieValueAttr], function(values) {
+        let dieSize = values[dieValueAttr];
+        let description = `${approachTitle}: ${approachName}`;
         setAttrs({
-            help_query: query("ask-help", dieOptions),
-            bonus_query: query("ask-bonus", dieOptions),
+            ['approach-die-value']: `1d${dieSize}[${description}]`,
+            // updates text:
+            ['approach-die-text']: `${description} (D${dieSize}), `
         });
-    }
-
-    function getTranslation(key) {
-        return getTranslationByKey(key) || `TRANSLATION_KEY_UNDEFINED: ${key}`;
-    }
-    function query(question, options) {
-        return `?{${getTranslation(question)}|${options}}`;
-    }
-
-
-    // reset the clock when changing clock size
-    on("change:cloak-clock-size", function() {
-        setToZero('cloak-clock-4');
-        setToZero('cloak-clock-6');
-        setToZero('cloak-clock-8');
     });
+}
 
-    function setToZero(attribute) {
-        setAttrs({
-            [attribute]: 0
-        });
+function highlightApproach(attribute) {
+    deselectApproach();
+    setAttrs({
+        [attribute]: "selected"
+    });
+    highlightedApproach = attribute;
+}
+
+function deselectApproach() {
+    if (highlightedApproach != "") {
+        setToZero(highlightedApproach);
     }
+    highlightedApproach = "";
+}
 
-
-    // APPROACH
-
-    // add approach die
-    on("clicked:addapproachaware", function() {
-        addApproach('aware_current_die', 'aware');
-        highlightApproach('selectable-aware-die');
+function clearApproach() {
+    setToZero('approach-die-value');
+    setAttrs({
+        ['approach-die-text']: " "
     });
-    on("clicked:addapproachmighty", function() {
-        addApproach('mighty_current_die', 'mighty');
-        highlightApproach('selectable-mighty-die');
-    });
-    on("clicked:addapproachquick", function() {
-        addApproach('quick_current_die', 'quick');
-        highlightApproach('selectable-quick-die');
-    });
-    on("clicked:addapproachsneaky", function() {
-        addApproach('sneaky_current_die', 'sneaky');
-        highlightApproach('selectable-sneaky-die');
-    });
+    selectedApproachDieValueAttr = "";
+}
 
-    // currently selected approach die value-attr (size to be reduced)
-    let selectedApproachDieValueAttr = "";
-    // currently highlighted approach
-    let highlightedApproach = "";
 
-    function addApproach(dieValueAttr, approachKey) {
-        selectedApproachDieValueAttr = dieValueAttr;
-        // gets translated name
-        let approachName = getTranslation(approachKey);
-        // gets the value of the die for the ROLL
-        getAttrs([dieValueAttr], function(values) {
-            let dieSize = values[dieValueAttr];
-            setAttrs({
-                ['approach-die-value']: `1d ${dieSize}`,
-                // updates text:
-                ['approach-die-text']: `Approach: ${approachName} (D${dieSize}), `
-            });
-        });
-    }
+// ASSEMBLE DICE POOL
 
-    function highlightApproach(attribute) {
-        deselectApproach();
-        setAttrs({
-            [attribute]: "selected"
-        });
-        highlightedApproach = attribute;
-    }
-
-    function deselectApproach() {
-        if (highlightedApproach != "") {
-            setToZero(highlightedApproach);
+// add item die
+on("clicked:additem1", function() {
+    getAttrs(["item_1"], function(values) {
+        let itemName = values["item_1"];
+        if (itemName == "") {
+            itemName = getTranslation("item");
         }
-        highlightedApproach = "";
-    }
-
-    function clearApproach() {
-        setToZero('approach-die-value');
-        setAttrs({
-            ['approach-die-text']: " "
-        });
-        selectedApproachDieValueAttr = "";
-    }
-
-
-    // ASSEMBLE DICE POOL
-
-    // add item die
-    on("clicked:additem1", function() {
-        getAttrs(["item_1"], function(values) {
-            let itemName = values["item_1"];
-            if (itemName == "") {
-                itemName = getTranslation("item");
-            }
-            addToDicePool('cons-item_1_current_die', itemName);
-        });        
-        highlightDie('selectable-item-1-die');
-    });
-    on("clicked:additem2", function() {
-        getAttrs(["item_2"], function(values) {
-            let itemName = values["item_2"];
-            if (itemName == "") {
-                itemName = getTranslation("item");
-            }
-            addToDicePool('cons-item_2_current_die', itemName);
-        });
-        highlightDie('selectable-item-2-die');
-    });
-    on("clicked:additem3", function() {
-        getAttrs(["item_3"], function(values) {
-            let itemName = values["item_3"];
-            if (itemName == "") {
-                itemName = getTranslation("item");
-            }
-            addToDicePool('cons-item_3_current_die', itemName);
-        });
-        highlightDie('selectable-item-3-die');
-    });
-
-    // add weapon die
-    on("clicked:addgutter", function() {
-        let translatedName = getTranslation("gutter");
-        addToDicePool('cons-gutter_current_die', translatedName);
-        highlightDie('selectable-gutter-die');
-    });
-    on("clicked:adddisintegrator", function() {
-        let translatedName = getTranslation("disintegrator");
-        addToDicePool('cons-disintegrator_current_die', translatedName);
-        highlightDie('selectable-disintegrator-die');
-    });
-
-    // add stamina die
-    on("clicked:addstamina", function() {
-        let translatedName = getTranslation("stamina");
-        addToDicePool('stamina_current_die', translatedName);
-        highlightDie('selectable-stamina-die');
-    });
-
-
-    // dice pool to be rolled
-    let selectedDicePoolValue = "";
-    // dice pool text to be shown
-    let selectedDicePoolText = "";
-    // currently selected dice value-attr (size to be reduced)
-    let selectedDiceValueAttr = [];
-    // currently highlighted dice
-    let highlightedDice = [];
-
-    function addToDicePool(dieValueAttr, dieName) {
-        // check if die has already been added
-        if (selectedDiceValueAttr.includes(dieValueAttr)) {
-            return;
+        addToDicePool('cons-item_1_current_die', itemName);
+    });        
+    highlightDie('selectable-item-1-die');
+});
+on("clicked:additem2", function() {
+    getAttrs(["item_2"], function(values) {
+        let itemName = values["item_2"];
+        if (itemName == "") {
+            itemName = getTranslation("item");
         }
-        selectedDiceValueAttr.push(dieValueAttr);
-
-        // gets the value of the die
-        getAttrs([dieValueAttr], function(values) {
-            let dieSize = values[dieValueAttr];
-
-            // adds die to the dice pool to be rolled
-            if (selectedDicePoolValue != "") {
-                selectedDicePoolValue += " + ";
-            }
-            selectedDicePoolValue += `1d${dieSize}`;
-
-            // adds die and name to the text to be shown
-            if (selectedDicePoolText != "") {
-                selectedDicePoolText += ", ";
-            }
-            selectedDicePoolText += `${dieName} (D${dieSize})`;
-
-            updateDicePool();
-        })
-    }
-
-    function updateDicePool() {
-        setAttrs({
-            ['dice-pool-value']: selectedDicePoolValue,
-            ['dice-pool-text']: selectedDicePoolText
-        });
-    }
-
-
-    // HIGHLIGHT SELECTED DICE
-    function highlightDie(attribute) {
-        // check if die has already been highlighted
-        if (highlightedDice.includes(attribute)) {
-            return;
-        }
-        highlightedDice.push(attribute);
-        setAttrs({
-            [attribute]: "selected"
-        });
-    }
-
-
-    // CLEAR BUTTON
-    on("clicked:clear", function() {
-        deselectDice();
-        deselectApproach();
-        clearDicePool();
-        clearApproach();
+        addToDicePool('cons-item_2_current_die', itemName);
     });
-
-    function deselectDice() {
-        highlightedDice.forEach(setToZero);
-        highlightedDice = [];
-    }
-
-    function clearDicePool() {
-        setToZero('dice-pool-value');
-        selectedDicePoolValue = "";
-        setAttrs({
-            ['dice-pool-text']: " ",
-        });
-        selectedDiceValueAttr = [];
-        selectedDicePoolText = "";
-    }
-
-
-    // UPDATE DICE SIZE button
-    on("clicked:updateDiceSize", function() {
-        reduceDiceSize();
-
-        deselectDice();
-        deselectApproach();
-        clearDicePool();
-        clearApproach();
-    });
-
-    function reduceDiceSize() {
-        selectedDiceValueAttr.forEach(reduceSize);
-        
-        if (selectedApproachDieValueAttr != "") {
-            reduceSize(selectedApproachDieValueAttr);
+    highlightDie('selectable-item-2-die');
+});
+on("clicked:additem3", function() {
+    getAttrs(["item_3"], function(values) {
+        let itemName = values["item_3"];
+        if (itemName == "") {
+            itemName = getTranslation("item");
         }
-    }
+        addToDicePool('cons-item_3_current_die', itemName);
+    });
+    highlightDie('selectable-item-3-die');
+});
 
-    function reduceSize(dieValueAttr) {
-        getAttrs([dieValueAttr], function(values) {
-            let dieValue = parseInt(values[dieValueAttr]);
-            let newDieValue;
+// add weapon die
+on("clicked:addgutter", function() {
+    let translatedName = getTranslation("gutter");
+    addToDicePool('cons-gutter_current_die', translatedName);
+    highlightDie('selectable-gutter-die');
+});
+on("clicked:adddisintegrator", function() {
+    let translatedName = getTranslation("disintegrator");
+    addToDicePool('cons-disintegrator_current_die', translatedName);
+    highlightDie('selectable-disintegrator-die');
+});
 
-            if (dieValue > 4) {
-                newDieValue = dieValue - 2;
-            } else if (dieValueAttr.startsWith("cons-")) {
-                newDieValue = 0; // consumable items and weapons
-            } else {
-                newDieValue = 4; // approach and stamina
-            }
-            setAttrs({
-                [dieValueAttr]: newDieValue
-            });
-        })
+// add stamina die
+on("clicked:addstamina", function() {
+    let translatedName = getTranslation("stamina");
+    addToDicePool('stamina_current_die', translatedName);
+    highlightDie('selectable-stamina-die');
+});
+
+
+// dice pool to be rolled
+let selectedDicePoolValue = "";
+// dice pool text to be shown
+let selectedDicePoolText = "";
+// currently selected dice value-attr (size to be reduced)
+let selectedDiceValueAttr = [];
+// currently highlighted dice
+let highlightedDice = [];
+
+function addToDicePool(dieValueAttr, dieName) {
+    // check if die has already been added
+    if (selectedDiceValueAttr.includes(dieValueAttr)) {
+        return;
     }
+    selectedDiceValueAttr.push(dieValueAttr);
+
+    // gets the value of the die
+    getAttrs([dieValueAttr], function(values) {
+        let dieSize = values[dieValueAttr];
+
+        // adds die to the dice pool to be rolled
+        if (selectedDicePoolValue != "") {
+            selectedDicePoolValue += " + ";
+        }
+        selectedDicePoolValue += `1d${dieSize}[${dieName}]`;
+
+        // adds die and name to the text to be shown
+        if (selectedDicePoolText != "") {
+            selectedDicePoolText += ", ";
+        }
+        selectedDicePoolText += `${dieName} (D${dieSize})`;
+
+        updateDicePool();
+    })
+}
+
+function updateDicePool() {
+    setAttrs({
+        ['dice-pool-value']: selectedDicePoolValue,
+        ['dice-pool-text']: selectedDicePoolText
+    });
+}
+
+
+// HIGHLIGHT SELECTED DICE
+function highlightDie(attribute) {
+    // check if die has already been highlighted
+    if (highlightedDice.includes(attribute)) {
+        return;
+    }
+    highlightedDice.push(attribute);
+    setAttrs({
+        [attribute]: "selected"
+    });
+}
+
+
+// CLEAR BUTTON
+on("clicked:clear", function() {
+    deselectDice();
+    deselectApproach();
+    clearDicePool();
+    clearApproach();
+});
+
+function deselectDice() {
+    highlightedDice.forEach(setToZero);
+    highlightedDice = [];
+}
+
+function clearDicePool() {
+    setToZero('dice-pool-value');
+    selectedDicePoolValue = "";
+    setAttrs({
+        ['dice-pool-text']: " ",
+    });
+    selectedDiceValueAttr = [];
+    selectedDicePoolText = "";
+}
+
+
+// UPDATE DICE SIZE button
+on("clicked:updateDiceSize", function() {
+    reduceDiceSize();
+
+    deselectDice();
+    deselectApproach();
+    clearDicePool();
+    clearApproach();
+});
+
+function reduceDiceSize() {
+    selectedDiceValueAttr.forEach(reduceSize);
+
+    if (selectedApproachDieValueAttr != "") {
+        reduceSize(selectedApproachDieValueAttr);
+    }
+}
+
+function reduceSize(dieValueAttr) {
+    getAttrs([dieValueAttr], function(values) {
+        let dieValue = parseInt(values[dieValueAttr]);
+        let newDieValue;
+
+        if (dieValue > 4) {
+            newDieValue = dieValue - 2;
+        } else if (dieValueAttr.startsWith("cons-")) {
+            newDieValue = 0; // consumable items and weapons
+        } else {
+            newDieValue = 4; // approach and stamina
+        }
+        setAttrs({
+            [dieValueAttr]: newDieValue
+        });
+    })
+}
 
 </script>
