@@ -635,8 +635,9 @@ button[type="action"]:hover, button[type="roll"]:hover,
     color: var(--the-breach-black);
 }
 
-.roll-section h3 {
+.assemble-dice-pool-container {
     margin-bottom: 1rem;
+    position: relative;
 }
 
 /* DICE POOL TEXT */
@@ -676,7 +677,7 @@ button[type=roll]::before {
     right: 0;
 }
 .reduce-size-button {
-    right: 10%;
+    right: 0;
 }
 
 /* DISABLED BUTTONS */

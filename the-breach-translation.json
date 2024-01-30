@@ -40,6 +40,12 @@
     "other-info": "Other Info",
     "assemble-your-dice-pool": "Assemble your dice pool",
     "reaction-roll-button": "Reaction Roll",
+
+    "ask-trait": "Use trait?",
+    "no": "No",
+    "use-trait-advantage": "Yes: to gain advantage",
+    "use-trait-disadvantage": "Yes: to gain disadvantage",
+
     "ask-help": "Add Help Die?",
     "help": "Help",
     "ask-bonus": "Add Bonus Die?",
@@ -75,9 +81,8 @@
     "reaction-result-fail": "It's a fail: something wrong happens.",
     "reaction-result-success-consequences": "It's a success, but there are consequences.",
     "reaction-result-success": "It's a success. The higher the result, the better the effect.",
-    "result-trait-advantage": "You may reroll one die",
+    "result-trait-advantage": "You may reroll one die.",
     "result-trait-disadvantage": "You get a check.",
-    "reduce-dice-size-reminder": "Remember to reduce the rating of the dice you used by one level."
-
-    
+    "reduce-dice-size-reminder": "Remember to reduce the rating of the dice you used by one level.",
+    "reduce-help-die-reminder": "The player who helped you will have to reduce their stamina die."
 }
