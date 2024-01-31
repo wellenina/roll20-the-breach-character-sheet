@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css?family=Space+Grotesk:wght@400&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Space+Grotesk:wght@600&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Roboto:ital,wght@1,300&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Teko:wght@600&display=swap');
 
 /* COLORS */
 :root {
@@ -596,7 +597,8 @@ button[type="action"]:hover, button[type="roll"]:hover,
 .progress[value="4"] ~ .progress-point[value="3"],
 .progress[value="5"] ~ .progress-point[value="3"],
 .progress[value="5"] ~ .progress-point[value="4"] {
-    background-color: var(--the-breach-accent-color);
+    outline: 5px solid var(--the-breach-accent-color) !important;
+    outline-offset: -15px !important;
 }
 
 
@@ -775,25 +777,44 @@ button[type=roll]::before {
     border: 4px solid #1D1D1D;
     outline: 2px solid #1D1D1D;
     outline-offset: -9px;
+
+    position: relative;
 }
 
-.sheet-rolltemplate-saveroll h3,
-.sheet-rolltemplate-conditionroll h3,
-.sheet-rolltemplate-reactionroll h3 {
+.sheet-rolltemplate-saveroll .sheet-background-logo,
+.sheet-rolltemplate-conditionroll .sheet-background-logo,
+.sheet-rolltemplate-reactionroll .sheet-background-logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(https://github.com/wellenina/roll20-the-breach-character-sheet/blob/b1cf6ebbf260eac9cacadb8c833adeb90b745720/Assets/background-logo.png?raw=true);
+    background-size: auto 89%;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.1;
+}
+
+.sheet-rolltemplate-saveroll .sheet-result-title,
+.sheet-rolltemplate-conditionroll .sheet-result-title,
+.sheet-rolltemplate-reactionroll .sheet-result-title {
     text-align: center;
     font-size: large;
     font-weight: 700;
-    font-style: normal;
 }
 
 .sheet-rolltemplate-saveroll .inlinerollresult,
 .sheet-rolltemplate-conditionroll .inlinerollresult,
 .sheet-rolltemplate-reactionroll .inlinerollresult {
-    background-color: transparent !important;
-    border: none !important;
-    font-size: xxx-large;
+    font-family: "Teko", sans-serif;
+    font-weight: 600;
+    font-size: 50px;
     text-align: center;
     display: block;
+    background-color: transparent !important;
+    border: none !important;
+    line-height: 1;
 }
 
 .sheet-rolltemplate-saveroll p,
@@ -815,4 +836,14 @@ button[type=roll]::before {
 .sheet-rolltemplate-conditionroll .sheet-result-description,
 .sheet-rolltemplate-reactionroll .sheet-result-description {
     font-style: italic;
+}
+
+.sheet-rolltemplate-saveroll .sheet-success-fail,
+.sheet-rolltemplate-conditionroll .sheet-success-fail,
+.sheet-rolltemplate-reactionroll .sheet-success-fail {
+    font-family: "Teko", sans-serif;
+    font-size: 34px;
+    font-weight: 600;
+    font-style: normal;
+    text-align: center;
 }
