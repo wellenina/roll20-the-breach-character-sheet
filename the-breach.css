@@ -9,7 +9,8 @@
     --the-breach-black: #1D1D1D;
     --the-breach-darkgrey: #5D5D5D;
     --the-breach-white: #FFFFFF;
-    --the-breach-accent-color: #702C91;
+    --the-breach-accent-color: #cb2e2e;
+    --the-breach-accent-transparent: rgb(203 46 46 / 50%);
 }
 
 * {
@@ -288,7 +289,7 @@ button.add-die, button.save-roll, button.condition-roll {
 
 button[type="action"]:hover, button[type="roll"]:hover, 
 .repcontrol button:hover, .itemcontrol .repcontrol_move:hover {
-    background-color: #c6abd2 !important;
+    background-color: var(--the-breach-accent-transparent) !important;
 }
 
 /* ICONS */
@@ -691,7 +692,7 @@ button[type=roll]::before {
     display: none;
 }
 .selectable-die[value="selected"] + .line {
-    background-color: rgba(112, 44, 145, 0.5);
+    background-color: var(--the-breach-accent-transparent);
 }
 
 /* permanent condition roll button */
