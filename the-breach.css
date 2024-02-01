@@ -262,7 +262,6 @@ input[type=checkbox]:checked {
 }
 
 /* BUTTONS */
-
 button, .itemcontrol .repcontrol_move {
     color: var(--the-breach-black) !important;
     border-radius: 999rem !important;
@@ -319,14 +318,12 @@ button[type="action"]:hover, button[type="roll"]:hover,
     z-index: -1;
 }
 
-/* radio buttons */
 .clock-container input[type=radio],
 .xp-icon-container input[type=radio],
 .harms-icon-container input[type=radio] {
     opacity: 0;
 }
 
-/* spokes */
 .clock-spoke {
     height: 38px;
     width: 2px;
@@ -357,7 +354,6 @@ button[type="action"]:hover, button[type="roll"]:hover,
     transform: translateX(21px) rotate(135deg);
 }
 
-/* reset clock icon */
 .clock-progress-zero, .reset-clock-icon {
     position: absolute;
     top: 29px;
@@ -746,8 +742,12 @@ button[type=roll]::before {
 }
 
 
-/* ////////////////////////////////////////////////////////////////////////////////////////////////////////// */
 /* ROLLTEMPLATE */
+
+.preload {
+    opacity: 0;
+    position: absolute;
+}
 
 .sheet-rolltemplate-saveroll,
 .sheet-rolltemplate-conditionroll,
