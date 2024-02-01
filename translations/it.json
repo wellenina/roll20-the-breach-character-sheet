@@ -40,19 +40,16 @@
     "other-info": "Altre info",
     "assemble-your-dice-pool": "Componi il tuo pool di dadi",
     "reaction-roll-button": "Tiro Reazione",
-
     "ask-trait": "Stai utilizzando un tratto?",
     "no": "No",
     "use-trait-advantage": "Sì: per ottenere un vantaggio",
     "use-trait-disadvantage": "No: per ottenere uno svantaggio",
-
     "ask-help": "Un altro osservatore ti sta aiutando?",
     "help": "Aiuto",
     "ask-bonus": "Hai un qualche altro tipo di dado bonus?",
     "bonus": "Bonus",
     "reduce-dice-size": "Riduci dimensione dadi",
     "clear-dice-pool": "Svuota pool di dadi",
-
     "save-roll-title": "sta effettuando un TIRO SALVEZZA",
     "save-result-1": "Sei Morto.",
     "save-result-2": "Hai un Arto mozzato (permanente).",
@@ -66,17 +63,14 @@
     "save-result-10": "Sei Frastornato (temporaneo, d6).",
     "save-result-11": "Sei Ammaccato (temporaneo, d4).",
     "save-result-12": "Hai superato senza conseguenze il Tiro Salvezza.",
-
     "condition-check-title": "sta verificando",
     "condition-result-1": "La condizione o l'effetto non si innesca in questo turno.",
     "condition-result-2": "La condizione o l'effetto si innesca in questo turno!",
     "condition-result-3": "Ricordati di ridurre il valore del dado.",
     "condition-result-4": "La condizione o l'effetto è cessato. Rimuovilo dalla scheda.",
-
     "result": "Risultato:",
     "success": "Successo!",
     "fail": "Fallimento",
-
     "reaction-roll-title": "sta effettuando un TIRO REAZIONE",
     "reaction-result-fail": "È un fallimento: accade qualcosa di negativo.",
     "reaction-result-success-consequences": "È un successo, ma ci sono delle conseguenze.",

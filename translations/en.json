@@ -40,19 +40,16 @@
     "other-info": "Other Info",
     "assemble-your-dice-pool": "Assemble your dice pool",
     "reaction-roll-button": "Reaction Roll",
-
     "ask-trait": "Are you using a trait?",
     "no": "No",
     "use-trait-advantage": "Yes: to gain advantage",
     "use-trait-disadvantage": "Yes: to gain disadvantage",
-
     "ask-help": "Another watcher is helping you?",
     "help": "Help",
     "ask-bonus": "Do you have any kind of other bonus die?",
     "bonus": "Bonus",
     "reduce-dice-size": "Reduce Dice Size",
     "clear-dice-pool": "Clear Dice Pool",
-
     "save-roll-title": "is making a SAVE ROLL",
     "save-result-1": "You are Dead.",
     "save-result-2": "You have a Severed limb (permanent).",
@@ -66,17 +63,14 @@
     "save-result-10": "You are Dazed (temporary, d6).",
     "save-result-11": "You are Bruised (temporary, d4).",
     "save-result-12": "You have passed the Save Roll without consequences.",
-
     "condition-check-title": "is checking",
     "condition-result-1": "The condition or effect doesn't trigger for this turn.",
     "condition-result-2": "The condition or effect triggers for this turn!",
     "condition-result-3": "Remember to reduce the die rating.",
     "condition-result-4": "The condition or effect has ceased. Remove it from your character sheet.",
-
     "result": "Result:",
     "success": "Success!",
     "fail": "Fail",
-
     "reaction-roll-title": "is making a REACTION ROLL",
     "reaction-result-fail": "It's a fail: something wrong happens.",
     "reaction-result-success-consequences": "It's a success, but there are consequences.",
