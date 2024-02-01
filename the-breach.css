@@ -790,10 +790,17 @@ button[type=roll]::before {
     width: 100%;
     height: 100%;
     background-image: url(https://github.com/wellenina/roll20-the-breach-character-sheet/blob/b1cf6ebbf260eac9cacadb8c833adeb90b745720/Assets/background-logo.png?raw=true);
-    background-size: auto 89%;
     background-position: center;
     background-repeat: no-repeat;
     opacity: 0.1;
+}
+
+.sheet-rolltemplate-saveroll .sheet-background-logo,
+.sheet-rolltemplate-conditionroll .sheet-background-logo {
+    background-size: auto 90%;
+}
+.sheet-rolltemplate-reactionroll .sheet-background-logo {
+    background-size: auto 80%;
 }
 
 .sheet-rolltemplate-saveroll .sheet-result-title,

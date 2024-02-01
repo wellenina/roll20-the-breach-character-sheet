@@ -690,15 +690,15 @@
             <!-- HIDDEN VALUES -->
                 <input type="hidden" name="attr_approach-die-value" value="0"/>
                 <input type="hidden" name="attr_dice-pool-value" value="0"/>
-                <input type="hidden" name="attr_trait_query" value="?{Use trait?|No, 0|Yes: to gain advantage, 1|Yes: to gain disadvantage, 2}"/>
-                <input type="hidden" name="attr_help_query" value="?{Add Help Die?|No, |D12, + 1d12 |D10, + 1d10 |D8, + 1d8 |D6, + 1d6 |D4, + 1d4}"/>
-                <input type="hidden" name="attr_bonus_query" value="?{Add Bonus Die?|No, |D12, + 1d12 |D10, + 1d10 |D8, + 1d8 |D6, + 1d6 |D4, + 1d4}"/>
+                <input type="hidden" name="attr_trait_query" value="?{Are you using a trait?|No, 0|Yes: to gain advantage, 1|Yes: to gain disadvantage, 2}"/>
+                <input type="hidden" name="attr_help_query" value="?{Another watcher is helping you?|No,use-help=false&#125;&#125; {{theroll=[[{|D12,theroll=[[{1d12[Help] + |D10,theroll=[[{1d10[Help] + |D8,theroll=[[{1d8[Help] + |D6,theroll=[[{1d6[Help] + |D4,theroll=[[{1d4[Help] + }"/>
+                <input type="hidden" name="attr_bonus_query" value="?{Do you have any kind of other bonus die?|No, |D12, 1d12[Bonus] + |D10, 1d10[Bonus] + |D8, 1d8[Bonus] + |D6, 1d6[Bonus] + |D4, 1d4[Bonus] + }"/>
             <!-- end HIDDEN VALUES -->
 
             <div class="assemble-dice-pool-container">
                 <h3 data-i18n="assemble-your-dice-pool">Assemble your dice pool</h3>
                 <!-- clear dice pool button -->
-                <button data-i18n="clear-dice-pool" type="action" name="act_clear" class="clear-button">Clear</button>
+                <button data-i18n="clear-dice-pool" type="action" name="act_clear" class="clear-button">Clear Dice Pool</button>
             </div>
             
             <div class="dice-pool">
@@ -708,7 +708,7 @@
 
             <div class="buttons">
                 <!-- roll button -->
-                <button data-i18n="reaction-roll-button" type="roll" value="&{template:reactionroll} {{charactername=@{character_name}}} {{trait=[[@{trait_query}]]}} {{@{help_query} @{bonus_query} @{approach-die-value} + @{dice-pool-value}}kh1]]}}" name="roll_ReactionRoll" class="reaction-roll">Reaction Roll!</button>
+                <button data-i18n="reaction-roll-button" type="roll" value="&{template:reactionroll} {{charactername=@{character_name}}} {{trait=[[@{trait_query}]]}} {{@{help_query} @{bonus_query} @{approach-die-value} + @{dice-pool-value}}kh1]]}}" name="roll_ReactionRoll" class="reaction-roll">Reaction Roll</button>
                 <!-- reduce dice size button -->
                 <button data-i18n="reduce-dice-size" type="action" name="act_updateDiceSize" class="reduce-size-button">Reduce Dice Size</button>
             </div>
@@ -721,25 +721,25 @@
     <div class="template-container">
         <div class="background-logo"></div>
 
-        <p>{{charactername}} <span data-i18n="save-roll-title">is making a Save Roll</span></p>
+        <p>{{charactername}} <span data-i18n="save-roll-title">is making a SAVE ROLL</span></p>
         <div class="template-separator"></div>
         <h3 data-i18n="result" class="result-title">Result:</h3>
         
         <p>{{theroll}}</p>
         <div class="template-separator"></div>
         <p class="result-description">
-            {{#rollTotal() theroll 1}}<span data-i18n="save-result-1">Instant death</span>{{/rollTotal() theroll 1}}
-            {{#rollTotal() theroll 2}}<span data-i18n="save-result-2">Severed limb (permanent)</span>{{/rollTotal() theroll 2}}
-            {{#rollTotal() theroll 3}}<span data-i18n="save-result-3">Broken limb (temporary, until end of mission)</span>{{/rollTotal() theroll 3}}
-            {{#rollTotal() theroll 4}}<span data-i18n="save-result-4">Bleeding (temporary damage over time, d8)</span>{{/rollTotal() theroll 4}}
-            {{#rollTotal() theroll 5}}<span data-i18n="save-result-5">Bleeding (temporary damage over time, d6)</span>{{/rollTotal() theroll 5}}
-            {{#rollTotal() theroll 6}}<span data-i18n="save-result-6">Blinded (temporary, d10)</span>{{/rollTotal() theroll 6}}
-            {{#rollTotal() theroll 7}}<span data-i18n="save-result-7">Deafened (temporary, d10)</span>{{/rollTotal() theroll 7}}
-            {{#rollTotal() theroll 8}}<span data-i18n="save-result-8">Confused (temporary, d8)</span>{{/rollTotal() theroll 8}}
-            {{#rollTotal() theroll 9}}<span data-i18n="save-result-9">Fatigued (temporary, d6)</span>{{/rollTotal() theroll 9}}
-            {{#rollTotal() theroll 10}}<span data-i18n="save-result-10">Dazed (temporary, d6)</span>{{/rollTotal() theroll 10}}
-            {{#rollTotal() theroll 11}}<span data-i18n="save-result-11">Bruised (temporary, d4)</span>{{/rollTotal() theroll 11}}
-            {{#rollTotal() theroll 12}}<span data-i18n="save-result-12">Nothing</span>{{/rollTotal() theroll 12}}
+            {{#rollTotal() theroll 1}}<span data-i18n="save-result-1">You are Dead.</span>{{/rollTotal() theroll 1}}
+            {{#rollTotal() theroll 2}}<span data-i18n="save-result-2">You have a Severed limb (permanent).</span>{{/rollTotal() theroll 2}}
+            {{#rollTotal() theroll 3}}<span data-i18n="save-result-3">You have a Broken limb (temporary, until end of mission).</span>{{/rollTotal() theroll 3}}
+            {{#rollTotal() theroll 4}}<span data-i18n="save-result-4">You are Bleeding (temporary damage over time, d8).</span>{{/rollTotal() theroll 4}}
+            {{#rollTotal() theroll 5}}<span data-i18n="save-result-5">You are Bleeding (temporary damage over time, d6).</span>{{/rollTotal() theroll 5}}
+            {{#rollTotal() theroll 6}}<span data-i18n="save-result-6">You are Blinded (temporary, d10).</span>{{/rollTotal() theroll 6}}
+            {{#rollTotal() theroll 7}}<span data-i18n="save-result-7">You are Deafened (temporary, d10).</span>{{/rollTotal() theroll 7}}
+            {{#rollTotal() theroll 8}}<span data-i18n="save-result-8">You are Confused (temporary, d8).</span>{{/rollTotal() theroll 8}}
+            {{#rollTotal() theroll 9}}<span data-i18n="save-result-9">You are Fatigued (temporary, d6).</span>{{/rollTotal() theroll 9}}
+            {{#rollTotal() theroll 10}}<span data-i18n="save-result-10">You are Dazed (temporary, d6).</span>{{/rollTotal() theroll 10}}
+            {{#rollTotal() theroll 11}}<span data-i18n="save-result-11">You are Bruised (temporary, d4).</span>{{/rollTotal() theroll 11}}
+            {{#rollTotal() theroll 12}}<span data-i18n="save-result-12">You have passed the Save Roll without consequences.</span>{{/rollTotal() theroll 12}}
         </p>
     </div>
 </rolltemplate>
@@ -768,7 +768,7 @@
     <div class="template-container">
         <div class="background-logo"></div>
 
-        <p>{{charactername}} <span data-i18n="reaction-roll-title">is making a Reaction Roll</span></p>
+        <p>{{charactername}} <span data-i18n="reaction-roll-title">is making a REACTION ROLL</span></p>
         <div class="template-separator"></div>
         <h3 data-i18n="result" class="result-title">Result:</h3>
         <p>{{theroll}}</p>
@@ -782,7 +782,7 @@
 
             {{#rollBetween() theroll 4 5}}
                 {{#rollLess() trait 2}}
-                    <h3 data-i18n="success" class="success-fail">Success</h3>   
+                    <h3 data-i18n="success" class="success-fail">Success!</h3>   
                     <p data-i18n="reaction-result-success-consequences">It's a success, but there are consequences.</p>
                 {{/rollLess() trait 2}}
 
@@ -797,12 +797,12 @@
                 <p data-i18n="reaction-result-success">It's a success. The higher the result, the better the effect.</p>
             {{/rollGreater() theroll 5}}
 
-            {{#rollTotal() trait 1}}<p data-i18n="result-trait-advantage">Puoi tirare una seconda volta uno qualsiasi dei dadi.</p>{{/rollTotal() trait 1}}
-            {{#rollTotal() trait 2}}<p data-i18n="result-trait-disadvantage">Ottieni un check.</p>{{/rollTotal() trait 2}}
+            {{#rollTotal() trait 1}}<p data-i18n="result-trait-advantage">Because you used a trait to gain advantage, you may reroll one die.</p>{{/rollTotal() trait 1}}
+            {{#rollTotal() trait 2}}<p data-i18n="result-trait-disadvantage">Because you used a trait to gain disadvantage, you get an additional check during the downtime phase.</p>{{/rollTotal() trait 2}}
 
-            <p data-i18n="reduce-dice-size-reminder">Ricordati di ridurre di una dimensione ogni dado che hai usato.</p>
+            <p data-i18n="reduce-dice-size-reminder">Remember to reduce the size of the dice you rolled.</p>
 
-            {{^use-help}}<p data-i18n="reduce-help-die-reminder">Hai usato l'aiuto di un amico!</p>{{/use-help}}
+            {{^use-help}}<p data-i18n="reduce-help-die-reminder">The watcher who helped you will have to reduce their stamina die.</p>{{/use-help}}
         </div>
 
     </div>
